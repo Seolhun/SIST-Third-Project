@@ -118,7 +118,7 @@
 
 .cont_img_back_>img {
     width: 100%;
-    opacity: 0.3;
+    opacity: 0.4;
     animation-name: animar_fondo;
     animation-duration: 20s;
     animation-timing-function: linear;
@@ -134,6 +134,7 @@
     -o-transition: all 0.5s;
     transition: all 0.5s;
 }
+
 
 .cont_forms_active_sign_up>.cont_img_back_ {
     top: 0px;
@@ -152,7 +153,7 @@
     top: 100px;
     z-index: 1;
 }
-
+/* 회원가입 부분 선택 전*/
 .col_md_login {
     position: relative;
     float: left;
@@ -173,6 +174,28 @@
     color: #37474F;
 }
 
+
+/* 회원가입 부분 선택 전*/
+.col_md_sign_up {
+    position: relative;
+    float: left;
+    width: 50%;
+    height:100%;
+}
+
+.col_md_sign_up>h2 {
+    font-weight: 400;
+    margin-top: 70px;
+    color: #757575;
+}
+
+.col_md_sign_up>p {
+    font-weight: 400;
+    margin-top: 15px;
+    width: 80%;
+    color: #37474F;
+}
+
 .btn_login {
     background-color: #1d1d1d;
     border: none;
@@ -185,12 +208,6 @@
     cursor: pointer;
 }
 
-.col_md_sign_up {
-    position: relative;
-    float: left;
-    width: 50%;
-    height:100%;
-}
 
 .cont_ba_opcitiy>h2 {
     font-weight: 400;
@@ -241,71 +258,71 @@ background text
 }
 
 .cont_forms_active_sign_up {
-    z-index: 2;
+    z-index: 10;
 }
 
 @-webkit-keyframes animar_fondo {from { -webkit-transform:scale(1)translate(0px);
-                                    -moz-transform: scale(1) translate(0px);
-                                    -ms-transform: scale(1) translate(0px);
-                                    -o-transform: scale(1) translate(0px);
-                                    transform: scale(1) translate(0px);
-                                }
-
-to {
-    -webkit-transform: scale(1.5) translate(50px);
-    -moz-transform: scale(1.5) translate(50px);
-    -ms-transform: scale(1.5) translate(50px);
-    -o-transform: scale(1.5) translate(50px);
-    transform: scale(1.5) translate(50px);
+    -moz-transform: scale(1) translate(0px);
+    -ms-transform: scale(1) translate(0px);
+    -o-transform: scale(1) translate(0px);
+    transform: scale(1) translate(0px);
 }
+
+    to {
+        -webkit-transform: scale(1.5) translate(50px);
+        -moz-transform: scale(1.5) translate(50px);
+        -ms-transform: scale(1.5) translate(50px);
+        -o-transform: scale(1.5) translate(50px);
+        transform: scale(1.5) translate(50px);
+    }
 
 }
 @-o-keyframes identifier {from { -webkit-transform:scale(1);
-                             -moz-transform: scale(1);
-                             -ms-transform: scale(1);
-                             -o-transform: scale(1);
-                             transform: scale(1);
-                         }
-
-to {
-    -webkit-transform: scale(1.5);
-    -moz-transform: scale(1.5);
-    -ms-transform: scale(1.5);
-    -o-transform: scale(1.5);
-    transform: scale(1.5);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
 }
+
+    to {
+        -webkit-transform: scale(1.5);
+        -moz-transform: scale(1.5);
+        -ms-transform: scale(1.5);
+        -o-transform: scale(1.5);
+        transform: scale(1.5);
+    }
 
 }
 @-moz-keyframes identifier {from { -webkit-transform:scale(1);
-                               -moz-transform: scale(1);
-                               -ms-transform: scale(1);
-                               -o-transform: scale(1);
-                               transform: scale(1);
-                           }
-
-to {
-    -webkit-transform: scale(1.5);
-    -moz-transform: scale(1.5);
-    -ms-transform: scale(1.5);
-    -o-transform: scale(1.5);
-    transform: scale(1.5);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
 }
+
+    to {
+        -webkit-transform: scale(1.5);
+        -moz-transform: scale(1.5);
+        -ms-transform: scale(1.5);
+        -o-transform: scale(1.5);
+        transform: scale(1.5);
+    }
 
 }
 @keyframes identifier {from { -webkit-transform:scale(1);
-                          -moz-transform: scale(1);
-                          -ms-transform: scale(1);
-                          -o-transform: scale(1);
-                          transform: scale(1);
-                      }
-
-to {
-    -webkit-transform: scale(1.5);
-    -moz-transform: scale(1.5);
-    -ms-transform: scale(1.5);
-    -o-transform: scale(1.5);
-    transform: scale(1.5);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
 }
+
+    to {
+        -webkit-transform: scale(1.5);
+        -moz-transform: scale(1.5);
+        -ms-transform: scale(1.5);
+        -o-transform: scale(1.5);
+        transform: scale(1.5);
+    }
 
 }
 .cont_form_login {
@@ -321,7 +338,11 @@ to {
 }
 
 .cont_forms_active_login {
-    z-index: 2;
+    z-index: 1;
+}
+
+.cont_forms_active_login>.cont_form_login {
+
 }
 
 .cont_forms_active_login>.cont_form_login {
