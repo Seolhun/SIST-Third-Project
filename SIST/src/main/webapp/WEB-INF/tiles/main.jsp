@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <!DOCTYPE HTML>
 <html>
@@ -11,7 +10,8 @@
 </head>
 	<body>
 	    <div class="main_header"><tiles:insertAttribute name="header"/></div>
-		<div class="main_body"><tiles:insertAttribute name="body"/></div>
+	   	<div class="main_body"><tiles:insertAttribute name="body"/></div>
 	    <div class="main_footer"><tiles:insertAttribute name="footer"/></div>
+	    
 	</body>
 </html>
