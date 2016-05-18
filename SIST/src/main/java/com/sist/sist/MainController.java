@@ -10,4 +10,9 @@ public class MainController {
    {
 	   return "main";
    }
+   
+   @RequestMapping("login.do")
+   public String login(){
+	   return "login";
+   }
 }

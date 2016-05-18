@@ -12,6 +12,5 @@
 	    <div class="main_header"><tiles:insertAttribute name="header"/></div>
 	   	<div class="main_body"><tiles:insertAttribute name="body"/></div>
 	    <div class="main_footer"><tiles:insertAttribute name="footer"/></div>
-	    
 	</body>
 </html>
