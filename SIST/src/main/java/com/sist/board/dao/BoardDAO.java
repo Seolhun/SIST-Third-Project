@@ -66,7 +66,6 @@ public class BoardDAO {
 		}
 		cursor.close();
 		BasicDBObject query = new BasicDBObject();
-
 		query.put("no", no + 1);
 		query.put("name", vo.getName());
 		query.put("subject", vo.getSubject());

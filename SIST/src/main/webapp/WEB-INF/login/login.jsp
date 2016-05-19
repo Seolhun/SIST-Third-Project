@@ -1,16 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <html>
 <head>
-<meta charset="UTF-8">
-
 <meta name="google-signin-client_id" content="264714905099-gd1du478oi4gj0vs6u37aslttet7vfm4.apps.googleusercontent.com">
 <link rel="stylesheet" type="text/css" href="css/login/login.css">
 <script type="text/javascript" src="js/login/login.js"></script>
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 
-<title>Insert title here</title>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
 </head>
 <body>
+
 <div class="cotn_principal">
     <div class="cont_centrar">
         <div class="cont_login">
@@ -45,7 +45,8 @@
                     <a href="#" onclick="ocultar_login_sign_up()"><i class="material-icons">&#xE5C4;</i></a>
                     <h2>Facebook SIGN UP</h2>
                     <div class="faceSign">
-                        <img src="img/login/facesign.png" onclick="FB.login()" scope="public_profile,email" style="cursor:pointer" id="faceSignBtn">
+                    	<a href="#" onclick="fb_login();"><img src="img/login/facesign.png" border="0" alt=""  id="faceSignBtn"></a>
+	                    <!-- <img src="img/login/facesign.png" onclick="FB.login()" scope="public_profile,email" style="cursor:pointer" id="faceSignBtn"> -->
                     </div>
                 </div>
 

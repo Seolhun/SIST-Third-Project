@@ -15,4 +15,10 @@ public class MainController {
    public String login(){
 	   return "login";
    }
+   
+	@RequestMapping("loginOK.do")
+	public String loginOK(){
+		return "main";
+	}
+   
 }

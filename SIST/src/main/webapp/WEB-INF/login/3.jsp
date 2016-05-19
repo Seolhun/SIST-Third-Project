@@ -32,17 +32,14 @@
             {
                 document.getElementById("message").innerHTML +=  "<br>Connected to Facebook";
                 //SUCCESS
-
             }
             else if (response.status === 'not_authorized')
             {
                 document.getElementById("message").innerHTML +=  "<br>Failed to Connect";
-
                 //FAILED
             } else
             {
                 document.getElementById("message").innerHTML +=  "<br>Logged Out";
-
                 //UNKNOWN ERROR
             }
         });
@@ -60,8 +57,6 @@
                 console.log('User cancelled login or did not fully authorize.');
             }
         },{scope: 'email,user_photos,user_videos'});
-
-
     }
 
     function getUserInfo() {
