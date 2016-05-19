@@ -24,6 +24,9 @@
                 <div class="col_md_sign_up">
                     <div class="cont_ba_opcitiy">
                         <h2>Google</h2>
+                        <div id="status">
+                        
+                        </div>
                         <button class="btn_sign_up" onclick="cambiar_sign_up()">SIGN UP</button>
                     </div>
                 </div>

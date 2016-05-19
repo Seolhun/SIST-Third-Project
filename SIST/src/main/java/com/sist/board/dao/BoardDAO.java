@@ -16,7 +16,7 @@ public class BoardDAO {
 	public BoardDAO() {
 		try {
 	         // 몽고디비 연결
-	         mc=new MongoClient("211.238.142.40:27017");
+	         mc=new MongoClient("211.238.142.23:27017");
 	         // 데이터베이스 일기
 	         db=mc.getDB("sist"); // use mydb
 	         // 컬렉션 연결

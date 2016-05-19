@@ -82,18 +82,29 @@ function signOut() {
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /* 페이스북 로그인 */
 // 622056984642090
+
+
 window.fbAsyncInit = function() {
 	FB.init({
-	  appId      : '622056984642090',
-	  cookie     : true, 
-	  xfbml      : true,  // parse social plugins on this page
-	  version    : 'v2.6'
+		appId      : '622056984642090',
+		channelUrl : 'http://localhost:8080/sist/login.do#/channel.html', // Channel File 
+		cookie     : true, 
+		status     : true,
+		xfbml      : true,  // parse social plugins on this page
+		version    : 'v2.6'
 	});
-	
 	FB.getLoginStatus(function(response) {
-	  statusChangeCallback(response);
+		  statusChangeCallback(response);
 	});
-};
+}
+
+function fb_login() {
+    FB.login( function() {
+    	
+    }, { scope: 'email, public_profile, user_friends' } 
+    
+    );
+}
 
 //This is called with the results from from FB.getLoginStatus().
 function statusChangeCallback(response) {
@@ -101,54 +112,26 @@ function statusChangeCallback(response) {
 	console.log(response);
 	// for FB.getLoginStatus().
 	if (response.status === 'connected') {
-		// Logged into your app and Facebook.
-		successAPI();
-		getUserInfo();
+		location.href = "main.do";
 	} else if (response.status === 'not_authorized') {
-		// The person is logged into Facebook, but not your app.
-		document.getElementById('status').innerHTML = 'Please log into this app.';
+		console.log = 'Please log into this app.';
+		console.log = 'Else if';
 	} else {
-		// The person is not logged into Facebook, so we're not sure if
-		// they are logged into this app or not.
-		document.getElementById('status').innerHTML = 'Please log into Facebook.';
+		console.log = 'Please log into Facebook.';
+		console.log = 'Else';
 	}
 }
 
-function fb_login() {
-    FB.login( function() {}, { scope: 'email,public_profile,user_friends' } );
-}
 
 // Load the SDK asynchronously
 (function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js";
-  fjs.parentNode.insertBefore(js, fjs);
+	var js, fjs = d.getElementsByTagName(s)[0];
+	if (d.getElementById(id))
+		return;
+	js = d.createElement(s);
+	js.id = id;
+	js.src = "//connect.facebook.net/en_US/sdk.js";
+	fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
-
-// Here we run a very simple test of the Graph API after login is
-// successful.  See statusChangeCallback() for when this call is made.
-function successAPI() {
-  console.log('Welcome!  Fetching your information....');
-  FB.api('/me', function(response) {
-	  console.log('Successful login for: '+JSON.stringify(response));
-	  document.getElementById('status').innerHTML = 'Thanks for logging in, ' + response.name + '!';
-	});
-  /*location.href="loginOK.do";*/
-}
-
-function getUserInfo() {
-    FB.api('/me', function(response) {
-        var str="<b>Name</b> : "+response.name+"<br>";
-        str +="<b>Link: </b>"+response.link+"<br>";
-        str +="<b>Username:</b> "+response.username+"<br>";
-        str +="<b>id: </b>"+response.id+"<br>";
-        str +="<b>Email:</b> "+response.email+"<br>";
-        str +="<input type='button' value='Get Photo' onclick='getPhoto();'/>";
-        str +="<input type='button' value='Logout' onclick='Logout();'/>";
-        document.getElementById("status").innerHTML=str;
-    });
-}
 
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------------*/
