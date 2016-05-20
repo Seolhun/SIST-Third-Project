@@ -70,11 +70,11 @@
          <artifactId>spring-aspects</artifactId>
          <version>4.2.5.RELEASE</version>
       </dependency>
-      <dependency>
+<!--       <dependency>
          <groupId>com.oracle</groupId>
          <artifactId>ojdbc14</artifactId>
          <version>10.2.0.4.0</version>
-      </dependency>
+      </dependency> -->
       <dependency>
          <groupId>org.springframework</groupId>
          <artifactId>spring-jms</artifactId>
@@ -228,11 +228,11 @@
 			<artifactId>validation-api</artifactId>
 			<version>1.1.0.Final</version>
 		</dependency>
-        <dependency>
+<!--         <dependency>
 			<groupId>com.oracle</groupId>
 			<artifactId>ojdbc14</artifactId>
 			<version>10.2.0.4.0</version>
-		</dependency>
+		</dependency> -->
         
 		<!-- End -->	
 		<!-- AspectJ -->
