@@ -4,12 +4,20 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript" src="js/login/body.js"></script>
+<script type="text/javascript" src="js/login/login.js"></script>
 </head>
 <body>
-	    <div id="status">
-		    <input type='button' value='Get Photo' onclick='getPhoto();'/>
-	      	<input type='button' value='Logout' onclick='Logout();'/>
-      	</div>
+	<div
+	  class="fb-like"
+	  data-share="true"
+	  data-width="450"
+	  data-show-faces="true">
+	</div>
+	<div id="message">
+	
+	</div>
+   <div id="status">
+   
+  	</div>
 </body>
 </html>

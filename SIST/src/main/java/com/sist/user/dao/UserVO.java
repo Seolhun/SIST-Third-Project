@@ -2,7 +2,7 @@ package com.sist.user.dao;
 // mongodb
 public class UserVO {
 	private int no;
-	private String email;
+	private String id;
 	private String name;
 	
 	public int getNo() {
@@ -12,10 +12,10 @@ public class UserVO {
 		this.no = no;
 	}
 	public String getEmail() {
-		return email;
+		return id;
 	}
 	public void setEmail(String email) {
-		this.email = email;
+		this.id = id;
 	}
 	public String getName() {
 		return name;

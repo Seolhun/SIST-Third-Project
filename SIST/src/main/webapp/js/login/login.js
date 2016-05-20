@@ -1,7 +1,3 @@
-/* ------------------------------------ Click on login and Sign Up to  changue and view the effect
- ---------------------------------------
- */
-
 function cambiar_login() {
 	document.querySelector('.cont_forms').className = "cont_forms cont_forms_active_login";
 	document.querySelector('.cont_form_login').style.display = "block";
@@ -10,7 +6,6 @@ function cambiar_login() {
 	setTimeout(function() {
 		document.querySelector('.cont_form_login').style.opacity = "1";
 	}, 400);
-
 	setTimeout(function() {
 		document.querySelector('.cont_form_sign_up').style.display = "none";
 	}, 200);
@@ -82,56 +77,97 @@ function signOut() {
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /* 페이스북 로그인 */
 // 622056984642090
-
-
+//http://localhost:8080/sist/login.do#/channel.html
+//API를 ID에 맞게 불러와 실행한다.
 window.fbAsyncInit = function() {
-	FB.init({
-		appId      : '622056984642090',
-		channelUrl : 'http://localhost:8080/sist/login.do#/channel.html', // Channel File 
-		cookie     : true, 
-		status     : true,
-		xfbml      : true,  // parse social plugins on this page
-		version    : 'v2.6'
-	});
-	FB.getLoginStatus(function(response) {
-		  statusChangeCallback(response);
-	});
-}
-
-function fb_login() {
-    FB.login( function() {
-    	
-    }, { scope: 'email, public_profile, user_friends' } 
+    FB.init({
+      appId      : '622056984642090',
+      channelUrl : 'http://localhost:8080/sist/login.do#/channel.html', // Channel File
+      status     : true, // check login status
+      cookie     : true, // enable cookies to allow the server to access the session
+      xfbml      : true,
+      version    : 'v2.6'
+    });
     
-    );
+	FB.Event.subscribe('auth.authResponseChange', function(response) {
+		if (response.status === 'connected') {
+			document.getElementById("message").innerHTML +=  "<br>Connected to Facebook";
+			getUserInfo();		
+		} else if (response.status === 'not_authorized') {
+			document.getElementById("message").innerHTML +=  "<br>Failed to Connect";
+			//FAILED
+		} else {
+			document.getElementById("message").innerHTML +=  "<br>Logged Out";
+			//UNKNOWN ERROR
+		}
+	});
+};
+function Login(){
+	FB.login(function(response) {
+		if(response.name !="undefined" && response.status == "connected"){
+			location.href="main.do";
+		} else {
+			console.log('User cancelled login or did not fully authorize.');
+		}
+	},{ scope: 'public_profile,email,user_friends,user_likes,user_actions.music', auth_type: 'reauthenticate' 
+		
+	});
 }
 
-//This is called with the results from from FB.getLoginStatus().
-function statusChangeCallback(response) {
-	console.log('statusChangeCallback');
-	console.log(response);
-	// for FB.getLoginStatus().
-	if (response.status === 'connected') {
-		location.href = "main.do";
-	} else if (response.status === 'not_authorized') {
-		console.log = 'Please log into this app.';
-		console.log = 'Else if';
-	} else {
-		console.log = 'Please log into Facebook.';
-		console.log = 'Else';
-	}
+/*function Login2(){
+	FB.login(function(response) {
+	    if (response.authResponse) {
+	    	location.href="main.do";
+	    } else {
+	     console.log('User cancelled login or did not fully authorize.');
+	    }
+	},{scope: 'public_profile,email,user_friends,user_likes,user_actions.music',
+		return_scopes: true
+	},{ scope: 'public_profile,email,user_friends,user_likes,user_actions.music', auth_type: 'reauthenticate', auth_nonce: '{random-nonce}' 
+		
+	});
+}*/
+
+function getUserInfo() {
+    FB.api('/me', function(response) {
+    var str="<b>Name : </b>"+response.name+"<br>";
+    	str +="<b>id : </b>"+response.id+"<br>";
+    	str +="<input type='button' value='Logout' onclick='Logout();'/>";
+    	getPhoto();
+    	document.getElementById("status").innerHTML+=str;    
+    });
 }
 
+function getPhoto(){
+	FB.api('/me/picture?type=normal', function(response) {
+		var str="<br/><b>Pic</b> : <img src='"+response.data.url+"'/>";
+		document.getElementById("status").innerHTML+=str;  	  	    
+  	});
+}
 
-// Load the SDK asynchronously
-(function(d, s, id) {
-	var js, fjs = d.getElementsByTagName(s)[0];
-	if (d.getElementById(id))
+function Logout() {
+    FB.getLoginStatus(function(response) {
+        if (response && response.status === 'connected') {
+            	FB.logout(function(response) {
+                //document.location.reload();
+            	location.href = "login.do";
+            });
+        }
+    });
+}
+
+//Load the SDK asynchronously
+(function(d) {
+	var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+	if (d.getElementById(id)) {
 		return;
-	js = d.createElement(s);
+	}
+	js = d.createElement('script');
 	js.id = id;
+	js.async = true;
 	js.src = "//connect.facebook.net/en_US/sdk.js";
-	fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
+	ref.parentNode.insertBefore(js, ref);
+}(document));
 
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
