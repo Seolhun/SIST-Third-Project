@@ -106,6 +106,7 @@ function Login(){
 	FB.login(function(response) {
 		if(response.name !="undefined" && response.status == "connected"){
 			location.href="main.do";
+			console.log("메인다음의 아이디"+response.id);
 		} else {
 			console.log('User cancelled login or did not fully authorize.');
 		}
@@ -130,9 +131,9 @@ function Login(){
 
 function getUserInfo() {
     FB.api('/me', function(response) {
-    var str="<b>Name : </b>"+response.name+"<br>";
+    var str="<div id='logInfo'><b>Name : </b>"+response.name+"<br>";
     	str +="<b>id : </b>"+response.id+"<br>";
-    	str +="<input type='button' value='Logout' onclick='Logout();'/>";
+    	str +="<input type='button' value='Logout' onclick='Logout();'/></div>";
     	getPhoto();
     	document.getElementById("status").innerHTML+=str;    
     });
@@ -140,7 +141,7 @@ function getUserInfo() {
 
 function getPhoto(){
 	FB.api('/me/picture?type=normal', function(response) {
-		var str="<br/><b>Pic</b> : <img src='"+response.data.url+"'/>";
+		var str="<div id='myImg'><img src='"+response.data.url+"'/></div>";
 		document.getElementById("status").innerHTML+=str;  	  	    
   	});
 }

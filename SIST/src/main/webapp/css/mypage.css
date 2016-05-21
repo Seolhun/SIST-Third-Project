@@ -1,0 +1,88 @@
+#mypagecontainer{
+	width: 1500px;
+	border: 1px;
+	z-index: 11;
+}
+
+#mypageleft{
+	position: absolute;
+	top :5px;
+	left: 5px;
+	border: solid 1px;
+	width: 500px;
+}
+#trainname{
+	position: absolute;
+	top:10px;
+	left: 10px;
+	border: solid;
+	height:200px;
+	width:480px;
+	
+	
+}
+#myartist{
+	position: absolute;
+	top:220px;
+	left: 10px;
+	border: solid;
+	height:300px;
+	width:480px;
+	
+	
+}
+#mygenre{
+	position: absolute;
+	top:550px;
+	left: 10px;
+	border: solid;
+	height:300px;
+	width:480px;
+	
+	
+}
+#mypagecenter{
+	position: absolute;
+	top: 5px;
+	left:505px;
+	border: solid 1px;
+	height: 1000px;
+	width: 500px;
+	
+}
+#maketrain{
+	position: absolute;
+	top:5px;
+	width : 480px;
+	 height: 200px;
+	 border: solid;
+}
+#makelist{
+	position: absolute;
+	top : 210px;
+	
+	width :480px;
+	border :solid;
+}
+
+#mypageright{
+	position: absolute;
+	top : 5px;
+	left: 1010px;
+	border: solid 1px;
+	height: 1000px;
+	width: 500px;	
+}
+#drivetrain{
+	position: absolute;
+	top:5px;
+	width : 480px;
+	 height: 200px;
+	 border: solid;
+}
+#drivelist{
+	position: absolute;;
+	top: 210px;
+	width: 480px;
+	border:solid;
+}

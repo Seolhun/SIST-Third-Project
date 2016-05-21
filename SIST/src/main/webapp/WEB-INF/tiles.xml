@@ -3,17 +3,74 @@
         "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
         "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
 <tiles-definitions>
-	<definition name="login" template="/WEB-INF/login/login.jsp">
-	
-	</definition>
-		
-	<definition name="main" template="/WEB-INF/tiles/main.jsp">
-		<put-attribute name="header" value="/WEB-INF/tiles/header.jsp" />
-		<put-attribute name="body" value="/WEB-INF/tiles/body.jsp" />
-		<put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp" />
-	</definition>
-	
-	<definition name="*/*" extends="main">
-		<put-attribute name="body" value="/WEB-INF/{1}/{2}.jsp" />
-	</definition>
+  <definition name="main" template="/WEB-INF/tiles/main.jsp">
+    <put-attribute name="header" value="/WEB-INF/tiles/header.jsp"/>
+    <put-attribute name="body" value="/WEB-INF/tiles/body.jsp"/>
+    <put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp"/>
+  </definition>
+  
+   <!-- excludes -->
+  <definition name="not" template="/WEB-INF/mytrain/maketrain.jsp">
+    <put-attribute name="body" value="" />
+  </definition>
+  <definition name="mytrain/maketrain" extends="not">
+  	<put-attribute name="body" value="/WEB-INF/mytrain/maketrain.jsp"></put-attribute>
+  </definition>
+  <definition name="not2" template="/WEB-INF/mytrain/songlist.jsp">
+    <put-attribute name="body" value="" />
+  </definition>
+  <definition name="mytrain/songlist" extends="not2">
+  	<put-attribute name="body" value="/WEB-INF/mytrain/songlist.jsp"></put-attribute>
+  </definition>
+  <definition name="not3" template="/WEB-INF/mytrain/mytrain.jsp">
+    <put-attribute name="body" value="" />
+  </definition>
+  <definition name="mytrain/mytrain" extends="not3">
+  	<put-attribute name="body" value="/WEB-INF/mytrain/mytrain.jsp"></put-attribute>
+  </definition>
+  <definition name="not4" template="/WEB-INF/mytrain/footeraddtrain.jsp">
+    <put-attribute name="body" value="" />
+  </definition>
+  <definition name="mytrain/*" extends="not4">
+  	<put-attribute name="body" value="/WEB-INF/mytrain/footeraddtrain.jsp"></put-attribute>
+  </definition>
+  <definition name="not5" template="/WEB-INF/search/search.jsp">
+    <put-attribute name="body" value="" />
+  </definition>
+  <definition name="search/search" extends="not5">
+  	<put-attribute name="body" value="/WEB-INF/search/search.jsp"></put-attribute>
+  </definition>
+   <definition name="not6" template="/WEB-INF/mytrain/addgenre.jsp">
+    <put-attribute name="body" value="" />
+  </definition>
+  <definition name="mytrain/addgenre" extends="not6">
+  	<put-attribute name="body" value="/WEB-INF/mytrain/addgenre.jsp"></put-attribute>
+  </definition>
+ <definition name="not7" template="/WEB-INF/drugflow/drug_flow.jsp">
+    <put-attribute name="body" value="" />
+  </definition>
+  <definition name="drugflow/drug_flow" extends="not7">
+     <put-attribute name="body" value="/WEB-INF/drugflow/drug_flow.jsp"></put-attribute>
+  </definition>
+ <definition name="not8" template="/WEB-INF/tiles/body.jsp">
+    <put-attribute name="body" value="" />
+  </definition>
+  <definition name="tiles/body" extends="not8">
+     <put-attribute name="body" value="/WEB-INF/tiles/body.jsp"></put-attribute>
+  </definition> 
+  
+  <definition name="login" template="/WEB-INF/login/login.jsp">
+    <put-attribute name="body" value="" />
+  </definition>
+  
+  
+  
+  
+  <definition name="*/*" extends="main" >
+    <put-attribute name="body" value="/WEB-INF/{1}/{2}.jsp" />
+  </definition>
+  
+  
+  
+  
 </tiles-definitions>

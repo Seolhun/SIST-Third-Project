@@ -7,17 +7,6 @@
 <script type="text/javascript" src="js/login/login.js"></script>
 </head>
 <body>
-	<div
-	  class="fb-like"
-	  data-share="true"
-	  data-width="450"
-	  data-show-faces="true">
-	</div>
-	<div id="message">
-	
-	</div>
-   <div id="status">
-   
-  	</div>
+
 </body>
 </html>
