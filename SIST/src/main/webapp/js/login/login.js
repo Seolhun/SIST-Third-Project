@@ -100,9 +100,7 @@ window.fbAsyncInit = function() {
 
 function fb_login() {
     FB.login( function() {
-    	
     }, { scope: 'email, public_profile, user_friends' } 
-    
     );
 }
 

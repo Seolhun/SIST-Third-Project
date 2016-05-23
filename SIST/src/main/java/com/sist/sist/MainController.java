@@ -14,5 +14,7 @@ public class MainController {
    @RequestMapping("login.do")
    public String login(){
 	   return "login";
-   }   
+   }
+   
+   
 }
