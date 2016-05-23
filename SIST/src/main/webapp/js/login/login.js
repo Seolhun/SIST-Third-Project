@@ -91,14 +91,12 @@ window.fbAsyncInit = function() {
     
 	FB.Event.subscribe('auth.authResponseChange', function(response) {
 		if (response.status === 'connected') {
-			document.getElementById("message").innerHTML +=  "<br>Connected to Facebook";
-			getUserInfo();		
+	    	getUserInfo();
+	    	getLikeMusician();
 		} else if (response.status === 'not_authorized') {
-			document.getElementById("message").innerHTML +=  "<br>Failed to Connect";
-			//FAILED
+
 		} else {
-			document.getElementById("message").innerHTML +=  "<br>Logged Out";
-			//UNKNOWN ERROR
+			
 		}
 	});
 };
@@ -106,11 +104,10 @@ function Login(){
 	FB.login(function(response) {
 		if(response.name !="undefined" && response.status == "connected"){
 			location.href="main.do";
-			console.log("메인다음의 아이디"+response.id);
 		} else {
 			console.log('User cancelled login or did not fully authorize.');
 		}
-	},{ scope: 'public_profile,email,user_friends,user_likes,user_actions.music', auth_type: 'reauthenticate' 
+	},{ scope: 'public_profile,email,user_friends,user_likes,user_actions.music', auth_type: 'reauthenticate'
 		
 	});
 }
@@ -128,22 +125,35 @@ function Login(){
 		
 	});
 }*/
+// FB.api(path, method, params, callback)
+function getLikeMusician(){
+    FB.api('/me/music?target_id=me', function(response) {
+		if (response && !response.error) {
+			var str=response.likse;
+			str=response.music;
+			document.getElementById("likeMusician").innerHTML+=str;  	  	    
+		}
+	});
+}
+
 
 function getUserInfo() {
-    FB.api('/me', function(response) {
-    var str="<div id='logInfo'><b>Name : </b>"+response.name+"<br>";
+    FB.api('/me',{fields: 'name,email'}, function(response) {
+    var str="<b>Name : </b>"+response.name+"<br>";
     	str +="<b>id : </b>"+response.id+"<br>";
-    	str +="<input type='button' value='Logout' onclick='Logout();'/></div>";
+    	str +="<b>email : </b>"+response.email;
+    	str +="<input type='button' value='Logout' onclick='Logout();'/><br>";
+    	document.getElementById("logInfo").innerHTML+=str;    
     	getPhoto();
-    	document.getElementById("status").innerHTML+=str;    
     });
 }
 
 function getPhoto(){
 	FB.api('/me/picture?type=normal', function(response) {
-		var str="<div id='myImg'><img src='"+response.data.url+"'/></div>";
-		document.getElementById("status").innerHTML+=str;  	  	    
+		var str="<img src='"+response.data.url+"'/>";
+		document.getElementById("logInfo").innerHTML+=str;  	  	    
   	});
+	
 }
 
 function Logout() {

@@ -43,7 +43,14 @@
 			<artifactId>jsoup</artifactId>
 			<version>1.9.1</version>
 		</dependency>
-				
+		
+		<!-- http://mvnrepository.com/artifact/org.apache.hadoop/hadoop-common -->
+		<dependency>
+		    <groupId>org.apache.hadoop</groupId>
+		    <artifactId>hadoop-common</artifactId>
+		    <version>2.6.0</version>
+		</dependency>
+						
 		<!-- AspectJ -->
 		<dependency>
          <groupId>org.springframework</groupId>

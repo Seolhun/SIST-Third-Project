@@ -19,23 +19,19 @@
 					<div class="col_md_login" id="loginDiv">
 						<div class="cont_ba_opcitiy">
 							<h2>Facebook</h2>
-							<button class="btn_login" onclick="cambiar_login()">SIGN
-								UP</button>
+							<button class="btn_login" onclick="cambiar_login()">SIGN UP</button>
 						</div>
 					</div>
 					<div class="col_md_sign_up">
 						<div class="cont_ba_opcitiy">
 							<h2>Google</h2>
-							<button class="btn_sign_up" onclick="cambiar_sign_up()">SIGN
-								UP</button>
+							<button class="btn_sign_up" onclick="cambiar_sign_up()">SIGN UP</button>
 						</div>
 					</div>
 				</div>
 				<div class="cont_back_info">
 					<div class="cont_img_back_grey">
-						<img
-							src="http://www.internetofmusic.com/wp-content/uploads/2016/04/summer-music-ftr.jpg"
-							width="640" height="500" />
+						<img src="http://www.internetofmusic.com/wp-content/uploads/2016/04/summer-music-ftr.jpg" width="640" height="500" />
 					</div>
 
 				</div>
