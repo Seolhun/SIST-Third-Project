@@ -60,6 +60,7 @@ public class MemberDAO {
 			}
 		} catch (Exception e) {
 			System.out.println("Check Member : "+e.getMessage());
+			bCheck=true;
 		}
 		return bCheck;
 	}

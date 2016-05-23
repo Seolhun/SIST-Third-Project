@@ -20,21 +20,19 @@
 		</div> 
 	</div>
 -->
-	<div>
-		<img src="img/logo.png" class="menu_logo">
-		<div id="logInfo">
-		</div>
-		<div id="likeMusician">
-		</div>
-	</div>
+
+	<img src="img/logo.png" class="menu_logo">
+<!-- 	<div id="logInfo" style='font-size:14px; width: 20%; left:35%; padding: 4px 4px' >
+	</div> -->
 	<nav>
-		<ul style="width:80%; margin-left: 20%" >
+		<ul>
 			<li class="video_return" onclick="drive()">DRIVE</li>
 			<li class="video_small" id="mytrain_do" onclick="myfunction()">MY TRAIN</li>  <!-- 로그인 완성되면 admin 자리에 로그인 id로 대체 -->
 			<li class="video_small" onclick="drugflow_do()">DRUG FLOW</li>
 			<li class="video_small">FAVOR</li>
 			<li class="video_small">COMMUNITY</li>
 			<li class="video_small" id="search_do" onclick="search_do()">SEARCH</li>
+			<li class="video_small" id="logInfo"></li>
 		</ul>
 	</nav>
 	<script src="js/youtube.js"></script>

@@ -1,5 +1,5 @@
 //다른 메뉴 클릭 시 화면 줄이기
-for(var i=0; i<5; i++)
+for(var i=0; i<6; i++)
 {
 	video_small[i] = document.querySelectorAll('.video_small')[i];
 

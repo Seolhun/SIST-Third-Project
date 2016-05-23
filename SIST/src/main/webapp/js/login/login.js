@@ -140,10 +140,9 @@ function getLikeMusician(){
 function getUserInfo() {
     FB.api('/me',{fields: 'name,email'}, function(response) {
     	getPhoto();
-	    var str="<b>Name : </b>"+response.name+"<br>";
-    	str +="<b>id : </b>"+response.id+"<br>";
-    	str +="<b>email : </b>"+response.email;
-    	str +="<input type='button' value='Logout' onclick='Logout();'/>";
+	    var str="<h4>Name : "+response.name+"</h4>";
+    	str +="<h4>email : "+response.email+"</h4>";
+    	str +="<input type='button' value='Logout' onclick='Logout();' />";
     	document.getElementById("logInfo").innerHTML+=str;    
     	var id=response.id;
     	var email=response.email;
@@ -165,7 +164,7 @@ function getUserInfo() {
 
 function getPhoto(){
 	FB.api('/me/picture?type=normal', function(response) {
-		var str="<div><img src='"+response.data.url+"'/>";
+		var str="<img src='"+response.data.url+"' style='float:left'/>";
 		document.getElementById("logInfo").innerHTML+=str;  	  	    
   	});
 	
