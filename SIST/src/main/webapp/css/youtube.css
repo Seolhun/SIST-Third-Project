@@ -1,0 +1,166 @@
+#tubular-container {
+  filter: blur(50px) brightness(0.5);
+  -webkit-filter: blur(10px) brightness(0.5);
+  z-index: -1;
+  width:100%;
+  height:100%;
+  position:absolute;
+  margin-left: -10px;
+}
+
+#player {
+  position: fixed;
+  width: 840px;
+  height: 475px;
+  top: -150px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 100;
+  transition: 0.35s ease-in-out;
+  opacity: 1;
+}
+#plyer iframe{
+	width: 100%;
+	height: 100%;
+	opacity: 1;
+	z-index:100;
+}
+
+.video-t li{
+  list-style: none;
+  padding-top: 77px;
+  text-align: center;
+  background-color: #ddd;
+  background-size: cover;
+  background-position: center center;
+  display: inline-block;
+  width: 200px;
+  height: 112px;
+  opacity: 0.5;
+  cursor: pointer;
+  font-weight: bold;
+  font-size:25px;
+  font-style: italic;
+  transition: opacity 0.35s ease-in-out;
+}
+
+#prev{
+	position: absolute;
+	top: -370px;
+	left: 150px;
+	transition: 0.35s ease-in-out;
+}
+#next{
+	position: absolute;
+	top: -370px;
+	right: 150px;
+	transition: 0.35s ease-in-out;
+}
+.hidden #prev, .hidden #next, .hidden #video-title, .hidden #video-list, .hidden #add_train{
+	display: none;
+}
+
+.video-t li:hover{
+  opacity: 1;
+  color: white;
+}
+
+#video-title{
+	padding: 10px;
+    opacity: 0.3;
+    position: absolute;
+    top: -620px;
+    left: 30%;
+    border-radius: 5px;
+    background-color: white;
+    font-size: 20px;
+    cursor: pointer;
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+}
+#video-list{
+	padding: 10px;
+    opacity: 0.3;
+    position: absolute;
+    top: -620px;
+    right: 30%;
+    border-radius: 5px;
+    background-color: white;
+    font-size: 20px;
+    cursor: pointer;
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+}
+#add_train{
+	padding: 10px;
+    opacity: 0.3;
+    position: absolute;
+    top: -66px;
+    left: 45%;
+    border-radius: 5px;
+    background-color: white;
+    font-size: 20px;
+    cursor: pointer;
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+}
+#video-title:hover,#video-list:hover,#add_train:hover{
+	opacity: 1;
+	color: black;
+	transition: 0.35s ease-in-out;
+}
+
+#footer-list{
+	position: absolute;
+	top: 50px;
+	left: 300px;
+	height: 150px;
+	width: 70%;
+	background: #111;
+	transition: 0.35s ease-in-out;
+	overflow: auto;
+}
+#footer-list ul{
+	width: 1000%;
+}
+#footer-list ul li{
+	text-align: center;
+	position: relative;
+	display: inline;
+	float: left;
+	width: 130px;
+	font-size: 17px;
+	font-weight: bold;
+	min-height:120px;
+	max-height:120px;
+	border-radius: 5px;
+	background-color: white;
+	top: 5px;
+	padding-top: 30px;;
+	margin-right:10px;
+	shadow-box: 5px 5px 5px #aaa;
+	cursor: pointer;
+}
+#footer-list ul li:hover{
+	color: #0080ff;
+	opacity: 1;
+	transition: 0.35s ease-in-out;
+}
+
+#background {
+    position: fixed;
+    opacity: 0.6;
+    top: 92px;
+    left: 0;
+    margin: 0;
+    width: 100%;
+    background-color: white;
+    z-index: -50;
+    height: 887px;
+}
+
+#video-reset{
+	z-index:100;
+}

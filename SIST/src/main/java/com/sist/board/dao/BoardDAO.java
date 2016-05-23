@@ -51,7 +51,6 @@ public class BoardDAO {
 	}
 
 	public void boardInsert(BoardVO vo) {
-
 		int no = 0;
 		int group_id = 0;
 		DBCursor cursor = dbc.find();
