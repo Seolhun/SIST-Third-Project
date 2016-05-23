@@ -201,8 +201,8 @@ $(document).ready(function(){
 			            		
 			            		if(data[i]!=null){
 			            			var sdata = data[i].split("|");
-			            		 $('ul#music_left').append("<li class='list-item' data-search-on-list='list-item'>"+sdata[1]+"</li>");
-			            		 $('ul#music_right').append("<li class='list-item' data-search-on-list='list-item'>"+sdata[0]+"</li>");
+			            		 $('ul#music_left').append("<li class='list-item' data-search-on-list='list-item'>"+sdata[1]+"<input type='button' value='' style='float:left'></li>");
+			            		 $('ul#music_right').append("<li class='list-item' data-search-on-list='list-item'>"+sdata[0]+"<input type='button' value='X' style='float:right'></li>");
 			            		 
 			            		}
 			            	 }
@@ -241,8 +241,8 @@ $(document).ready(function(){
 			            		
 			            		if(data[i]!=null){
 			            			var sdata = data[i].split("|");
-			            		 $('ul#artist_left').append("<li class='list-item' data-search-on-list='list-item'>"+sdata[1]+"</li>");
-			            		 $('ul#artist_right').append("<li class='list-item' data-search-on-list='list-item'>"+sdata[0]+"</li>");
+			            		 $('ul#artist_left').append("<li class='list-item' data-search-on-list='list-item' style='height:30'>"+sdata[1]+"<input type='button' value='' style='float:left'></li>");
+			            		 $('ul#artist_right').append("<li class='list-item' data-search-on-list='list-item' style='height:30'>"+sdata[0]+"<input type='button' value='X' style='float:right'></li>");
 			            		 
 			            		}
 			            	 }
@@ -357,7 +357,7 @@ $(document).ready(function(){
 			  </ul>
 			  
 	<div class="tab-content">			  
-      <div id="music_panel" class="tab-pane fade">
+      <div id="music_panel" class="tab-pane fade in active">
 					  <input type="text" class="input-query" id="music_search"  data-search-on-list="search" placeholder="Search In Music"/>
 					  <span class="counter" data-search-on-list="counter"></span>
 					  <div class="list-wrap">

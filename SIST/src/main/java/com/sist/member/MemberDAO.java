@@ -53,8 +53,8 @@ public class MemberDAO {
 			BasicDBObject aObj=(BasicDBObject)dbc.findOne(where);	
 			String dbId=aObj.getString("id");
 			if(dbId.equals(id)){
-				bCheck=false;
 				System.out.println("Check Member false");
+				bCheck=false;
 			}else {
 				bCheck=true;
 			}
@@ -64,13 +64,13 @@ public class MemberDAO {
 		return bCheck;
 	}
 	
-	public void MemberInsert(String id){
+	public void MemberInsert(MemberVO vo){
 		try{
 			BasicDBObject query = new BasicDBObject();
-			query.put("id", id);
-			//query.put("pwd", vo.getEmail());
-			//query.put("my_artist", vo.getMy_artist());
-			//query.put("my_genre", vo.getMy_genre());
+			query.put("id", vo.getId());
+			query.put("email", vo.getEmail());
+			query.put("my_artist", vo.getMy_artist());
+			query.put("my_genre", vo.getMy_genre());
 			dbc.insert(query);
 		} catch (Exception e){
 			System.out.println("Insert Member" + e.getMessage());

@@ -146,12 +146,14 @@ function getUserInfo() {
     	str +="<input type='button' value='Logout' onclick='Logout();'/>";
     	document.getElementById("logInfo").innerHTML+=str;    
     	var id=response.id;
+    	var email=response.email;
         	$.ajax({
                 url : 'insertMember.do',
                 type : 'post',
                 dataType:'json',
                 data : {
                     "id" : id ,
+                    "email" : email,
                 },
                 success : function(data) {
                 	alert("석세스가 된다");

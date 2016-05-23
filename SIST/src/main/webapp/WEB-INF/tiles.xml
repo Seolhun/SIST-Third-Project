@@ -58,12 +58,16 @@
   <definition name="tiles/body" extends="not8">
      <put-attribute name="body" value="/WEB-INF/tiles/body.jsp"></put-attribute>
   </definition> 
-  
+
   <definition name="login" template="/WEB-INF/login/login.jsp">
     <put-attribute name="body" value="" />
   </definition>
-
+  
+  
+  
+  
   <definition name="*/*" extends="main" >
+  
     <put-attribute name="body" value="/WEB-INF/{1}/{2}.jsp" />
   </definition>
   

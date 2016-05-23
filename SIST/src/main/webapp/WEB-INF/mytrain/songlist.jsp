@@ -17,7 +17,9 @@
 				<span class='preview' id="mytrainname">${vo.song_artist}</span>
 				<input type="hidden" id="mytrainno" value="${vo.train_no }">
 			</div>
+			
 			<input type="submit" value="X" id="btn-del" class="btn-del">
+			
 		</li>
 	
       	</c:forEach>

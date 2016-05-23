@@ -19,10 +19,12 @@
 	datacode[1] = "1BVV9UqELbA"; // Dream Girls
 	datacode[2] = "bXlrqQKbjSM"; // Remember
 	datacode[3] = "z4sN05-xIs4"; // Ring My Bell
-	datacode[4] = "i4ooH8frBWg"; // Sunday Candy
-	datacode[5] = "Tsmqrk7Wgsk"; // Lose My Mind
-	datacode[6] = "uxpDa-c-4Mc"; // Hotline Bling
-	datacode[7] = "hRK7PVJFbS8"; // King Kunta
+	datacode[4] = "0VKcLPdY9lI"; // Sunday Candy
+	datacode[5] = "oTXCgR93zC8"; // Lose My Mind
+	datacode[6] = "q6f-LLM1H6U"; // Hotline Bling
+	datacode[7] = "0rtV5esQT6I"; // King Kunta
+	datacode[8] = "XGdbaEDVWp0"; // King Kunta
+	datacode[9] = "DEd8ED2FdAg"; // King Kunta
 </script>
 </head>
 <body>
