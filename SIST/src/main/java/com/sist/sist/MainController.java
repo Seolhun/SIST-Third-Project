@@ -17,6 +17,7 @@ public class MainController {
 	private TrainDAO dao;
 	@Autowired
    private genieManager gm;
+	
    @RequestMapping("main.do")
    public String main_list(String id,Model model)
    {

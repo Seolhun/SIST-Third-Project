@@ -12,7 +12,7 @@ public class BoardDAO {
 	private MongoClient mc; // Connection
 	private DB db; // ORCL(DataBase)
 	private DBCollection dbc; // Table
-
+	
 	public BoardDAO() {
 		try {
 	         // 몽고디비 연결
@@ -25,57 +25,50 @@ public class BoardDAO {
 			System.out.println(ex.getMessage());
 		}
 	}
-
-	public List<BoardVO> boardListData(int page) {
-		List<BoardVO> list = new ArrayList<BoardVO>();
-		try {
-			int rowSize = 10;
-			int skip = (page * rowSize) - rowSize;
-			DBCursor cursor = dbc.find().sort(new BasicDBObject("group_id", -1).append("group_step", 1)).skip(skip)
-					.limit(rowSize);
-			while (cursor.hasNext()) {
+	
+	//no,email,subject,content,regdate,hit,depth
+	public List<BoardVO> boardAllData(int page){
+		List<BoardVO> list=new ArrayList<BoardVO>();
+		try{
+			int rowSize=10;
+			int skip = (page*rowSize)-rowSize;
+			DBCursor cursor=dbc.find().sort(new BasicDBObject("no",-1).append("no", 1)).skip(skip).limit(rowSize); //해결해야 된다.
+			while(cursor.hasNext()){
 				BasicDBObject obj = (BasicDBObject) cursor.next();
-				BoardVO vo = new BoardVO();
+				BoardVO vo=new BoardVO();
 				vo.setNo(obj.getInt("no"));
+				vo.setEmail(obj.getString("email"));
 				vo.setSubject(obj.getString("subject"));
-				vo.setName(obj.getString("name"));
+				vo.setContent(obj.getString("content"));
 				vo.setRegdate(obj.getString("regdate"));
 				vo.setHit(obj.getInt("hit"));
-				vo.setGroup_tab(obj.getInt("group_tab"));
 				list.add(vo);
 			}
-		} catch (Exception ex) {
-			System.out.println(ex.getMessage());
+			cursor.close();
+		} catch(Exception e){
+			e.printStackTrace();
 		}
 		return list;
 	}
-
+	
+	//no,email,subject,content,regdate,hit,depth
 	public void boardInsert(BoardVO vo) {
 		int no = 0;
-		int group_id = 0;
 		DBCursor cursor = dbc.find();
 		while (cursor.hasNext()) {
 			BasicDBObject data = (BasicDBObject) cursor.next();
-			int n = data.getInt("no");
-			int g = data.getInt("group_id");
+			int n = data.getInt("no"); //cursor의 의미는 무엇인가??
 			if (no < n)
 				no = n;
-			if (group_id < g)
-				group_id = g;
 		}
 		cursor.close();
 		BasicDBObject query = new BasicDBObject();
 		query.put("no", no + 1);
-		query.put("name", vo.getName());
+		query.put("email", vo.getEmail());
 		query.put("subject", vo.getSubject());
 		query.put("content", vo.getContent());
-		query.put("pwd", vo.getPwd());
-		query.put("regdate", new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
+		query.put("regdate", new SimpleDateFormat("yyyy-MM-dd, hh:mm:ss a").format(new Date()));
 		query.put("hit", 0);
-		query.put("group_id", group_id + 1);
-		query.put("group_step", 0);
-		query.put("group_tab", 0);
-		query.put("root", 0);
 		query.put("depth", 0);
 		// {name:"",}
 		dbc.insert(query);
@@ -87,5 +80,9 @@ public class BoardDAO {
 		int count = cursor.count();
 		total = (int) (Math.ceil(count / 10.0));
 		return total;
+	}
+	
+	public void boardDelete(String email){
+		boolean bCheck=false;
 	}
 }

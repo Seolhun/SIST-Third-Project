@@ -1,15 +1,11 @@
 package com.sist.board.dao;
 // mongodb
-public class BoardVO {
-	//no,email,subject,content,regdate,hit,depth
+public class ReplyBoardVO {
     private int no;
     private String email;
-    private String subject;
     private String content;
     private String regdate;
-    private int hit;
-    private int depth;
-    
+    private int like;
 	public int getNo() {
 		return no;
 	}
@@ -21,12 +17,6 @@ public class BoardVO {
 	}
 	public void setEmail(String email) {
 		this.email = email;
-	}
-	public String getSubject() {
-		return subject;
-	}
-	public void setSubject(String subject) {
-		this.subject = subject;
 	}
 	public String getContent() {
 		return content;
@@ -40,19 +30,12 @@ public class BoardVO {
 	public void setRegdate(String regdate) {
 		this.regdate = regdate;
 	}
-	public int getHit() {
-		return hit;
+	public int getLike() {
+		return like;
 	}
-	public void setHit(int hit) {
-		this.hit = hit;
+	public void setLike(int like) {
+		this.like = like;
 	}
-	public int getDepth() {
-		return depth;
-	}
-	public void setDepth(int depth) {
-		this.depth = depth;
-	}
-    
     
     
     
