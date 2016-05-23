@@ -12,5 +12,4 @@ public class BoardController {
 	private BoardDAO bDao;
 	
 
-	}
 }
