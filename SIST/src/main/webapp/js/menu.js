@@ -1,5 +1,9 @@
 //다른 메뉴 클릭 시 화면 줄이기
+<<<<<<< HEAD
+for(var i=0; i<5; i++)
+=======
 for(var i=0; i<6; i++)
+>>>>>>> refs/remotes/origin/master
 {
 	video_small[i] = document.querySelectorAll('.video_small')[i];
 

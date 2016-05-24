@@ -9,6 +9,153 @@ var video_return = document.querySelectorAll('.video_return')[0];
 var videoSize = document.querySelectorAll('#background')[0];
 var prev = document.querySelectorAll('#prev')[0];
 var next = document.querySelectorAll('#next')[0];
+<<<<<<< HEAD
+
+var video_state=0; //0이면 DRIVE
+
+$(document).ready(function() {
+	setTimeout("youtube_load();", 200);
+});
+function youtube_load(){
+	video_state=0;
+	var ajax = new XMLHttpRequest();
+	var string;
+	ajax.open('GET', api + '?part=snippet,id&q=' + songlist[songNo] + '&type=video&key=' + key);
+	ajax.onload = function () {
+	    var json = JSON.parse(this.responseText);
+	    string=json.items[0].snippet.thumbnails.high.url;
+	    datacode[songNo]=string.substr(23,11);
+	};
+    ajax.send();
+	
+//	prev.setAttribute('data-code', datacode[songNo-1]);
+	videoSize.setAttribute('data-code', datacode[songNo]);
+//	next.setAttribute('data-code', datacode[songNo+1]);
+	
+	//prev,next 썸네일
+	  $('.video-t li').each(function() {
+		  var code = $(this).attr('data-code');
+		    $(this).css("background-image", "url(http://img.youtube.com/vi/" + code + "/0.jpg)");
+		  });
+	  
+//	  visible();
+	  player = new YT.Player('player', {
+		    height: height,
+		    width: width,
+		    videoId: datacode[songNo],
+		    playerVars: {
+		        autoplay: 1,
+		        controls: 1,
+		        showinfo: 0
+		    },
+		    events: {
+		      'onStateChange': onPlayerStateChange,
+		    }
+		  });
+			$('#background').css("background-image", "url(http://img.youtube.com/vi/" + datacode[songNo] + "/0.jpg)");
+			$('#background').css("background-size", "cover");
+//	onYouTubeIframeAPIReady();
+	
+}
+
+var player;
+function onYouTubeIframeAPIReady() {
+	
+	player = new YT.Player('player', {
+    height: height,
+    width: width,
+    videoId: datacode[songNo],
+    playerVars: {
+        autoplay: 1,
+        controls: 1,
+        showinfo: 0
+    },
+    events: {
+      'onStateChange': onPlayerStateChange,
+    }
+  });
+	$('#background').css("background-image", "url(http://img.youtube.com/vi/" + datacode[songNo] + "/0.jpg)");
+	$('#background').css("background-size", "cover");
+}
+function onPlayerStateChange(event) {
+  if(event.data==0){
+	  
+	  if($('#next').attr('data-code')=="undefined")
+	  {
+		  songNo=0;
+		  videoChange();
+	  }
+	  else
+	  {
+		  songNo++;
+		  videoChange();
+	  }
+		
+  }
+}
+
+//이전add_train.classList.ad버튼
+prev.addEventListener('click', function() {
+	songNo--;
+	videoChange();
+});
+
+//다음버튼
+next.addEventListener('click', function() {
+	songNo++;
+	videoChange();
+});
+
+//처음이면 prev가 안보이고 마지막이면 next가 안보임
+function visible(){
+	if($('#prev').attr('data-code')=="undefined")
+	{
+		document.getElementById('prev').style.display='none';
+	}
+	else
+	{
+		document.getElementById('prev').style.display='block';
+	}
+	if($('#next').attr('data-code')=="undefined")
+	{
+		document.getElementById('next').style.display='none';
+	}
+	else
+	{
+		document.getElementById('next').style.display='block';
+	}
+}
+
+function videoChange(){
+	var ajax = new XMLHttpRequest();
+	var string;
+	ajax.open('GET', api + '?part=snippet,id&q=' + songlist[songNo] + '&type=video&key=' + key);
+	
+	ajax.onload = function () {
+	    var json = JSON.parse(this.responseText);
+	    string=json.items[0].snippet.thumbnails.high.url;
+	    datacode[songNo]=string.substr(23,11);
+	    
+	};
+    ajax.send();
+	$('div#player').remove();
+	$('iframe#player').remove();
+	$('#video-reset').append("<div id='player' data-code=''></div>");
+	// 순서 변경
+	prev.setAttribute('data-code', datacode[songNo-1]);
+	videoSize.setAttribute('data-code', datacode[songNo]);
+	next.setAttribute('data-code', datacode[songNo+1]);
+	$('#background').css("background-image", "url(http://img.youtube.com/vi/" + datacode[songNo] + "/0.jpg)");
+	// 다시 띄우기
+//	var youtube=document.querySelectorAll('#player')[0];
+//	youtube.setAttribute('src',"https://www.youtube.com/embed/"+datacode[songNo]+"?autoplay=1&controls=1&showinfo=0&enablejsapi=1&origin=http%3A%2F%2Flocalhost%3A8080");
+	
+	$('.video-t li').each(function() {
+	    var code = $(this).attr('data-code');
+	    $(this).css("background-image", "url(http://img.youtube.com/vi/" + code + "/0.jpg)");
+	  });
+//    visible();
+=======
 var videoCode = $('#background').attr('data-code');
 
 var video_state=0;
@@ -118,6 +265,7 @@ function videoChange(){
 	    $(this).css("background-image", "url(http://img.youtube.com/vi/" + code + "/0.jpg)");
 	  });
     visible();
+>>>>>>> refs/remotes/origin/master
     
     onYouTubeIframeAPIReady();
     

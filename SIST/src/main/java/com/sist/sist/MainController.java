@@ -21,7 +21,7 @@ public class MainController {
    @RequestMapping("main.do")
    public String main_list(String id,Model model)
    {
-	   	id="admin"; // �α��� ����� ������
+	   	id="admin"; 
 		List<TrainVO> list=dao.trainAllData(id);
 		model.addAttribute("list",list);
 	   return "main";
@@ -34,9 +34,14 @@ public class MainController {
    }
    
    //게시판 페이지 이동
-   @RequestMapping("board.do")
-   public String board(){
-	   return "board";
+   @RequestMapping("list.do")
+   public String boardlist(){
+	   return "board/list";
+   }
+   
+   @RequestMapping("insert.do")
+   public String obardinsert(){
+	   return "board/insert";
    }
    
    @RequestMapping("songChange.do")

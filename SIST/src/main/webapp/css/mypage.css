@@ -1,3 +1,101 @@
+<<<<<<< HEAD
+#mypagecontainer {
+    margin-left: 5%;
+    width: 90%;
+    height: 100%;
+    border: 1px;
+    border-radius: 30px;
+    opacity: 0.8;
+    z-index: 11;
+    background-color: white;
+    box-shadow: 5px 5px 5px #AAA;
+}
+
+#mypageleft {
+    position: absolute;
+    top: 5px;
+    left: 7%;
+    width: 35%;
+    opacity: 1;
+}
+#trainname {
+    position: absolute;
+    top: 10px;
+    height: 50px;
+    width: 78%;
+    font-size: 30px;
+    font-family: fantasy;
+}
+#myartist {
+    position: absolute;
+    top: 70px;
+    border: solid;
+    border-radius: 15px;
+    padding: 10px;
+    height: 240px;
+    width: 78%;
+}
+#mygenre {
+    position: absolute;
+    top: 325px;
+    border: solid;
+    border-radius: 15px;
+    padding: 10px;
+    height: 240px;
+    width: 78%;
+}
+
+
+
+#mypagecenter {
+    position: absolute;
+    top: 70px;
+    left: 35%;
+    height: 500px;
+    width: 30%;
+    opacity: 1;
+}
+#maketrain {
+    position: absolute;
+    top: 5px;
+    width: 100%;
+    height: 40px;
+    padding-left: 8%;
+}
+#makelist{
+	position: absolute;
+	top : 45px;
+	width :100%;
+	border :solid;
+	border-radius: 15px;
+    padding: 10px;
+    height: 455px;
+}
+
+
+#mypageright {
+    position: absolute;
+    top: 65px;
+    left: 66%;
+    height: 500px;
+    width: 27%;
+    opacity: 1;
+}
+/* #drivetrain{ */
+/* 	position: absolute; */
+/* 	top:5px; */
+/* 	width : 480px; */
+/* 	 height: 200px; */
+/* 	 border: solid; */
+/* } */
+#drivelist {
+    position: absolute;
+    top: 15px;
+    width: 100%;
+    border: solid;
+    border-radius: 15px;
+    height: 490px;
+=======
 #mypagecontainer{
 	width: 1500px;
 	border: 1px;
@@ -85,4 +183,5 @@
 	top: 210px;
 	width: 480px;
 	border:solid;
+>>>>>>> refs/remotes/origin/master
 }
