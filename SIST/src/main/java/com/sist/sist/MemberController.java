@@ -10,21 +10,21 @@ import com.sist.member.MemberVO;
 
 @Controller
 public class MemberController {
-	@Autowired
-	private MemberDAO mdao;
-	
-	@RequestMapping("insertMember.do")
-	public String InsertMember(@RequestParam("id") String id, @RequestParam("email") String email) throws Exception{
-			
-		boolean bCheck=mdao.CheckMember(id);
-		if(bCheck){
-			MemberVO vo=new MemberVO();
-			vo.setEmail(email);
-			vo.setId(id);
-			vo.setMy_artist(null);
-			vo.setMy_genre(null);
-			mdao.MemberInsert(vo);			
-		}
-		return "main";
-	}
+   @Autowired
+   private MemberDAO mdao;
+   
+   @RequestMapping("insertMember.do")
+   public String InsertMember(@RequestParam("id") String id, @RequestParam("email") String email) throws Exception{
+         
+      boolean bCheck=mdao.CheckMember(id);
+      if(bCheck){
+         MemberVO vo=new MemberVO();
+         vo.setEmail(email);
+         vo.setId(id);
+         vo.setMy_artist(null);
+         vo.setMy_genre(null);
+         mdao.MemberInsert(vo);         
+      }
+      return "main";
+   }
 }

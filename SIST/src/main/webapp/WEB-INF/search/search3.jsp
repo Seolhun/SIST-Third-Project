@@ -10,20 +10,29 @@
    <link rel="stylesheet" href="css/search.css">
    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
    <link href="https://fonts.googleapis.com/css?family=Lato:900" rel="stylesheet" type="text/css">
-   
-     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  
    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
    <script src='http://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.pack.js'></script>
 <style>
+
 .artistbox{
 float:left;
-width:30%;
+width:25%;
+}
+.favoritebox{
+float:left;
+width:5%;
 }
 .musicbox{
+float:left;
+width:65%;
+}
+.romovebox{
 float:right;
-width:70%;
+width:5%;
 }
 .profilebox1{
 float:left;
@@ -34,6 +43,13 @@ margin-left:30px;
 float:left;
 width:45%;
 }
+.search_remove{
+cursor: pointer;
+}
+.search_favorite{
+cursor: pointer;
+}
+
 ul{
 list-style: none;
 padding-left:0px;
@@ -41,14 +57,13 @@ padding-left:0px;
 .list-item{
 font-size: 13px;
 }
-.list-item li{
-height : 30;
-font-size: 13px;
-}
 div.container{
 width:700px;
 height:570px;
 }
+
+
+
 .artist_profile{
 margin-top:30px;
 margin-right:60px;
@@ -156,13 +171,14 @@ body {
 
 
 </style>
-<script type="text/javascript">
+<script>
+
+
 $(document).ready(function(){
 	param="id=admin"; // id 완성시 바꾼다
 	sendMessage("post", "searchtrain.do", param, searchtrain)
-	/* setTimeout("reload()",800); */
 	$('#music_search').focus();
-	$(this).on("click","#music_tab",function(){
+	$("#music_tab").on("click",function(){
 		  $("#music_search").keypress(function (e) {
 			  if ((e.which && e.which == 13) || (e.keyCode && e.keyCode == 13)) {
 					$('.mlist').html("");
@@ -179,7 +195,9 @@ $(document).ready(function(){
 			            		if(data[i]!=null){
 			            			var sdata = data[i].split("|");
 			            		 $('ul#music_left').append("<li class='list-item' data-search-on-list='list-item'>"+sdata[1]+"</li>");
+			            		 $('ul#music_favorite').append("<li class='list-item search_remove' data-search-on-list='list-item'>X</li>");
 			            		 $('ul#music_right').append("<li class='list-item' data-search-on-list='list-item'>"+sdata[0]+"</li>");
+			            		 $('ul#music_remove').append("<li class='list-item search_remove' data-search-on-list='list-item'>X</li>");
 			            		 
 			            		}
 			            	 }
@@ -195,7 +213,7 @@ $(document).ready(function(){
 			  }
 	      });
 	});
-	
+
 	$(this).on("click","#songlistadd",function(){
 		var train_id=$('#train_id').text();
 		 var train_no=$('#songlist_trainno').val();
@@ -212,14 +230,19 @@ $(document).ready(function(){
 			 alert("train을 고르세요");
 		 }
 	});
-	$(this).on("click","#artist_tab",function(){
+
+	$("#artist_tab").on("click",function(){	
 		if($("#artist_panel").html()==""){
 		$("#artist_panel").html("<input type='text' class='input-query' id='artist_search'  data-search-on-list='search' placeholder='Search In Artist'/>"+
 					  " <span class='counter' data-search-on-list='counter'></span>"+
 					  " <div class='list-wrap'>"+
 					  "<ul class='alist artistbox' id='artist_left' data-search-on-list='list'>가수</ul>"+
-					  "<ul class='alist musicbox' id='artist_right' data-search-on-list='list'>노래명</ul></div>");
+					  "<ul class='alist favoritebox' id='artist_favorite' data-search-on-list='list'></ul>"+
+					  "<ul class='alist musicbox' id='artist_right' data-search-on-list='list'>노래명</ul>"+
+					  "<ul class='alist removebox' id='artist_remove' data-search-on-list='list'></ul></div>");
 		}
+		
+		
 		  $("#artist_search").keypress(function (e) {
 			  if ((e.which && e.which == 13) || (e.keyCode && e.keyCode == 13)) {
 					$('.alist').html("");
@@ -235,9 +258,10 @@ $(document).ready(function(){
 			            		
 			            		if(data[i]!=null){
 			            			var sdata = data[i].split("|");
-			            		 $('ul#artist_left').append("<li class='list-item' data-search-on-list='list-item'>"+sdata[1]+"<input id='artistadd' type='button' value='X' style='float:left'></li>");
-			            		 $('ul#artist_right').append("<li class='list-item' data-search-on-list='list-item'>"+sdata[0]+"<input id='songlistadd' type='button' value='X' style='float:right'></li>");
-			            		 
+			            		 $('ul#artist_left').append("<li class='list-item' data-search-on-list='list-item'>"+sdata[1]+"</li>");
+			            		 $('ul#artist_right').append("<li class='list-item' data-search-on-list='list-item'>"+sdata[0]+"</li>");
+			            		 $('ul#artist_remove').append("<li class='list-item search_remove' data-search-on-list='list-item'>X</li>");
+			            		 $('ul#artist_favorite').append("<li class='list-item search_favorite' data-search-on-list='list-item'>O</li>");
 			            		}
 			            	 }
 			      /*        var ajaxName = decodeURIComponent(data.title+".."+data.poster+".."+data.artist);
@@ -315,7 +339,7 @@ $(document).ready(function(){
 	      });
 		 		  
 	});
-	
+	  
 	 $("#music_search").keypress(function (e) {
 		  if ((e.which && e.which == 13) || (e.keyCode && e.keyCode == 13)) {
 				var music_Name = $('#music_search').val();
@@ -331,9 +355,11 @@ $(document).ready(function(){
 		            		
 		            		if(data[i]!=null){
 		            			var sdata = data[i].split("|");
-		            		 $('ul#music_left').append("<li class='list-item' data-search-on-list='list-item'>"+sdata[1]+"<input id='artistadd' type='button' value='X' style='float:left'></li>");
-		            		 $('ul#music_right').append("<li class='list-item' data-search-on-list='list-item'>"+sdata[0]+"<input id='songlistadd' type='button' value='X' style='float:right'></li>");
-		            																										 
+		            		 $('ul#music_left').append("<li class='list-item' data-search-on-list='list-item'>"+sdata[1]+"</li>");
+		            		 $('ul#music_right').append("<li class='list-item' data-search-on-list='list-item'>"+sdata[0]+"</li>");
+		            		 $('ul#music_remove').append("<li class='list-item search_remove' data-search-on-list='list-item'>X</li>");
+		            		 $('ul#music_favorite').append("<li class='list-item search_favorite' data-search-on-list='list-item'>O</li>");
+		            		 
 		            		}
 		            	 }
 		      /*        var ajaxName = decodeURIComponent(data.title+".."+data.poster+".."+data.artist);
@@ -347,18 +373,11 @@ $(document).ready(function(){
 		      return true;
 		  }
      });
-});	 
-/* 	 $('songlistadd').click(function(){
-		 
-		 var train_id=$('#train_id').text();
-		 var train_no=$('#btn-del').attr("alt");
-		 var song_title=$('#songlistadd').text();
-		 alert("title:"+title);
-			param="id="+train_id+"&no="+train_no;
-		 sendMessage("post", "songlistadd.do", param, addsonglist)
-	 });
+	 
 
-}); */
+
+});
+
 function songlistadd(){
 	
 	if(httpRequest.readyState==4){
@@ -377,6 +396,7 @@ function searchtrain(){
 	}
 }
 
+
 </script>
 </head>
 <body>
@@ -385,6 +405,7 @@ function searchtrain(){
 	
 </div>
 <div id="drivelist"></div>
+
 
  <div class="container">
 			 <ul class="nav nav-tabs">
@@ -399,7 +420,9 @@ function searchtrain(){
 					  <span class="counter" data-search-on-list="counter"></span>
 					  <div class="list-wrap">
 					  <ul class="mlist artistbox" id="music_left" data-search-on-list="list">가수</ul>
+					  <ul class='mlist favoritebox' id='music_favorite' data-search-on-list='list'></ul>
 					  <ul class="mlist musicbox" id="music_right" data-search-on-list="list">노래명</ul>
+					  <ul class='mlist removebox' id='music_remove' data-search-on-list='list'></ul>
 					  </div>
       </div>
       <div id="artist_panel" class="tab-pane fade"></div>

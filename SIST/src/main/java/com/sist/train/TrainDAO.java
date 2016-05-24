@@ -51,7 +51,7 @@ public class TrainDAO {
 		return list;
 	}
 	
-	public void trainInsert(String id,String name){
+	public int trainInsert(String id,String name){
 		int train_no =0;
 		BasicDBObject where=new BasicDBObject();
 		where.put("id", id);
@@ -71,12 +71,12 @@ public class TrainDAO {
 		query.put("train_name", name);
 		query.put("like", 0);
 		dbc.insert(query);
+		return train_no+1;
 	}
 
 	
 	public void trainDelete(int no,String id){
 		try{
-			System.out.println("no:"+no+" id:"+id);
 			BasicDBObject where=new BasicDBObject();
 			where.put("id", id);
 			where.put("train_no", no);

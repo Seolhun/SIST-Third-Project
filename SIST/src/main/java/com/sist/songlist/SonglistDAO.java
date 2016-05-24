@@ -5,11 +5,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import com.mongodb.BasicDBObject;
-import com.mongodb.DB;
-import com.mongodb.DBCollection;
-import com.mongodb.DBCursor;
-import com.mongodb.MongoClient;
+import com.mongodb.*;
 
 @Repository
 public class SonglistDAO {
@@ -35,6 +31,7 @@ public class SonglistDAO {
 			BasicDBObject where=new BasicDBObject();
 			where.put("train_id", id);
 			where.put("train_no", no);
+			System.out.println("id:"+id+" 트레인넘버:"+no);
 			DBCursor cursor=dbc.find(where);
 			while(cursor.hasNext()){
 				BasicDBObject obj=(BasicDBObject)cursor.next();
@@ -42,7 +39,7 @@ public class SonglistDAO {
 				vo.setTrain_id(id);
 				vo.setTrain_no(no);
 				vo.setSong_title(obj.getString("song_title"));
-				vo.setSong_no(1);
+				vo.setSong_no(obj.getInt("song_no"));
 				vo.setSong_artist(obj.getString("song_artist"));
 				list.add(vo);
 			}
@@ -50,5 +47,88 @@ public class SonglistDAO {
 			System.out.println("songListAllData error:"+ex.getMessage());
 		}
 		return list;
+	}
+	/*
+	 * public void trainInsert(String id,String name){
+		int train_no =0;
+		BasicDBObject where=new BasicDBObject();
+		where.put("id", id);
+		DBCursor cursor=dbc.find(where);
+		while(cursor.hasNext()){
+			BasicDBObject data=(BasicDBObject)cursor.next();
+			int n=data.getInt("train_no");
+			if(train_no<n){
+				train_no=n;
+			}
+		}
+		cursor.close();
+		BasicDBObject query=new BasicDBObject();
+		query.put("id", id);
+		query.put("train_no", train_no+1);
+		query.put("train_id", id);
+		query.put("train_name", name);
+		query.put("like", 0);
+		dbc.insert(query);
+	}
+	 */
+	public void songlistInsert(int no,String id,String song_title,String song_artist){
+		BasicDBObject where=new BasicDBObject();
+		where.put("train_id", id);
+		where.put("train_no", no);
+		DBCursor cursor=dbc.find(where);
+		int song_no=1;
+		while(cursor.hasNext()){
+			BasicDBObject data=(BasicDBObject)cursor.next();
+			int n=data.getInt("song_no");
+			if(song_no<n){
+				song_no=n;
+			}
+		}
+		cursor.close();
+		System.out.println("no:"+no+" song_title: "+song_title+" song_artist:"+song_artist);
+		BasicDBObject query=new BasicDBObject();
+		query.put("train_id", id);
+		query.put("train_no", no);
+		query.put("song_title", song_title);
+		query.put("song_artist", song_artist);
+		query.put("song_no", song_no+1);
+		dbc.insert(query);
+	}
+	public void createSongList(int train_no,String id){
+		BasicDBObject where=new BasicDBObject();
+		where.put("train_id",id);
+		where.put("train_no", train_no);
+		where.put("song_title", "리스트 추가 후 삭제 하세요");
+		where.put("song_artist", "가수없음");
+		where.put("song_no", 1);
+		dbc.insert(where);
+	}
+	public void songDelete(int train_no,String id,int song_no){
+		try{
+			BasicDBObject where=new BasicDBObject();
+			where.put("train_id", id);
+			where.put("train_no", train_no);
+			where.put("song_no", song_no);
+			BasicDBObject data=(BasicDBObject)dbc.findOne(where);
+			
+			dbc.remove(data);
+		}catch(Exception ex){
+			System.out.println("songDelete error: "+ex.getMessage());
+		}
+	}
+	public void songlistDelete(int train_no,String id){
+		try{
+			BasicDBObject where=new BasicDBObject();
+			where.put("train_no", train_no);
+			where.put("train_id", id);
+			DBCursor cursor=dbc.find(where);
+			
+			while(cursor.hasNext()){
+				BasicDBObject data=(BasicDBObject)cursor.next();
+				dbc.remove(data);
+			}
+		}catch(Exception ex){
+			System.out.println("songlistDelete error: "+ex.getMessage());
+		}
 	}
 }

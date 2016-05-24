@@ -58,8 +58,8 @@
   <definition name="tiles/body" extends="not8">
      <put-attribute name="body" value="/WEB-INF/tiles/body.jsp"></put-attribute>
   </definition> 
-  
-  <!-- 로그인 페이지 -->
+
+    <!-- 로그인 페이지 -->
   <definition name="login" template="/WEB-INF/login/login.jsp">
     <put-attribute name="body" value="" />
   </definition>
@@ -72,13 +72,9 @@
   <definition name="board/insert" template="/WEB-INF/board/insert.jsp">
     <put-attribute name="body" value="" />
   </definition>
-  
-  
+
   <definition name="*/*" extends="main" >
     <put-attribute name="body" value="/WEB-INF/{1}/{2}.jsp" />
   </definition>
-  
-  
-  
-  
+
 </tiles-definitions>

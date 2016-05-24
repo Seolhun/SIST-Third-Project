@@ -1,6 +1,6 @@
 package com.sist.member;
+
 import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
@@ -8,7 +8,7 @@ import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
 import com.mongodb.MongoClient;
 import com.sist.train.TrainVO;
-import com.sist.member.MemberVO;
+
 import java.util.*;
 @Repository
 public class MemberDAO {
@@ -17,8 +17,11 @@ public class MemberDAO {
 	private DBCollection dbc;
 	public MemberDAO(){
 		try{
+			// ¸ù°íµðºñ ¿¬°á
 			mc=new MongoClient("211.238.142.23:27017");
+			// µ¥ÀÌÅÍº£ÀÌ½º ÀÏ±â
 			db=mc.getDB("sist"); // use mydb
+			// ÄÃ·º¼Ç ¿¬°á
 			dbc=db.getCollection("sist_member");
 		}catch(Exception ex){
 			System.out.println(ex.getMessage());
@@ -44,7 +47,6 @@ public class MemberDAO {
 		}
 		return list;
 	}
-	
 	public boolean CheckMember(String id) {
 		boolean bCheck=false;
 		try {
@@ -77,14 +79,13 @@ public class MemberDAO {
 			System.out.println("Insert Member" + e.getMessage());
 		}
 	}
-	
 	public void GenreInsert(String id,String my_genre){
 		BasicDBObject where=new BasicDBObject();
 		where.put("id",id);
 		BasicDBObject data=(BasicDBObject) dbc.findOne(where);
 		System.out.println("id:"+id+"my_genre:"+my_genre);
 		data.put("my_genre", my_genre);
-		dbc.update(where, new BasicDBObject("$set",data)); // $setï¿½ï¿½ï¿½Ö¸ï¿½ insertï¿½È´ï¿½
+		dbc.update(where, new BasicDBObject("$set",data)); // $set¾ÈÁÖ¸é insertµÈ´Ù
 	}
 	
 }

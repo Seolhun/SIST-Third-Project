@@ -9,14 +9,25 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.sist.songlist.SonglistDAO;
+import com.sist.songlist.SonglistVO;
+import com.sist.train.TrainDAO;
+import com.sist.train.TrainVO;
+
 import java.util.*;
 
 import javax.servlet.http.HttpServletResponse;
 @Controller
 public class SearchController {
+   @Autowired
+   private TrainDAO tdao;
+   @Autowired
+   private SonglistDAO sdao;
    @RequestMapping("search.do")
    public String search_main(Model model)
    {
@@ -150,6 +161,21 @@ public class SearchController {
 			    pw.print(ja.toJSONString());
 			    pw.flush();
 			}catch(Exception e){System.out.println("검색 결과가 없습니다.");}
+   }
+   @RequestMapping("searchtrain.do")
+   public String searchtrain(String id,Model model){
+	   List<TrainVO> list=tdao.trainAllData(id);
+	   model.addAttribute("list",list);
+	   return "mytrain/maketrain";
+   }
+   @RequestMapping("songlistadd.do")
+   public String songlistadd(String id,String no,String song_title,String song_artist,Model model){
+	   int train_no=Integer.parseInt(no);
+	   sdao.songlistInsert(train_no, id, song_title, song_artist);
+	   List<SonglistVO> list=sdao.songListAllData(train_no, id);
+	   model.addAttribute("list",list);
+	   
+	   return "mytrain/songlist";
    }
    
 }

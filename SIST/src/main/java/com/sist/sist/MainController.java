@@ -16,51 +16,46 @@ public class MainController {
 	@Autowired
 	private TrainDAO dao;
 	@Autowired
-   private genieManager gm;
+	private genieManager gm;
+
+	@RequestMapping("main.do")
+	public String main_list(String id, Model model) {
+		id = "admin"; // �α��� ����� ������
+		List<TrainVO> list = dao.trainAllData(id);
+		model.addAttribute("list", list);
+		return "main";
+	}
+
+	@RequestMapping("songChange.do")
+	public String songChange() {
+		return "tiles/footer";
+	}
+
+	@RequestMapping("drug_flow.do")
+	public String genieAllData(Model model) {
+		List<genieVO> list = gm.genieAllData();
+		model.addAttribute("list", list);
+		return "drugflow/drug_flow";
+	}
+
+	@RequestMapping("drive.do")
+	public String drive() {
+		return "tiles/body";
+	}
+
+	@RequestMapping("login.do")
+	public String login(String id, Model model) {
+		return "login";
+	}
+
+	@RequestMapping("list.do")
+	public String boardlist() {
+		return "board/list";
+	}
 	
-   @RequestMapping("main.do")
-   public String main_list(String id,Model model)
-   {
-	   	id="admin"; 
-		List<TrainVO> list=dao.trainAllData(id);
-		model.addAttribute("list",list);
-	   return "main";
-   }
-   //로그인 페이지 이동
-   @RequestMapping("login.do")
-   public String login(String id,Model model)
-   {
-	   return "login";
-   }
-   
-   //게시판 페이지 이동
-   @RequestMapping("list.do")
-   public String boardlist(){
-	   return "board/list";
-   }
-   
-   @RequestMapping("insert.do")
-   public String obardinsert(){
-	   return "board/insert";
-   }
-   
-   @RequestMapping("songChange.do")
-   public String songChange()
-   {
-	   return "tiles/footer";
-   }
-   
-   @RequestMapping("drug_flow.do")
-   public String genieAllData(Model model) {
-      List<genieVO> list = gm.genieAllData();
-      model.addAttribute("list", list);
-      System.out.println("����?");
-      return "drugflow/drug_flow";
-   }
-   
-   @RequestMapping("drive.do")
-   public String drive()
-   {
-	   return "tiles/body";
-   }
+	@RequestMapping("insert.do")
+	public String boardinsert() {
+		return "board/insert";
+	}
+
 }

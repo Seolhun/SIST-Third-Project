@@ -6,6 +6,28 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('.songlist_btn-del').click(function(){
+		var id=$('#myid').text();
+		var train_no=$('#songlist_trainno').val();
+		var song_no=$(this).attr("alt");
+		param="id="+id+"&train_no="+train_no+"&song_no="+song_no;
+		alert(param);
+		sendMessage("POST", "songdelete.do", param, deletesong);	
+	});
+
+});
+
+function deletesong(){
+	if(httpRequest.readyState==4){
+		if(httpRequest.status==200){
+			$('#drivelist').html(httpRequest.responseText);
+		}
+	}
+}
+</script>
 </head>
 <body>
 	<c:forEach var="vo" items="${list }">
@@ -14,11 +36,12 @@
 		<a class='thumbnail' href='#'> ${vo.song_title}</a><br/>
 			<div class='cart-con'>
 				<h3>${vo.train_id}</h3>
-				<span class='preview' id="mytrainname">${vo.song_artist}</span>
-				<input type="hidden" id="mytrainno" value="${vo.train_no }">
+				<span class='preview' id="songlist_artist">${vo.song_artist}</span>
+				<input type="hidden" id="songlist_trainno" value="${vo.train_no }">
+				<input type="hidden" id="songlistno" value="${vo.song_no }">
 			</div>
 			
-			<input type="submit" value="X" id="btn-del" class="btn-del">
+			<input type="button" value="X" id="songlist_btn-del" alt="${vo.song_no }" class="songlist_btn-del">
 			
 		</li>
 	

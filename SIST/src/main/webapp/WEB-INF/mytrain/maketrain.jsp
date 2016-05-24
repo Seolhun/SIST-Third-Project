@@ -9,9 +9,12 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
 $(function(){
-	$('#mytrainname').click(function(){
+	$('.preview').click(function(){
 		var train_id=$('#train_id').text();
-		var train_no=$('#btn-del').attr("alt");
+		var train_no=$(this).text();
+		
+		
+		alert(train_no);
 		param="id="+train_id+"&no="+train_no;
 		sendMessage("POST", "songlist.do", param, makesonglist);	
 	});
@@ -28,6 +31,7 @@ $(function(){
 function makesonglist(){
 	if(httpRequest.readyState==4){
 		if(httpRequest.status==200){
+			
 			$('#drivelist').html(httpRequest.responseText);
 		}
 	}
@@ -60,8 +64,8 @@ function footerdeletetrain(){
 		<a class='thumbnail' href='#' id="myid"> ${vo.id}</a><br/>
 			<div class='cart-con'>
 				<h3 id="train_id">${vo.train_id}</h3>
-				<span class='preview' id="mytrainname">${vo.train_name}</span>
-				<span id="mytrainno">${vo.train_no }</span>
+				<span  id="mytrainname">${vo.train_name}</span>
+				<span class='preview' id="mytrainno">${vo.train_no }</span>
 			</div>
 			
 			<input type="button" value="X" id="btn-del" class="btn-del" alt="${vo.train_no }">

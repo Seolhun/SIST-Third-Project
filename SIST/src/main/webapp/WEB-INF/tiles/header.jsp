@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,20 +9,7 @@
     <script type="text/javascript" src="js/login/login.js"></script>
 </head>
 <body>
-<!--	
-	<div>
-		<div
-		  class="fb-like"
-		  data-share="true"
-		  data-width="450"
-		  data-show-faces="true">
-		</div> 
-	</div>
--->
-
 	<img src="img/logo.png" class="menu_logo">
-<!-- 	<div id="logInfo" style='font-size:14px; width: 20%; left:35%; padding: 4px 4px' >
-	</div> -->
 	<nav>
 		<ul>
 			<li class="video_return" onclick="drive()">DRIVE</li>

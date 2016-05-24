@@ -8,23 +8,31 @@
 <title>Insert title here</title>
     <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
 <link rel="stylesheet" type="text/css" href="css/youtube.css">
+<script type="text/javascript" src="js/video_id.js"></script>
 <script type="text/javascript" src="js/ajax.js"></script>
 <script type="text/javascript" src="js/menu.js"></script>
 <script>
+	//제목-가수 받아오기
+	var songlist=[];
+	songlist[0]="Dream Girls IOI";
+	songlist[1]="Cheer Up 트와이스";
+	songlist[2]="Remember 에이핑크";
+	songlist[3]="Ring My Bell 걸스데이";
+	songlist[4]="Sunday Candy donnie trumpet";
+	songlist[5]="Lose My Mind young jeezy";
+	songlist[6]="Hotline Bling drake";
+// 	songlist[7]="King Kunta kendrick lamar";
+
 	//코드변환(string->datacode)
-	
-	//코드저장
 	var datacode =[];
-	datacode[0] = "c7rCyll5AeY"; // Cheer Up
-	datacode[1] = "1BVV9UqELbA"; // Dream Girls
-	datacode[2] = "bXlrqQKbjSM"; // Remember
-	datacode[3] = "z4sN05-xIs4"; // Ring My Bell
-	datacode[4] = "0VKcLPdY9lI"; // Sunday Candy
-	datacode[5] = "oTXCgR93zC8"; // Lose My Mind
-	datacode[6] = "q6f-LLM1H6U"; // Hotline Bling
-	datacode[7] = "0rtV5esQT6I"; // King Kunta
-	datacode[8] = "XGdbaEDVWp0"; // King Kunta
-	datacode[9] = "DEd8ED2FdAg"; // King Kunta
+// 	datacode[0] = "c7rCyll5AeY"; // Cheer Up
+// 	datacode[1] = "1BVV9UqELbA"; // Dream Girls
+// 	datacode[2] = "bXlrqQKbjSM"; // Remember
+// 	datacode[3] = "z4sN05-xIs4"; // Ring My Bell
+// 	datacode[4] = "i4ooH8frBWg"; // Sunday Candy
+// 	datacode[5] = "Tsmqrk7Wgsk"; // Lose My Mind
+// 	datacode[6] = "uxpDa-c-4Mc"; // Hotline Bling
+// 	datacode[7] = "hRK7PVJFbS8"; // King Kunta
 </script>
 </head>
 <body>
@@ -37,7 +45,7 @@
     	<div id="player" data-code=""></div>
 		<ul class="video-t">
 		  <li data-code="" id="prev" data-video-pause="playing">PREV</li>
-		  <li data-code="" id="next">NEXT</li>
+		  <li data-code="c7rCyll5AeY" id="next">NEXT</li>
 		</ul>
 	</div>
 	<div id="add_train">ADD TO MY TRAIN</div>

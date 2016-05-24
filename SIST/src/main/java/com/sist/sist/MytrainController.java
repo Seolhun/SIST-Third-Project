@@ -34,9 +34,10 @@ public class MytrainController {
 	}
 	@RequestMapping("maketrain.do")
 	public String maketrain(String id,String name,Model model){
-		dao.trainInsert(id, name);
-		System.out.println("id:"+id+"  train_name"+name);
+		int train_no=dao.trainInsert(id, name);
+		System.out.println("id:"+id+"  train_name"+name+"train_no:"+train_no);
 		List<TrainVO> list=dao.trainAllData(id);
+		sdao.createSongList(train_no, id);
 		model.addAttribute("list",list);
 		return "mytrain/maketrain";
 	}
@@ -45,13 +46,15 @@ public class MytrainController {
 		int no=Integer.parseInt(train_no);
 		System.out.println("train_no:"+no+"  id:"+id);
 		dao.trainDelete(no,id.trim());
+		sdao.songlistDelete(no, id.trim());
 		List<TrainVO> list=dao.trainAllData(id.trim());
 		model.addAttribute("list",list);
 		return "mytrain/maketrain";
 	}
 	@RequestMapping("songlist.do")
-	public String songlist(String id,int no,Model model){
-		List<SonglistVO> list=sdao.songListAllData(no, id);
+	public String songlist(String id,String no,Model model){
+		int train_no=Integer.parseInt(no);
+		List<SonglistVO> list=sdao.songListAllData(train_no, id);
 		model.addAttribute("list",list);
 		return "mytrain/songlist";
 	}
@@ -65,5 +68,14 @@ public class MytrainController {
 		List<MemberVO> list=mdao.MemberAllData(id.trim());
 		model.addAttribute("genrelist",list);
 		return "mytrain/addgenre";
+	}
+	@RequestMapping("songdelete.do")
+	public String songlistDelete(String train_no,String song_no,String id,Model model){
+		int no_train=Integer.parseInt(train_no);
+		int no_song=Integer.parseInt(song_no);
+		sdao.songDelete(no_train, id.trim(), no_song);
+		List<SonglistVO> list=sdao.songListAllData(no_train, id.trim());
+		model.addAttribute("list", list);
+		return "mytrain/songlist";
 	}
 }

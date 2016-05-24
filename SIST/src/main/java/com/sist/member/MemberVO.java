@@ -5,6 +5,7 @@ public class MemberVO {
 	private String email;
 	private String my_artist;
 	private String my_genre;
+	private String nick;
 	public String getId() {
 		return id;
 	}
@@ -29,7 +30,10 @@ public class MemberVO {
 	public void setMy_genre(String my_genre) {
 		this.my_genre = my_genre;
 	}
-
-	
-	
+	public String getNick() {
+		return nick;
+	}
+	public void setNick(String nick) {
+		this.nick = nick;
+	}
 }
