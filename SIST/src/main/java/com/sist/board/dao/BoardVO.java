@@ -8,8 +8,16 @@ public class BoardVO {
     private String content;
     private String regdate;
     private int hit;
-    private int depth;
+    private int depth; //답글 수
     
+    private ReplyBoardVO rvo;
+
+	public ReplyBoardVO getrVO() {
+		return rvo;
+	}
+	public void setrVO(ReplyBoardVO rVO) {
+		this.rvo = rVO;
+	}
 	public int getNo() {
 		return no;
 	}

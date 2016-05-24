@@ -82,7 +82,30 @@ public class BoardDAO {
 		return total;
 	}
 	
-	public void boardDelete(String email){
+	public boolean boardDelete(int no, String email){
 		boolean bCheck=false;
+		try{
+			BasicDBObject board=new BasicDBObject("no", no);
+			BasicDBObject data=(BasicDBObject)dbc.findOne(board);
+			String dbEmail=data.getString("email");
+			int dbDepth=data.getInt("depth");
+			if(dbEmail.equals(email)){
+				bCheck=true;
+				if(dbDepth==0){
+					dbc.remove(board);
+				} else {
+					dbc.remove(board);
+					//댓글을 그냥 지우는데 경고창만, rNO는 결국 no와 같다.
+					BasicDBObject rBoard=new BasicDBObject("rNo", no);
+										
+				}
+			} else {
+				
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		return bCheck;
 	}
 }
