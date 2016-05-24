@@ -9,9 +9,23 @@ public class BoardVO {
     private String regdate;
     private int hit;
     private int depth; //답글 수
-    
+    private int kind;
     private ReplyBoardVO rvo;
 
+    
+    
+	public int getKind() {
+		return kind;
+	}
+	public void setKind(int kind) {
+		this.kind = kind;
+	}
+	public ReplyBoardVO getRvo() {
+		return rvo;
+	}
+	public void setRvo(ReplyBoardVO rvo) {
+		this.rvo = rvo;
+	}
 	public ReplyBoardVO getrVO() {
 		return rvo;
 	}

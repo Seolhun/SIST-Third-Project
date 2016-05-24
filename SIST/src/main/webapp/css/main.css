@@ -24,11 +24,11 @@ html{
 .main_header ul {
     margin-left: 65px;
     height: 100px;
-    margin-top: 0px;
+    margin-top: -34px;
     opacity: 1;
 }
 .main_header ul li {
-    padding-top: 32px;
+    padding-top: 66px;
     padding-bottom: 12px;
     text-decoration: none;
     display: inline-block;

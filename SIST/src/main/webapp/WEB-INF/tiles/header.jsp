@@ -32,7 +32,7 @@
 			<li class="video_small">FAVOR</li>
 			<li class="video_small">COMMUNITY</li>
 			<li class="video_small" id="search_do" onclick="search_do()">SEARCH</li>
-			<li class="video_small" id="logInfo"></li>
+			<li class="video_small" id="logInfo" style="width:480px;"></li>
 		</ul>
 	</nav>
 	<script src="js/youtube.js"></script>

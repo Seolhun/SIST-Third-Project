@@ -1,0 +1,626 @@
+@CHARSET "UTF-8";
+
+@import
+	url("http://fonts.googleapis.com/css?family=Open+Sans:400,600,700");
+
+@import
+	url("http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css")
+	;
+
+[class*="fontawesome-"]:before {
+	font-family: Sans-Serif;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+.fontawesome-user {
+	background-position: center;
+	background-image: url(imagenes/usuario.png);
+	background-repeat: no-repeat;
+	background-size: 40%;
+}
+
+.fontawesome-lock {
+	background-position: center;
+	background-image: url(imagenes/contraseña.png);
+	background-repeat: no-repeat;
+	background-size: 40%;
+}
+
+html, body {
+	height: 100%;
+	text-align: center;
+}
+
+body {
+	font: 14px/1 'Open Sans', sans-serif;
+	color: #555;
+	background: #eee;
+}
+
+a {
+	color: #eee;
+	outline: 0;
+	text-decoration: none;
+}
+
+/* color a gris a todoslos inputs */
+input, textarea, select, .main #tab61 {
+	background-color: #2A5D9A;
+	color: white;
+	border-radius: 0.25rem;
+	font-weight: bold;
+	padding: 1px 2px;
+	font-family: Sans-Serif;
+}
+
+/* cambia color a verde en el focus o al pasar sobre el objeto */
+input:focus, input:hover, textarea:focus, textarea:hover, select:focus,
+	select:hover, .main #tab61:focus, .main #tab61:hover {
+	background-color: #808000;
+	-webkit-transition: background-color .7s;
+	transition: background-color .7s;
+}
+
+input, textarea, select, .area_select, .inventario_select, .main #tab61
+	{
+	border: 0;
+	margin: 0;
+	outline: 0;
+	font-weight: bold;
+}
+
+.site__container {
+	width: 100%;
+	padding: 10% 38.75% 10% 38.75%;
+}
+
+.grid__container {
+	margin: auto;
+	min-width: 100%;
+	text-align: center;
+	height: auto;
+}
+
+.error, input[type="submit"], input[type="button"], .main #tab61 {
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+.form__field label {
+	background-color: #363b41;
+	border-bottom-left-radius: 5pt;
+	border-top-left-radius: 5pt;
+	padding-left: 1.25em;
+	padding-right: 1.25em;
+}
+
+.form__field {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	width: 100%;
+	height: auto;
+}
+
+.form__input {
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	-ms-flex: 1;
+	width: 100%;
+	max-width: 300px;
+	max-height: 50px;
+	height: 100%;
+}
+
+nav {
+	margin-top: 5px;
+	background: -moz-linear-gradient(#FFF 0%, #DEDEDE 100%);
+	background: -ms-linear-gradient(#FFF 0%, #DEDEDE 100%);
+	background: -o-linear-gradient(#FFF 0%, #DEDEDE 100%);
+	background: -webkit-linear-gradient(#FFF 0%, #DEDEDE 100%);
+	background: linear-gradient(#FFF 0%, #DEDEDE 100%);
+}
+
+header {
+	margin-top: 10px;
+	background: #808000;
+}
+
+header, nav {
+	min-width: 800px;
+	min-height: 30px;
+	text-align: center;
+	border-radius: 5px;
+	color: #FFF;
+	display: inline-block;
+	padding: 10px 10px;
+}
+
+nav ul {
+	display: inline-block;
+	list-style: none;
+}
+
+nav ul a {
+	display: block;
+	color: #333;
+	text-decoration: none;
+	line-height: 22px;
+	padding: 0 15px;
+}
+
+nav ul li {
+	position: relative;
+	display: inline-block;
+}
+
+nav ul li:hover {
+	background: -moz-linear-gradient(#808000 0%, #808000 100%);
+	background: -o-linear-gradient(#808000 0%, #808000 100%);
+	background: -webkit-linear-gradient(#808000 0%, #808000 100%);
+	background: -ms-linear-gradient(#808000 0%, #808000 100%);
+	background: linear-gradient(#808000 0%, #808000 100%);
+	transition-property: all;
+	box-shadow: 0 0 5px #000;
+	-moz-box-shadow: 0 0 5px #000;
+	-ms-box-shadow: 0 0 5px #000;
+	-o-box-shadow: 0 0 5px #000;
+	-webkit-box-shadow: 0 0 5px #000;
+	padding: 0 auto;
+}
+
+nav ul ul {
+	display: none;
+	position: absolute;
+	top: 100%;
+	background: #fff;
+	padding: 0
+}
+
+nav ul ul li {
+	width: 150px;
+}
+
+nav ul ul a {
+	padding: 5px 5px;
+	border-bottom: 1px solid #bbb;
+}
+
+nav ul ul ul {
+	top: 0;
+	left: 100%;
+}
+
+nav ul li:hover>ul {
+	display: block;
+	z-index: 100;
+}
+
+.site__container2 {
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	-ms-flex: 1;
+	padding: 3.5em 1em;
+}
+
+.form--login2 input[type="text"], .form_inventario input[name="encargado"],
+	.form--login2 input[type="password"], .form--login2 #textarea1,
+	.form--login2 input[type="submit"], #select {
+	padding: 1rem;
+	width: 100%;
+	height: 100%;
+}
+
+.grid__container2 {
+	margin: auto;
+	min-width: 100%;
+	width: auto;
+	text-align: center;
+	height: auto;
+	padding-left: 38.75%;
+	padding-right: 38.75%;
+}
+
+.image_holder {
+	width: 100%;
+	height: auto;
+	color: white;
+	position: relative;
+	margin-bottom: 0.1%;
+}
+
+.image_info {
+	margin: 1px;
+	display: none;
+	position: absolute;
+	padding: 1px;
+	padding-top: 2.5%;
+	left: 100%;
+	width: 100%;
+	height: 100%;
+	background-color: #808000;
+}
+
+.image_holder:hover .image_info {
+	display: block;
+}
+
+.image_holder:hover .menu {
+	display: block;
+}
+
+.menu {
+	margin: 1%;
+	display: none;
+	position: absolute;
+	top: 20px;
+	left: -11%;
+	width: 300%;
+	height: auto;
+	opacity: 10%;
+}
+
+#box2 {
+	text-align: center;
+	padding-top: 2%;
+	padding-bottom: 2%;
+	width: 100%;
+	height: 100%;
+}
+
+#center {
+	display: inline-block;
+	white-space: normal;
+}
+
+.tableSol {
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	font-size: 12px;
+	margin: 0 auto;
+	width: 80%;
+	text-align: center;
+	border-collapse: collapse;
+}
+
+.th {
+	font-size: 13px;
+	font-weight: normal;
+	padding: 8px;
+	background: #92A9F3;
+	border-top: 4px solid #92A9F3;
+	border-bottom: 1px solid #92A9F3;
+	color: #039;
+}
+
+.td {
+	padding: 8px;
+	border-bottom: 1px solid #fff;
+	color: #669;
+	border-top: 1px solid transparent;
+}
+
+.tr {
+	background-color: gray;
+}
+
+tr:hover .td {
+	background: #A4B8FF;
+	color: #339;
+}
+
+.menu_holder {
+	width: auto;
+	height: auto;
+	text-align: center;
+	color: white;
+	margin: .5%;
+	position: relative;
+}
+
+.submenu_info {
+	display: none;
+	position: absolute;
+	top: 100%;
+	width: 200%;
+	height: auto;
+	background-color: #808000;
+}
+
+.menu_holder:hover .submenu_info {
+	display: block;
+	background: linear-gradient(#808000 0%, #808000 100%);
+}
+
+.menu_holder .submenu_info a {
+	width: 100%;
+	height: 100%;
+}
+
+.menu_holder .submenu_info a:hover {
+	background: linear-gradient(#FFF 0%, #DEDEDE 100%);
+}
+
+.grid__container3 {
+	padding-top: 1em;
+	padding-left: 38.75%;
+	padding-right: 38.75%;
+}
+
+.image_holder2 {
+	width: 15%;
+	height: 100%;
+	text-align: center;
+	color: white;
+	margin-right: 0.1em;
+	float: left;
+}
+
+.tabla {
+	border: 2px solid blue;
+	box-shadow: 0 0 5px blue;
+	display: inline-block;
+	width: 100%;
+	padding: 0 1em;
+}
+
+.equipo_inventario {
+	margin-top: 2.5px;
+	margin-bottom: 2.5px;
+	height: 58px;
+	border: 2px solid #000;
+	box-shadow: 0 0 5px #000;
+	opacity: 0.5%;
+	color: white;
+	display: block;
+}
+
+.formulario {
+	width: 79.8%;
+	height: 100%;
+	float: left;
+}
+
+.formulario_otro, .formulario_Regulador, .formulario_Impresora,
+	.formulario_CPU, .formulario_Monitor {
+	width: 100%;
+	height: 100%;
+	float: left;
+}
+
+.formulario_otros, .formulario_Reguladores, .formulario_Impresoras,
+	.formulario_CPUs, .formulario_Monitores, .busqueda {
+	margin: 0.1%;
+	float: left;
+	width: 19.8%;
+}
+
+.inventario__input, .inventario_select {
+	text-align: left;
+	min-width: 204px;
+	min-height: 24px;
+	border-radius: 0.25rem;
+}
+
+.equipo_select {
+	width: 25px;
+}
+
+.menu_busqueda {
+	margin-top: 1em;
+	margin-bottom: 2em;
+	width: 100%;
+	height: 25px;
+	text-align: center;
+}
+
+.tabla_busqueda {
+	width: 100%;
+	height: 100%;
+}
+
+.equipos {
+	height: 100%;
+	display: inline-block;
+}
+
+.eliminar {
+	height: 100%;
+	text-align: center;
+	width: 100%;
+	background-color: #363b41;
+	color: white;
+	border-radius: 0.25rem;
+	font-size: 70%;
+}
+
+.botones {
+	height: 100%;
+	width: 5%;
+	float: right;
+}
+
+input[id="guardar"], input[id="agregar"] {
+	padding: 1rem;
+	width: 48%;
+	margin: 1px;
+}
+
+*, *:before, *:after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+h1 {
+	padding: 50px 0;
+	font-weight: 400;
+	text-align: center;
+}
+
+p {
+	margin: 0 0 20px;
+	line-height: 1.5;
+}
+
+main {
+	text-align: center;
+	width: auto;
+	padding: 5px;
+	margin: 0 auto;
+	background: #fff;
+	box-shadow: 0 0 5px blue;
+}
+
+section {
+	text-align: center;
+	display: none;
+	padding: 10px 5px;
+	border-top: 1px solid #ddd;
+	width: auto;
+}
+
+section table {
+	width: auto;
+	display: inline-block;
+	text-align: center;
+	border-collapse: collapse;
+}
+
+.modeli {
+	display: none;
+	width: 70px;
+	height: auto;
+}
+
+tr:hover .modeli {
+	display: block;
+}
+
+section table th, section table td {
+	width: auto;
+	height: 30px;
+	padding: 3px 2px;
+	border-bottom: 1px solid #bbb;
+}
+
+section tbody tr:nth-child(odd) {
+	background: #fbfbfb;
+}
+
+section tbody tr:nth-child(even) {
+	background: #f2f2f2;
+}
+
+input[name="tabs"], input[name="subtabs"] {
+	display: none;
+}
+
+.main label {
+	display: inline-block;
+	margin: 0 0 -1px;
+	padding: 15px 10px;
+	font-weight: 600;
+	text-align: center;
+	color: #bbb;
+	border: 1px solid transparent;
+}
+
+.main #tab6 {
+	background-color: green;
+}
+
+.main label:before {
+	font-family: fontawesome;
+	font-weight: normal;
+	margin-right: 10px;
+}
+
+.main label[for*='1']:before {
+	content: '\f02f';
+}
+
+.main label[for*='2']:before {
+	content: '\f108';
+}
+
+.main label[for*='3']:before {
+	content: '\f109';
+}
+
+.main label[for*='4']:before {
+	content: '\f0e7';
+}
+
+.main label[for*='5']:before {
+	content: '\f0ce';
+}
+
+.main label[id*='asign']:before {
+	content: '\f022';
+}
+
+.main label[id*='asign-hist']:before {
+	content: '\f0cb';
+}
+
+.equipo input [type="submit"] {
+	width: 100%;
+}
+
+.main label:hover {
+	color: green;
+	opacity: 0.5;
+	cursor: pointer;
+}
+
+input[type="radio"]:checked+label {
+	color: green;
+	border: 1px solid #ddd;
+	border-top: 2px solid green;
+	border-bottom: 1px solid #fff;
+}
+
+#tab1:checked ~ #content1, #tab2:checked ~ #content2, #tab3:checked ~
+	#content3, #tab4:checked ~ #content4, #tabh:checked ~ #historial, #tab5:checked 
+	~ #content5, #tab6:checked ~ #content6, #tab7:checked ~ #content7 {
+	display: block;
+}
+
+@media screen and (max-width: 650px) {
+	.main label {
+		font-size: 0;
+	}
+	.main label:before {
+		margin: 0;
+		font-size: 18px;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	.main label {
+		padding: 15px;
+	}
+}
+
+.exportar input[type="submit"] {
+	width: auto;
+	height: 22.5px;
+}
+
+.Inventario select, .Inventario input {
+	width: 100%;
+}
+
+.sec_paginador {
+	width: 100%;
+	display: block;
+}
+
+.paginador {
+	display: inline-table;
+	width: 100px;
+	height: 15px;
+}

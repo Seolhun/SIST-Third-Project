@@ -126,6 +126,7 @@ function Login(){
 	});
 }*/
 // FB.api(path, method, params, callback)
+
 function getLikeMusician(){
     FB.api('/me/music?target_id=me', function(response) {
 		if (response && !response.error) {
@@ -136,13 +137,11 @@ function getLikeMusician(){
 	});
 }
 
-
 function getUserInfo() {
-    FB.api('/me',{fields: 'name,email'}, function(response) {
+    FB.api('/me',{fields: 'email'}, function(response) {
     	getPhoto();
-	    var str="<h4>Name : "+response.name+"</h4>";
-    	str +="<h4>email : "+response.email+"</h4>";
-    	str +="<input type='button' value='Logout' onclick='Logout();' />";
+	    var str="<input type='button' value='Logout' onclick='Logout();' style='float:right'/>";
+    	str +="<h4 style='width:60%; float:right'>"+response.email+"</h4>";
     	document.getElementById("logInfo").innerHTML+=str;    
     	var id=response.id;
     	var email=response.email;
@@ -164,7 +163,7 @@ function getUserInfo() {
 
 function getPhoto(){
 	FB.api('/me/picture?type=normal', function(response) {
-		var str="<img src='"+response.data.url+"' style='float:left'/>";
+		var str="<img src='"+response.data.url+"' style='float:left; height:50px; width:50px'/>";
 		document.getElementById("logInfo").innerHTML+=str;  	  	    
   	});
 	

@@ -20,7 +20,7 @@ public class BoardDAO {
 	         // 데이터베이스 일기
 	         db=mc.getDB("sist"); // use mydb
 	         // 컬렉션 연결
-	         dbc=db.getCollection("sist_member");
+	         dbc=db.getCollection("sist_board");
 		} catch (Exception ex) {
 			System.out.println(ex.getMessage());
 		}
@@ -37,6 +37,7 @@ public class BoardDAO {
 				BasicDBObject obj = (BasicDBObject) cursor.next();
 				BoardVO vo=new BoardVO();
 				vo.setNo(obj.getInt("no"));
+				vo.setKind(obj.getInt("kind"));
 				vo.setEmail(obj.getString("email"));
 				vo.setSubject(obj.getString("subject"));
 				vo.setContent(obj.getString("content"));
@@ -64,6 +65,7 @@ public class BoardDAO {
 		cursor.close();
 		BasicDBObject query = new BasicDBObject();
 		query.put("no", no + 1);
+		query.put("kind", vo.getKind());
 		query.put("email", vo.getEmail());
 		query.put("subject", vo.getSubject());
 		query.put("content", vo.getContent());
@@ -90,22 +92,36 @@ public class BoardDAO {
 			String dbEmail=data.getString("email");
 			int dbDepth=data.getInt("depth");
 			if(dbEmail.equals(email)){
-				bCheck=true;
 				if(dbDepth==0){
 					dbc.remove(board);
 				} else {
 					dbc.remove(board);
 					//댓글을 그냥 지우는데 경고창만, rNO는 결국 no와 같다.
 					BasicDBObject rBoard=new BasicDBObject("rNo", no);
-										
+					dbc.remove(rBoard);
 				}
+				bCheck=true;
 			} else {
-				
+				bCheck=false;
 			}
 		}catch(Exception e){
 			e.printStackTrace();
-		}
-		
+		}		
 		return bCheck;
+	}
+	//no,email,subject,content,regdate,hit,depth
+	//rNo, rEmail,rContent, rRegdate, rLike
+	public void rBoardInsert(ReplyBoardVO rvo, int no){
+		try{
+			BasicDBObject query=new BasicDBObject();
+			query.put("rNo", no);
+			query.put("rEmail", rvo.getrEmail());
+			query.put("rContent", rvo.getrContent());
+			query.put("rRegdate", rvo.getrRegdate());
+			query.put("rLike", 0);
+			dbc.insert(query);
+		} catch(Exception e){
+			
+		}
 	}
 }

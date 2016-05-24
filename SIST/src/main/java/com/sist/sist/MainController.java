@@ -26,11 +26,17 @@ public class MainController {
 		model.addAttribute("list",list);
 	   return "main";
    }
-   
+   //로그인 페이지 이동
    @RequestMapping("login.do")
    public String login(String id,Model model)
    {
 	   return "login";
+   }
+   
+   //게시판 페이지 이동
+   @RequestMapping("board.do")
+   public String board(){
+	   return "board";
    }
    
    @RequestMapping("songChange.do")

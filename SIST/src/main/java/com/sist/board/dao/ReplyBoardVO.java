@@ -1,5 +1,6 @@
 package com.sist.board.dao;
 // mongodb
+//rNo, rEmail,rContent, rRegdate, rLike
 public class ReplyBoardVO {
     private int rNo;
     private String rEmail;
