@@ -32,11 +32,15 @@ function drugflow_do(){
 function search_do(){
 	sendMessage("POST", "search.do", null, mytraindo);
 }
+
 //게시판 리스트 가기 
 function list_do(){
 	sendMessage("POST", "list.do", null, mytraindo);
 }
 
+function insert_do(){
+	sendMessage("POST", "insert.do", null, mytraindo)
+}
 
 function mytraindo(){
 	if(httpRequest.readyState==4){
@@ -45,9 +49,6 @@ function mytraindo(){
 		}
 	}
 }
-
-
-
 </script>
 
 <title>SIST | Drive Your Train</title>
