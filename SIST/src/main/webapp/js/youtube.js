@@ -37,6 +37,8 @@ function youtube_load(){
 		  
 
 			videoSize.setAttribute('data-code', datacode[songNo]);
+			$('iframe#player').attr("src","https://www.youtube.com/embed/"+datacode[songNo]+"?autoplay=1&controls=1&showinfo=0&enablejsapi=1"+
+			"&origin=http%3A%2F%2Flocalhost%3A8080&widgetid=1");
 			
 	};
     ajax.send();
