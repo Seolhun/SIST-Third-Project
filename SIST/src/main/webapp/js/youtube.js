@@ -29,20 +29,21 @@ function youtube_load(){
 	    var json = JSON.parse(this.responseText);
 	    string=json.items[0].snippet.thumbnails.high.url;
 	    datacode[songNo]=string.substr(23,11);
+	    
+		  $('.video-t li').each(function() {
+			  var code = $(this).attr('data-code');
+			    $(this).css("background-image", "url(http://img.youtube.com/vi/" + code + "/0.jpg)");
+			  });
+		  
+
+			videoSize.setAttribute('data-code', datacode[songNo]);
+			
 	};
     ajax.send();
-	
-//	prev.setAttribute('data-code', datacode[songNo-1]);
-	videoSize.setAttribute('data-code', datacode[songNo]);
-//	next.setAttribute('data-code', datacode[songNo+1]);
-	
+
 	//prev,next 썸네일
-	  $('.video-t li').each(function() {
-		  var code = $(this).attr('data-code');
-		    $(this).css("background-image", "url(http://img.youtube.com/vi/" + code + "/0.jpg)");
-		  });
+
 	  
-//	  visible();
 	  player = new YT.Player('player', {
 		    height: height,
 		    width: width,
