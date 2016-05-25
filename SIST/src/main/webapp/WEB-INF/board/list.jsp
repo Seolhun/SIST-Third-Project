@@ -11,7 +11,20 @@
 
 <script type="text/javascript" src="js/board/list.js"></script>
 <script src="https://apis.google.com/js/platform.js" async defer></script>
+<script>
+//게시판 글쓰기
+function insert_do(){
+	sendMessage("POST", "insert.do", null, mytraindo)
+}
 
+function mytraindo(){
+	if(httpRequest.readyState==4){
+		if(httpRequest.status==200){
+			$('.main_body').html(httpRequest.responseText);
+		}
+	}
+}
+</script>
 <title>Insert title here</title>
 </head>
 <body>
@@ -64,7 +77,8 @@
 					<label class="pageMoveBtn">></label>
 				</div>
 				<div class="writeBtnDiv">
-					<button class="writeBtn" onclick="">글 쓰기</button>
+					<button class="writeBtn" onclick="insert_do()">글 쓰기</button>
+					<!-- <li class="video_small" id="list_do" onclick="list_do()">COMMUNITY</li> -->
 				</div>
 			</div>
 		</div>
