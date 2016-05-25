@@ -115,6 +115,8 @@ input, textarea, select, .area_select, .inventario_select, .main #tab61
 	height: 100%;
 }
 
+/*
+
 nav {
 	margin-top: 5px;
 	background: -moz-linear-gradient(#FFF 0%, #DEDEDE 100%);
@@ -122,11 +124,6 @@ nav {
 	background: -o-linear-gradient(#FFF 0%, #DEDEDE 100%);
 	background: -webkit-linear-gradient(#FFF 0%, #DEDEDE 100%);
 	background: linear-gradient(#FFF 0%, #DEDEDE 100%);
-}
-
-header {
-	margin-top: 10px;
-	background: #808000;
 }
 
 header, nav {
@@ -137,7 +134,8 @@ header, nav {
 	color: #FFF;
 	display: inline-block;
 	padding: 10px 10px;
-}
+} 
+
 
 nav ul {
 	display: inline-block;
@@ -205,6 +203,8 @@ nav ul li:hover>ul {
 	-ms-flex: 1;
 	padding: 3.5em 1em;
 }
+
+*/
 
 .form--login2 input[type="text"], .form_inventario input[name="encargado"],
 	.form--login2 input[type="password"], .form--login2 #textarea1,
@@ -487,6 +487,12 @@ section table {
 	display: inline-block;
 	text-align: center;
 	border-collapse: collapse;
+}
+
+#boardListDiv{
+	height: 100%;
+	width: 90%;
+	background-color: white;
 }
 
 .modeli {

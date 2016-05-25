@@ -22,7 +22,7 @@ html{
 	z-index:3;
 }
 .main_header ul {
-    margin-left: 65px;
+    margin-left: -100px;
     height: 100px;
     margin-top: -34px;
     opacity: 1;

@@ -14,6 +14,7 @@
 <body>
 	<main id="main" class="main">
 	<form action="peticiones" method="post" class="form Inventario">
+	<div id="boardListDiv">
 		<input id="tab6" type="radio" name="tabs" checked> 
 		<label id="tabmp" for="tab6">Mant. Preventivo</label>
 		<input id="tab7" type="radio" name="tabs"> <label id="asign-hist" for="tab7">Mant.Correctivo</label> 
@@ -24,15 +25,16 @@
 			<thead>
 				<tr>
 					<input name="no_imp" id="no_imp" type="text" style="display: none;">
-					<th>번호</th>
-					<th>종류</th>
-					<th>제목</th>
-					<th>작성일</th>
-					<th>조회수</th>
+					<th class="headth">번호</th>
+					<th class="headth">종류</th>
+					<th class="headth">제목</th>
+					<th class="headth">작성일</th>
+					<th class="headth">조회수</th>
 				</tr>
 			</thead>
 			<tbody>
 			<c:forEach var="1" begin="1" end="10">
+			<%-- <c:forEach var="vo" items="{$list}"> --%>
 				<tr>
 					<td style="width: 5%">ALM1</td>
 					<td style="width: 10%">prueba 2</td>
@@ -51,6 +53,7 @@
 			</tbody>
 		</table>
 		</section>
+		</div>
 	</form>
 	</main>
 </body>

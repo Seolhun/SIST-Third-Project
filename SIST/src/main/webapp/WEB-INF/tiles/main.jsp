@@ -19,9 +19,6 @@
 		param="id=admin";  // 로그인 되면 admin은 사용자 id로
 		sendMessage("POST", "mytrain.do", param, mytraindo);	
 	});
-	
-	
-	
 }); */
 function myfunction(){
 	param="id=admin";  // 로그인 되면 admin은 사용자 id로
