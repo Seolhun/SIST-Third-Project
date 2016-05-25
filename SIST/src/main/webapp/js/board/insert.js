@@ -2,11 +2,9 @@ var form = $('#contact'), submit = form.find('[name="submit"]');
 
 form.on('submit', function(e) {
 	e.preventDefault();
-
 	// avoid spamming buttons
 	if (submit.attr('value') !== 'Send')
 		return;
-
 	var valid = true;
 	form.find('input, textarea').removeClass('invalid').each(function() {
 		if (!this.value) {
@@ -60,56 +58,27 @@ form.on('submit', function(e) {
 	}
 });
 
-/*//Kind의 DropBox 
-function myFunction() {
-	document.getElementById("myDropdown").classList.toggle("show");
-}
-
-// Close the dropdown if the user clicks outside of it
-window.onclick = function(event) {
-	if (!event.target.matches('.dropbtn')) {
-
-		var dropdowns = document.getElementsByClassName("dropdown-content");
-		var i;
-		for (i = 0; i < dropdowns.length; i++) {
-			var openDropdown = dropdowns[i];
-			if (openDropdown.classList.contains('show')) {
-				openDropdown.classList.remove('show');
-			}
-		}
-	}
-}*/
-
-$(function(){
-	$('#sendBtn').click(function(){
-		var name=$('#kind').val();
-		if(name.trim()=="")
-		{
-			$('#name').focus();
-			$('#name').val("");
+$(function() {
+	$('#sendBtn').click(function() {
+		var kind = $('#kind').val();
+		if (kind.trim() == "") {
+			$('#kind').focus();
+			$('#kind').val("");
 			return;
 		}
-		var subject=$('#subject').val();
-		if(subject.trim()=="")
-		{
+		var subject = $('#subject').val();
+		if (subject.trim() == "") {
 			$('#subject').focus();
 			$('#subject').val("");
 			return;
 		}
-		var content=$('#content').val();
-		if(content.trim()=="")
-		{
+		var content = $('#content').val();
+		if (content.trim() == "") {
 			$('#content').focus();
 			$('#content').val("");
 			return;
 		}
-		var pwd=$('#pwd').val();
-		if(pwd.trim()=="")
-		{
-			$('#pwd').focus();
-			$('#pwd').val("");
-			return;
-		}
-		$('#frm').submit();
+		$('#sendBtn').submit();
 	});
 });
+

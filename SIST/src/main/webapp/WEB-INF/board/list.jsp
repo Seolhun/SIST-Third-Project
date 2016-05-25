@@ -21,9 +21,6 @@
 		<input id="tab1" type="radio" name="tabs" checked>		<label id="asign-hist" for="tab1">자유 게시판</label>
 		<input id="tab2" type="radio" name="tabs"> 				<label id="asign-hist" for="tab2">음악 게시판</label> 
 		<input id="tab3" type="radio" name="tabs"> 				<label id="asign-hist" for="tab3">Q & A</label>
-		<div id="writeBtnDiv">
-			<div ></div>
-		</div>
 		<section id="content6">
 		<table class="boardTable">
 			<thead>
@@ -67,7 +64,7 @@
 					<label class="pageMoveBtn">></label>
 				</div>
 				<div class="writeBtnDiv">
-					<button class="writeBtn">글 쓰기</button>
+					<button class="writeBtn" onclick="">글 쓰기</button>
 				</div>
 			</div>
 		</div>
