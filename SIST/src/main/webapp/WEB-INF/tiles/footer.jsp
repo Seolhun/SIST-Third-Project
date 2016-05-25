@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
+<!--     <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'> -->
 <link rel="stylesheet" type="text/css" href="css/youtube.css">
 <script type="text/javascript" src="js/video_id.js"></script>
 <script type="text/javascript" src="js/ajax.js"></script>

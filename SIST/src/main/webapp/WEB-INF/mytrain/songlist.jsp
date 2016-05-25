@@ -24,7 +24,7 @@ $(function(){
 function deletesong(){
 	if(httpRequest.readyState==4){
 		if(httpRequest.status==200){
-			$('#drivelist').html(httpRequest.responseText);
+			$('#mypageright').html(httpRequest.responseText);
 		}
 	}
 }
@@ -32,7 +32,9 @@ function deletesong(){
 </head>
 <body>
 	<!-- 0525LEE modify! -->
+	<ul id="songListUl">
 	<c:forEach var="vo" items="${list }">
+	
 		<li id="songList">
 			<div class='cart-con2'>
 <%-- 				<h3>${vo.train_id}</h3> --%>
@@ -43,7 +45,7 @@ function deletesong(){
 			</div>
 			<input type="button" value="X" id="songlist_btn-del" alt="${vo.song_no }" class="songlist_btn-del">			
 		</li>
-	
       	</c:forEach>
+   	</ul>
 </body>
 </html>

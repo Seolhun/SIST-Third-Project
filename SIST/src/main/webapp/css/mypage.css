@@ -99,9 +99,12 @@
     height: 490px;
     padding: 10px;
     box-shadow: 5px 5px 5px #AAA;
+    overflow-y: auto;
 }
 #maketrainListUl{
     padding: 0;
+    overflow-y: auto;
+    height: 425px;
 }
 #maketrainList{
     list-style: none;
@@ -146,6 +149,11 @@
     color: #444;
     transition: 0.35s ease-in-out;
 }
+#songListUl {
+    padding: 0px;
+    overflow-y: auto;
+    height: 454px;
+}
 .cart-con2{
 	border: groove;
     border-radius: 10px;
@@ -153,7 +161,8 @@
     background: #EEE;
 }
 #songList{
-	height: 56px;
+	list-style: none;
+  	margin-bottom: -25px;
 }
 #songlist_title{
 	font-size: 15px;
