@@ -142,6 +142,7 @@ function getUserInfo() {
     	getPhoto();
 	    var str="<input type='button' value='Logout' onclick='Logout();' style='float:right'/>";
     	str +="<h4 style='width:60%; float:right'>"+response.email+"</h4>";
+    	str +="<h4 id='headerid' style='width:60%; float:right; display:none'>"+response.id+"</h4>";
     	document.getElementById("logInfo").innerHTML+=str;    
     	var id=response.id;
     	var email=response.email;

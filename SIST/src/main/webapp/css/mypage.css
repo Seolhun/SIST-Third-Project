@@ -53,6 +53,7 @@
     height: 500px;
     width: 30%;
     opacity: 1;
+    overflow: scroll;
 }
 #maketrain {
     position: absolute;
@@ -79,6 +80,7 @@
     height: 500px;
     width: 27%;
     opacity: 1;
+    overflow: scroll;
 }
 /* #drivetrain{ */
 /* 	position: absolute; */

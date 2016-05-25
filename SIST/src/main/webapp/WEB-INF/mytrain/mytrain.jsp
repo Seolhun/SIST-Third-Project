@@ -11,17 +11,18 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
 $(function(){
-	param="id=admin";  // 로그인 되면 admin은 사용자 id로
+	var id=$('#headerid').text();
+	param="id="+id;  // 로그인 되면 admin은 사용자 id로
 	sendMessage("POST", "mytrainlist.do", param, callback);
 	
 	$('#MakeTrainBtn').click(function(){
 		var name=$('#maketrainname').val();
-		param="id=admin&name="+name;
+		param="id="+id+"&name="+name;
 		sendMessage("POST", "maketrain.do", param, maketrain);
 	});
 	$('#genreBtn').click(function(){
-		alert("클릭");
-        var param = "id=admin&my_genre=";
+		
+        var param = "id="+id+"&my_genre=";
         $("input:checkbox[name=cartcheck]:checked").each(function(){
            var cartcheck=$(this).val();
            param+=cartcheck+",";

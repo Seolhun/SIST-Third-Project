@@ -17,11 +17,11 @@ public class MemberDAO {
 	private DBCollection dbc;
 	public MemberDAO(){
 		try{
-			// ¸ù°íµğºñ ¿¬°á
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			mc=new MongoClient("211.238.142.23:27017");
-			// µ¥ÀÌÅÍº£ÀÌ½º ÀÏ±â
+			// ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ ï¿½Ï±ï¿½
 			db=mc.getDB("sist"); // use mydb
-			// ÄÃ·º¼Ç ¿¬°á
+			// ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			dbc=db.getCollection("sist_member");
 		}catch(Exception ex){
 			System.out.println(ex.getMessage());
@@ -74,7 +74,9 @@ public class MemberDAO {
 			query.put("email", vo.getEmail());
 			query.put("my_artist", vo.getMy_artist());
 			query.put("my_genre", vo.getMy_genre());
+			query.put("nick", vo.getId());
 			dbc.insert(query);
+			System.out.println("ì•„ì´ë”” ì…ë ¥");
 		} catch (Exception e){
 			System.out.println("Insert Member" + e.getMessage());
 		}
@@ -85,7 +87,7 @@ public class MemberDAO {
 		BasicDBObject data=(BasicDBObject) dbc.findOne(where);
 		System.out.println("id:"+id+"my_genre:"+my_genre);
 		data.put("my_genre", my_genre);
-		dbc.update(where, new BasicDBObject("$set",data)); // $set¾ÈÁÖ¸é insertµÈ´Ù
+		dbc.update(where, new BasicDBObject("$set",data)); // $setï¿½ï¿½ï¿½Ö¸ï¿½ insertï¿½È´ï¿½
 	}
 	
 }
