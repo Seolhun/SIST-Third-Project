@@ -141,7 +141,7 @@ function getLikeMusician(){
 
 function getUserInfo() {
     FB.api('/me',{fields: 'email'}, function(response) {
-    	//getPhoto();
+    	getPhoto();
 	    var str="<div style='width:100%; height:100%; font-size:20px'>"+response.email;
     	str +="<input type='button' value='Logout' onclick='Logout();' style='font-size:15px; float:right; color:black'/></div>";
     	document.getElementById("logInfo").innerHTML+=str;    
@@ -163,9 +163,9 @@ function getUserInfo() {
     );
 }
 
-function getPhoto(){
+function getPhoto(){ //0525LEE style modify 
 	FB.api('/me/picture?type=normal', function(response) {
-		var str="<div id='imgInfo'><img src='"+response.data.url+"' style='height:60px; width:60px'/></div>";
+		var str="<div id='imgInfo'><img src='"+response.data.url+"' style='position: absolute; height:60px; width:60px; left:-25px; top: 60px'/></div>";
 		document.getElementById("logInfo").innerHTML+=str;  	  	    
   	});
 }

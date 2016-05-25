@@ -7,7 +7,7 @@ for(var i=0; i<5; i++)
 		document.getElementById('player').style.width='400px';
 		document.getElementById('player').style.height='250px';
 		document.getElementById('player').style.top='745px';
-		document.getElementById('player').style.left='-1400px';
+		document.getElementById('player').style.left='-72%';
 		prev.classList.add("hidden");
 		next.classList.add("hidden");
 		document.getElementById('video-title').style.display='none';
