@@ -1,10 +1,10 @@
 package com.sist.search;
 
-public class Music_SearchVO {
+public class MusicListVO {
 
 	   private String music_title;
 	   private String music_artist;
-	   private String artist_poster;
+	   private int no;
 	public String getMusic_title() {
 		return music_title;
 	}
@@ -17,11 +17,12 @@ public class Music_SearchVO {
 	public void setMusic_artist(String music_artist) {
 		this.music_artist = music_artist;
 	}
-	public String getArtist_poster() {
-		return artist_poster;
+	public int getNo() {
+		return no;
 	}
-	public void setArtist_poster(String artist_poster) {
-		this.artist_poster = artist_poster;
+	public void setNo(int no) {
+		this.no = no;
 	}
+	
 	   
 }

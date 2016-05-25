@@ -39,6 +39,7 @@ function youtube_load(){
 			videoSize.setAttribute('data-code', datacode[songNo]);
 			$('iframe#player').attr("src","https://www.youtube.com/embed/"+datacode[songNo]+"?autoplay=1&controls=1&showinfo=0&enablejsapi=1"+
 			"&origin=http%3A%2F%2Flocalhost%3A8080&widgetid=1");
+			$('#background').css("background-image", "url(http://img.youtube.com/vi/" + datacode[songNo] + "/0.jpg)");
 			
 	};
     ajax.send();
@@ -150,7 +151,7 @@ function videoChange(){
 		prev.setAttribute('data-code', datacode[songNo-1]);
 		videoSize.setAttribute('data-code', datacode[songNo]);
 		next.setAttribute('data-code', datacode[songNo+1]);
-		alert(datacode[songNo+1]); //값이 없는 이유는 datacode[songNo+2]가 없기때문
+		alert(datacode[songNo]); //값이 없는 이유는 datacode[songNo+2]가 없기때문
 		$('#background').css("background-image", "url(http://img.youtube.com/vi/" + datacode[songNo] + "/0.jpg)");
 		// 다시 띄우기
 //		var youtube=document.querySelectorAll('#player')[0];
