@@ -79,3 +79,37 @@ window.onclick = function(event) {
 		}
 	}
 }*/
+
+$(function(){
+	$('#sendBtn').click(function(){
+		var name=$('#kind').val();
+		if(name.trim()=="")
+		{
+			$('#name').focus();
+			$('#name').val("");
+			return;
+		}
+		var subject=$('#subject').val();
+		if(subject.trim()=="")
+		{
+			$('#subject').focus();
+			$('#subject').val("");
+			return;
+		}
+		var content=$('#content').val();
+		if(content.trim()=="")
+		{
+			$('#content').focus();
+			$('#content').val("");
+			return;
+		}
+		var pwd=$('#pwd').val();
+		if(pwd.trim()=="")
+		{
+			$('#pwd').focus();
+			$('#pwd').val("");
+			return;
+		}
+		$('#frm').submit();
+	});
+});

@@ -32,12 +32,21 @@ public class BoardDAO {
 		try{
 			int rowSize=10;
 			int skip = (page*rowSize)-rowSize;
-			DBCursor cursor=dbc.find().sort(new BasicDBObject("no",-1).append("no", 1)).skip(skip).limit(rowSize); //해결해야 된다.
+			DBCursor cursor=dbc.find().sort(new BasicDBObject("no",1).append("no", 1)).skip(skip).limit(rowSize); //해결해야 된다.
+			/*
+				int rowSize = 10;
+				int skip = (page * rowSize) - rowSize;
+				DBCursor cursor = dbc.find().sort(new BasicDBObject("group_id", -1).append("group_step", 1)).skip(skip).limit(rowSize);
+			// SELECT * FROM board => Order BY group_id DESC,group_step ASC
+			// WHERE rownum BETWEEN skip AND limit
+			// NOSQL {no:1,name:"",subject:""}, ROW
+			// {no:2,name:"",subject:{}}
+			*/
 			while(cursor.hasNext()){
 				BasicDBObject obj = (BasicDBObject) cursor.next();
 				BoardVO vo=new BoardVO();
 				vo.setNo(obj.getInt("no"));
-				vo.setKind(obj.getInt("kind"));
+				vo.setKind(obj.getString("kind"));
 				vo.setEmail(obj.getString("email"));
 				vo.setSubject(obj.getString("subject"));
 				vo.setContent(obj.getString("content"));
