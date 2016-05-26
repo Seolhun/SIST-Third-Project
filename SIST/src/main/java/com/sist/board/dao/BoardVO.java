@@ -9,15 +9,15 @@ public class BoardVO {
     private String regdate;
     private int hit;
     private int depth; //답글 수
-    private int kind;
+    private String kind;
     private ReplyBoardVO rvo;
 
     
     
-	public int getKind() {
+	public String getKind() {
 		return kind;
 	}
-	public void setKind(int kind) {
+	public void setKind(String kind) {
 		this.kind = kind;
 	}
 	public ReplyBoardVO getRvo() {

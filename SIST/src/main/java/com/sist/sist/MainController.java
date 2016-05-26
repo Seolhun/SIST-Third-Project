@@ -20,7 +20,7 @@ public class MainController {
 
 	@RequestMapping("main.do")
 	public String main_list(String id, Model model) {
-		id = "admin"; // �α��� ����� ������
+		id = "admin"; // 占싸깍옙占쏙옙 占쏙옙占쏙옙占� 占쏙옙占쏙옙占쏙옙
 		List<TrainVO> list = dao.trainAllData(id);
 		model.addAttribute("list", list);
 		return "main";

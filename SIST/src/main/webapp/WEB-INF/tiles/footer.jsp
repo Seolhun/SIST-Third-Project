@@ -12,7 +12,12 @@
 <script type="text/javascript" src="js/ajax.js"></script>
 <script type="text/javascript" src="js/menu.js"></script>
 <script>
+
 	//제목-가수 받아오기
+	var songlist=[];
+	  <c:forEach var="mlist" items="">
+	  songlist[mlist.no]="Dream Girls IOI";
+    </c:forEach>
 	var songlist=[];
 	songlist[0]="Dream Girls IOI";
 	songlist[1]="Cheer Up 트와이스";
@@ -51,17 +56,23 @@
 	<div id="add_train">ADD TO MY TRAIN</div>
 	
 	<div id="footer-list">
-		<ul>
+		<ul class="songlist_ul">
 			<c:forEach var="vo" items="${list }">
-            <li>${vo.nick}<br>${vo.train_name }</li>
+<%--             <li>${vo.nick}<br>${vo.train_name }</li> --%>
          <input type="hidden" value="${vo.train_no }" id="footertrain_no">
          </c:forEach>
-			
 		</ul>
 	</div>
 	
 	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 	<script src='http://www.seanmccambridge.com/tubular/js/jquery.tubular.1.0.js'></script>
 	<script src="js/youtube.js"></script>
+	<script>
+	$(document).ready(function(){
+		$(".songlist").on("click",function(){
+			$(this).find('.song_name').text();
+		});
+	});
+	</script>
 </body>
 </html>

@@ -1,4 +1,5 @@
 package com.sist.sist;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,15 +18,20 @@ public class BoardController {
 	//rNo, rEmail,rContent, rRegdate, rLike
 	@RequestMapping("insertBoard.do")
 	public String insertBoard(@RequestParam("no") int no,
-			@RequestParam("kind") int kind,
-			@RequestParam("email") int email,
-			@RequestParam("subject") int subject,
-			@RequestParam("content") int content,
-			@RequestParam("regdate") int regdate,
-			@RequestParam("hit") int hit,
-			@RequestParam("depth") int depth){
-		
+			@RequestParam("kind") String kind,
+			@RequestParam("email") String email,
+			@RequestParam("subject") String subject,
+			@RequestParam("content") String content
+			){
 		BoardVO vo=new BoardVO();
+		vo.setNo(no);
+		vo.setKind(kind);
+		vo.setEmail(email);
+		vo.setSubject(subject);
+		vo.setContent(content);
+		vo.setRegdate(new SimpleDateFormat("yyyy-MM-dd, hh:mm:ss a").format(new Date()));
+		vo.setHit(0);
+		vo.setDepth(0);
 		bDao.boardInsert(vo);
 		return "board/list";
 	}

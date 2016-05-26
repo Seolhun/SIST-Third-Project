@@ -93,15 +93,16 @@ window.fbAsyncInit = function() {
 		if (response.status === 'connected') {
 	    	getUserInfo();
 	    	getLikeMusician();
-		} else if(response.status !== 'connected'){
-			location.href="login.do";
+		} else if(response.status != 'connected'){
+			Login();
 		} else if (response.status === 'not_authorized') {
-
+			Login();
 		} else {
-			
+			Login();
 		}
 	});
 };
+
 function Login(){
 	FB.login(function(response) {
 		if(response.name !="undefined" && response.status === "connected"){

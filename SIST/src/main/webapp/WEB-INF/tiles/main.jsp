@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <!DOCTYPE HTML>
 <html>
@@ -34,8 +33,13 @@ function search_do(){
 	sendMessage("POST", "search.do", null, mytraindo);
 }
 
+//게시판 리스트 가기 
 function list_do(){
 	sendMessage("POST", "list.do", null, mytraindo);
+}
+
+function insert_do(){
+	sendMessage("POST", "insert.do", null, mytraindo)
 }
 
 function mytraindo(){
@@ -45,9 +49,6 @@ function mytraindo(){
 		}
 	}
 }
-
-
-
 </script>
 
 <title>SIST | Drive Your Train</title>
