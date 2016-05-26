@@ -9,14 +9,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.sist.train.TrainDAO;
 import com.sist.train.TrainVO;
-import com.sist.genie.manager.*;
 
 @Controller
 public class MainController {
 	@Autowired
 	private TrainDAO dao;
-	@Autowired
-	private genieManager gm;
 
 	@RequestMapping("main.do")
 	public String main_list(String id, Model model) {

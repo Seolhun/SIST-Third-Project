@@ -5,6 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.sist.chart.bill.billManager;
+import com.sist.chart.bill.billVO;
+import com.sist.chart.genie.genieManager;
+import com.sist.chart.genie.genieVO;
 import com.sist.emotion.*;
 import com.sist.emotion.emotion.DarkVO;
 import com.sist.emotion.emotion.DreamyVO;
@@ -35,12 +40,23 @@ public class EmotionController {
 	@Autowired
 	private GenreListManager glm;
 	
+	@Autowired
+	 private genieManager gm;
+	
+	@Autowired
+	 private billManager bm;
+	
+	@Autowired
+	private EmotionDAO dao;
 	
 	@RequestMapping("emotion_main.do")
 	public String emotion_main(Model model)
 	{
 		List<EmotionVO> elist=em.Emotiontitle();
 		List<GenreVO> glist=em.Genretitle();
+		
+		 List<genieVO> gchart = gm.genieAllData();
+	     List<billVO> bchart = bm.billAllData();
 		
 		List<PlayFulVO> playful=elm.EmoPlayful();
 		List<LightVO> light=elm.EmoLight();
@@ -60,6 +76,9 @@ public class EmotionController {
 		List<PoppVO> popp=glm.GenPopp();
 
 		
+		
+		model.addAttribute("gchart", gchart);
+		model.addAttribute("bchart", bchart);
 		
 		model.addAttribute("elist", elist);
 		model.addAttribute("glist", glist);
@@ -84,6 +103,16 @@ public class EmotionController {
 		
 
 		return "drugflow/emotion_main";
+	}
+	
+	@RequestMapping("emotion_click.do")
+	public String click_emotion(String emotion,Model model)
+	{
+		EmotionVO evo=dao.EmotionClickData(emotion);
+		System.out.println("evo(): "+evo);
+		model.addAttribute("evo", evo);
+		
+		return  "drugflow/emotion_click.do";
 	}
 
 }

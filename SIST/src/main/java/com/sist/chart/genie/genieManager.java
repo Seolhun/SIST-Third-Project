@@ -1,4 +1,4 @@
-package com.sist.genie.manager;
+package com.sist.chart.genie;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +28,6 @@ public class genieManager {
 				vo.setArtists(artist.text());
 				list.add(vo);
 			}
-			System.out.println(titles.text());
 
 		} catch (Exception ex) {
 			System.out.println("genieAllData¿¡·¯: " + ex.getMessage());
