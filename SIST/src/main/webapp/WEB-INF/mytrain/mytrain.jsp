@@ -24,7 +24,6 @@ $(function(){
 		
 		$(".songlist_li").on("click",function(){
 			var t_num=$(this).find('.footertrain_no').attr("value");
-			alert(t_num);
 			$.ajax({
 	             url:'songlist_load.do',
 	             type:'post',

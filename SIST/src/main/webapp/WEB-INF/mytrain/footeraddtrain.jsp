@@ -21,12 +21,11 @@ $(".songlist_li").on("click",function(){
          dataType:"json",
          data:{"no":t_num,"id":id},
          success:function(data){
-      	 for (var i = 1;i<30;i++) {
-       		
+        songlist=[];
+      	 for (var i = 1;i<=data.length;i++) {
        		if(data[i]!=null){
-       			alert(data[i]);
        			songlist[i-1]=data[i];
-       			songlist[i]="un";
+       			youtube_load(); 
        		 
        		}
        	 }
