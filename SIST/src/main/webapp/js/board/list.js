@@ -51,3 +51,15 @@ function paginacion(p) {
 	}
 }
 paginar();
+
+function insert_do(){
+	sendMessage("POST", "insert.do", null, mytraindo)
+}
+
+function mytraindo(){
+	if(httpRequest.readyState==4){
+		if(httpRequest.status==200){
+			$('.main_body').html(httpRequest.responseText);
+		}
+	}
+}
