@@ -40,8 +40,7 @@ $(function(){
 		});
 	});
 	$('#genreBtn').click(function(){
-			onYouTubeIframeAPIReady();
-   			videoChange();
+
         var param = "id="+id+"&my_genre=";
         $("input:checkbox[name=cartcheck]:checked").each(function(){
            var cartcheck=$(this).val();
