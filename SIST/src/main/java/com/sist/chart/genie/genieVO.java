@@ -1,4 +1,4 @@
-package com.sist.genie.manager;
+package com.sist.chart.genie;
 
 public class genieVO {
 	private int rank;
