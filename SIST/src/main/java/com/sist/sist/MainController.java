@@ -20,9 +20,7 @@ public class MainController {
 
 	@RequestMapping("main.do")
 	public String main_list(String id, Model model) {
-		id = "admin"; // �뜝�떥源띿삕�뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕�뜝占� �뜝�룞�삕�뜝�룞�삕�뜝�룞�삕
-		List<TrainVO> list = dao.trainAllData(id);
-		model.addAttribute("list", list);
+
 		return "main";
 	}
 
@@ -57,5 +55,6 @@ public class MainController {
 	public String boardinsert() {
 		return "board/insert";
 	}
+	
 
 }

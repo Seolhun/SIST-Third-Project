@@ -150,7 +150,8 @@ width:100%;
 </style>
 <script type="text/javascript">
 $(document).ready(function(){
-	param="id=admin"; // id 완성시 바꾼다
+	var id=$('#headerid').text();
+	param="id="+id; // id 완성시 바꾼다
 	sendMessage("post", "searchtrain.do", param, searchtrain)
 	/* setTimeout("reload()",800); */
 	$('#music_search').focus();

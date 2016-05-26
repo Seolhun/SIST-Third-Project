@@ -33,8 +33,8 @@ public class MytrainController {
 		return "mytrain/maketrain";
 	}
 	@RequestMapping("maketrain.do")
-	public String maketrain(String id,String name,Model model){
-		int train_no=dao.trainInsert(id, name);
+	public String maketrain(String id,String name,String nick,Model model){
+		int train_no=dao.trainInsert(id, name,nick.trim());
 		System.out.println("id:"+id+"  train_name"+name+"train_no:"+train_no);
 		List<TrainVO> list=dao.trainAllData(id);
 		sdao.createSongList(train_no, id);
@@ -77,5 +77,14 @@ public class MytrainController {
 		List<SonglistVO> list=sdao.songListAllData(no_train, id.trim());
 		model.addAttribute("list", list);
 		return "mytrain/songlist";
+	}
+	@RequestMapping("nickchange.do")
+	public String nickChange(String id,String nick,Model model){
+		mdao.nickChange(id, nick);
+		dao.trainNickChange(id, nick);
+		List<TrainVO> list=dao.trainAllData(id.trim());
+		model.addAttribute("list",list);
+		return "mytrain/maketrain";
+				
 	}
 }

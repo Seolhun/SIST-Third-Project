@@ -10,7 +10,8 @@
 <body>
 	<ul>
 		<c:forEach var="vo" items="${list }">
-			<li>${vo.train_name }</li>
+			<li>${vo.nick}<br>${vo.train_name }</li>
+			<input type="hidden" value="${vo.train_no }" id="footertrain_no">
 		</c:forEach>
 	</ul>
 </body>

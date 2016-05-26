@@ -223,6 +223,7 @@ strong {
 #maketrainList{
     list-style: none;
     height: 100px;
+    margin-bottom: 25px;
 }
 #maketrainListUl {
     position: absolute;
@@ -241,10 +242,17 @@ strong {
    	border: groove;
     border-radius: 15px;
     padding: 10px;
+    padding-top: 3px;
     background: #DDD;
     box-shadow: 5px 5px 5px #AAA;
 }
 #train_id{
+	margin-top: 0px;
+    margin-bottom: -3px;
+    font-size: x-large;
+    font-family: -webkit-pictograph;
+}
+#mynick{
 	margin-top: 0px;
     margin-bottom: -3px;
     font-size: x-large;
@@ -260,12 +268,12 @@ strong {
 	display: none;
 }
 
-.cart-con:hover{
-	background: #AAA;
-	cursor: pointer;
-	transition: 0.35s ease-in-out;
-	color: #EEE;
-}
+/* .cart-con:hover{ */
+/* 	background: #AAA; */
+/* 	cursor: pointer; */
+/* 	transition: 0.35s ease-in-out; */
+/* 	color: #EEE; */
+/* } */
 #songListUl {
     position: absolute;
     padding: 0px;
@@ -311,4 +319,13 @@ strong {
 }
 #songlist_btn-del{
 	display: none;
+}
+#btn-show{
+    border-radius: 15px;
+    background: #FFF;
+    transition: 0.35s ease-in-out;
+}
+#btn-show:hover{
+	background: #AAA;
+	color: #FFF;
 }

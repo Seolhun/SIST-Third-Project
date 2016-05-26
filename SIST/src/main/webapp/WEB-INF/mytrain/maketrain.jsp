@@ -7,13 +7,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+
 <script type="text/javascript">
+
 $(function(){
-   $('#btn-show').click(function(){
-      var train_id=$('#train_id').text();
-      var train_no=$('#mytrainno').text();
-      
-      
+
+   $('.btn-show').click(function(){
+      var train_id=$(this).attr("alt");
+      var train_no=$(this).attr("name");
       alert(train_no);
       param="id="+train_id+"&no="+train_no;
       sendMessage("POST", "songlist.do", param, makesonglist);   
@@ -25,6 +26,7 @@ $(function(){
       param="id="+id+"&train_no="+train_no;
       sendMessage("POST", "deletetrain.do", param, deletetrain);   
    });
+
 
 });
 
@@ -58,15 +60,16 @@ function footerdeletetrain(){
 </script>
 </head>
 <body>
+
    <ul id="maketrainListUl">
    <c:forEach var="vo" items="${list }">
       
       <li id="maketrainList">
       <a style="display:none" class='thumbnail' href='#' id="myid"> ${vo.id}</a><br/>
          <div class='cart-con'>
-         <input type="button" value="SHOW" id="btn-show">
-            <h3 id="train_id">${vo.train_id}</h3>
-<%--             <h3 id="mynick" class="mynick">${vo.nick }</h3> --%>
+         <input type="button" value="SHOW" id="btn-show" alt="${vo.train_id }" name="${vo.train_no }" class="btn-show" >
+            <h3 id="train_id" style="display:none;">${vo.train_id}</h3>
+            <h3 id="mynick" class="mynick">${vo.nick }</h3>
             <span  id="mytrainname">${vo.train_name}</span>
             <span class='preview' id="mytrainno">${vo.train_no }</span>
          </div>
@@ -77,5 +80,6 @@ function footerdeletetrain(){
    
          </c:forEach>
          </ul>
+
 </body>
 </html>

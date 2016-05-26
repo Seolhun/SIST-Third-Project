@@ -109,15 +109,23 @@
 #maketrainList{
     list-style: none;
     height: 100px;
+    margin-bottom: 25px;
 }
 .cart-con{
 	border: groove;
     border-radius: 15px;
     padding: 10px;
+    padding-top: 3px;
     background: #DDD;
     box-shadow: 5px 5px 5px #AAA;
 }
 #train_id{
+	margin-top: 0px;
+    margin-bottom: -3px;
+    font-size: x-large;
+    font-family: -webkit-pictograph;
+}
+#mynick{
 	margin-top: 0px;
     margin-bottom: -3px;
     font-size: x-large;
@@ -138,12 +146,12 @@
     color: #DDD;
 }
 
-.cart-con:hover{
-	background: #AAA;
-	cursor: pointer;
-	transition: 0.35s ease-in-out;
-	color: #EEE;
-}
+/* .cart-con:hover{ */
+/* 	background: #AAA; */
+/* 	cursor: pointer; */
+/* 	transition: 0.35s ease-in-out; */
+/* 	color: #EEE; */
+/* } */
 #btn-del:hover{
     background: #DDD;
     color: #444;
@@ -192,8 +200,11 @@
     transition: 0.35s ease-in-out;
 }
 #btn-show{
-	
+    border-radius: 15px;
+    background: #FFF;
+    transition: 0.35s ease-in-out;
 }
 #btn-show:hover{
-	
+	background: #AAA;
+	color: #FFF;
 }
