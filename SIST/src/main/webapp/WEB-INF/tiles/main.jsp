@@ -27,7 +27,7 @@ function drive(){
 	   sendMessage("POST", "drive.do", null, mytraindo);
 }
 function drugflow_do(){
-	   sendMessage("POST", "drug_flow.do", null, mytraindo);
+	   sendMessage("POST", "emotion_main.do", null, mytraindo);
 }
 function search_do(){
 	sendMessage("POST", "search.do", null, mytraindo);

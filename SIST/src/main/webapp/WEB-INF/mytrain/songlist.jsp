@@ -24,7 +24,7 @@ $(function(){
 function deletesong(){
 	if(httpRequest.readyState==4){
 		if(httpRequest.status==200){
-			$('#mypageright').html(httpRequest.responseText);
+			$('#songListUl').html(httpRequest.responseText);
 		}
 	}
 }

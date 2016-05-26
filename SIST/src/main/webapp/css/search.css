@@ -257,12 +257,7 @@ strong {
     font-size: x-large;
 }
 #btn-del{
-	position: relative;
-    right: -90%;
-    top: -62px;
-    border-radius: 15px;
-    background: #888;
-    color: #DDD;
+	display: none;
 }
 
 .cart-con:hover{
@@ -270,11 +265,6 @@ strong {
 	cursor: pointer;
 	transition: 0.35s ease-in-out;
 	color: #EEE;
-}
-#btn-del:hover{
-    background: #DDD;
-    color: #444;
-    transition: 0.35s ease-in-out;
 }
 #songListUl {
     position: absolute;
@@ -303,7 +293,7 @@ strong {
     top: 0px;
     width: 100%;
     list-style: none;
-    margin-bottom: -40px;
+    margin-bottom: -20px;
 }
 #songlist_title{
 	font-size: 15px;
@@ -320,15 +310,5 @@ strong {
     color: #666;
 }
 #songlist_btn-del{
-  	position: relative;
-    top: -40px;
-    right: -90%;
-    border-radius: 15px;
-    background: #888;
-    color: #DDD;
-}
-#songlist_btn-del:hover{
-    background: #DDD;
-    color: #444;
-    transition: 0.35s ease-in-out;
+	display: none;
 }

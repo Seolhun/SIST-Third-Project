@@ -20,7 +20,7 @@ public class MainController {
 
 	@RequestMapping("main.do")
 	public String main_list(String id, Model model) {
-		id = "admin"; // 占싸깍옙占쏙옙 占쏙옙占쏙옙占� 占쏙옙占쏙옙占쏙옙
+		id = "admin"; // �뜝�떥源띿삕�뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕�뜝占� �뜝�룞�삕�뜝�룞�삕�뜝�룞�삕
 		List<TrainVO> list = dao.trainAllData(id);
 		model.addAttribute("list", list);
 		return "main";
@@ -31,12 +31,12 @@ public class MainController {
 		return "tiles/footer";
 	}
 
-	@RequestMapping("drug_flow.do")
-	public String genieAllData(Model model) {
-		List<genieVO> list = gm.genieAllData();
-		model.addAttribute("list", list);
-		return "drugflow/drug_flow";
-	}
+//	@RequestMapping("drug_flow.do")
+//	public String genieAllData(Model model) {
+//		List<genieVO> list = gm.genieAllData();
+//		model.addAttribute("list", list);
+//		return "drugflow/drug_flow";
+//	}
 
 	@RequestMapping("drive.do")
 	public String drive() {
