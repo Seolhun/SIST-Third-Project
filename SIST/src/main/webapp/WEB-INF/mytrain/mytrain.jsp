@@ -40,7 +40,8 @@ $(function(){
 		});
 	});
 	$('#genreBtn').click(function(){
-		
+			onYouTubeIframeAPIReady();
+   			videoChange();
         var param = "id="+id+"&my_genre=";
         $("input:checkbox[name=cartcheck]:checked").each(function(){
            var cartcheck=$(this).val();
@@ -107,7 +108,11 @@ function genreadd(){
 			</div>
 			<input id="nickChange"><button id="nickChangeBtn">닉네임 변경</button>
 			
-			<div class="mypageleftside" id="myartist">my artist</div>
+			<div class="mypageleftside" id="myartist">my artist<br>
+			<c:forEach var="avo" items="${alist }">
+				${avo.my_artist }
+			</c:forEach>			
+			</div>
 			<div class="mypageleftside" id="mygenre">
 				  댄스
 				  <input type="checkbox" name='cartcheck' class='control--checkbox' id='cartcheck' value="Dance" size="60"> &nbsp;

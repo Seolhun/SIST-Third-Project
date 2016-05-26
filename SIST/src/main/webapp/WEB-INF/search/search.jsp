@@ -205,6 +205,16 @@ $(document).ready(function(){
 			 alert("train을 고르세요");
 		 }
 	});
+	$(this).on("click","#artistadd",function(){
+	      
+	      var id=$('#headerid').text();
+	      alert("id:"+id);
+	      var song_artist=$(this).attr("alt");
+	       alert(song_artist);
+	       param="id="+id+"&song_artist="+song_artist;
+	       alert(param);
+	       sendMessage("post", "myartistadd.do", param, songlistadd);
+	   });
 	$(this).on("click","#artist_tab",function(){
 		if($("#artist_panel").html()==""){
 		$("#artist_panel").html("<input type='text' class='input-query' id='artist_search'  data-search-on-list='search' placeholder='Search In Artist'/>"+
@@ -228,7 +238,7 @@ $(document).ready(function(){
 			            		
 			            		if(data[i]!=null){
 			            			var sdata = data[i].split("|");
-			            		 $('ul#artist_left').append("<li class='list-item' data-search-on-list='list-item'><input id='artistadd' type='button' value='My Artist' style='float:left'><b id='artistListText'>"+sdata[1]+"</b></li>");
+			            		 $('ul#artist_left').append("<li class='list-item' data-search-on-list='list-item'><input id='artistadd' alt='"+sdata[1]+"' type='button' value='My Artist' style='float:left'><b id='artistListText'>"+sdata[1]+"</b></li>");
 			            		 $('ul#artist_right').append("<li class='list-item' data-search-on-list='list-item'><b>"+sdata[0]+"</b><input id='songlistadd' alt='"+sdata[1]+"' type='button' value='ADD' style='float:right'></li>");
 			            		 
 			            		}
@@ -324,7 +334,7 @@ $(document).ready(function(){
 		            		
 		            		if(data[i]!=null){
 		            			var sdata = data[i].split("|");
-		            		 $('ul#music_left').append("<li class='list-item' data-search-on-list='list-item'><input id='artistadd' type='button' value='My Artist' style='float:left'><b id='artistListText'>"+sdata[1]+"</b></li>");
+		            		 $('ul#music_left').append("<li class='list-item' data-search-on-list='list-item'><input id='artistadd' alt='"+sdata[1]+"' type='button' value='My Artist' style='float:left'><b id='artistListText'>"+sdata[1]+"</b></li>");
 		            		 $('ul#music_right').append("<li class='list-item' data-search-on-list='list-item'><input id='songlistadd' alt='"+sdata[1]+"' type='button' value='ADD' style='float:right'><b id='songListText'>"+sdata[0]+"</b></li>");
 		            																										 
 		            		}

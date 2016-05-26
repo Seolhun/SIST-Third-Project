@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.sist.artist.ArtistDAO;
+import com.sist.artist.ArtistVO;
 import com.sist.member.MemberDAO;
 import com.sist.member.MemberVO;
 import com.sist.songlist.SonglistDAO;
@@ -25,10 +27,15 @@ public class MytrainController {
 	private SonglistDAO sdao;
 	@Autowired
 	private MemberDAO mdao;
+	@Autowired
+	private ArtistDAO adao;
 	@RequestMapping("mytrain.do")
 	public String mytrain(String id,Model model){
 		List<MemberVO> list=mdao.MemberAllData(id);
+		List<ArtistVO> alist=adao.ArtistAllData(id);
+		model.addAttribute("alist",alist);
 		model.addAttribute("genrelist",list);
+		
 		return "mytrain/mytrain";
 	}
 	@RequestMapping("mytrainlist.do")
@@ -114,4 +121,9 @@ public class MytrainController {
 
 	
 	}
+	@RequestMapping("myartistadd.do")
+    public String myartistadd(String id,String song_artist){
+       adao.ArtistInsert(id, song_artist);
+       return "mytrain/songlist";
+    }
 }

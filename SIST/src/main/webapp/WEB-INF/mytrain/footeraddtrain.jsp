@@ -26,6 +26,7 @@ $(".songlist_li").on("click",function(){
        		if(data[i]!=null){
        			songlist[i-1]=data[i];
        			youtube_load(); 
+
        		 
        		}
        	 }
