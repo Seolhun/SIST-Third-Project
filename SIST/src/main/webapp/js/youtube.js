@@ -22,6 +22,7 @@ $(document).ready(function() {
 });
 function youtube_load(){
 	video_state=0;
+	songNo=0;
 	visible();
 	var ajax = new XMLHttpRequest();
 	var string;

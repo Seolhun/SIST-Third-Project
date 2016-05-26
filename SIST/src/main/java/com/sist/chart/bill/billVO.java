@@ -1,4 +1,4 @@
-package com.sist.bill.manager;
+package com.sist.chart.bill;
 
 public class billVO {
 	private int rank;

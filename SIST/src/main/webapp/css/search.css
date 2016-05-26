@@ -324,6 +324,7 @@ strong {
     border-radius: 15px;
     background: #FFF;
     transition: 0.35s ease-in-out;
+    margin-bottom: 5px;
 }
 #btn-show:hover{
 	background: #AAA;
