@@ -195,7 +195,7 @@ $(document).ready(function(){
 		// <span class='preview' id="mytrainno">${vo.train_no }</span>
 		 var song_title=$(this).parents('.list-item').text();
 		 alert(song_title);
-		 var song_artist=$('#artistadd').parents('.list-item').text();
+		 var song_artist=$(this).attr("alt");
 		 alert(song_artist);
 		 param="id="+train_id+"&no="+train_no+"&song_title="+song_title+"&song_artist="+song_artist;
 		 alert(param);
@@ -229,7 +229,7 @@ $(document).ready(function(){
 			            		if(data[i]!=null){
 			            			var sdata = data[i].split("|");
 			            		 $('ul#artist_left').append("<li class='list-item' data-search-on-list='list-item'><input id='artistadd' type='button' value='My Artist' style='float:left'><b id='artistListText'>"+sdata[1]+"</b></li>");
-			            		 $('ul#artist_right').append("<li class='list-item' data-search-on-list='list-item'><b>"+sdata[0]+"</b><input id='songlistadd' type='button' value='ADD' style='float:right'></li>");
+			            		 $('ul#artist_right').append("<li class='list-item' data-search-on-list='list-item'><b>"+sdata[0]+"</b><input id='songlistadd' alt='"+sdata[1]+"' type='button' value='ADD' style='float:right'></li>");
 			            		 
 			            		}
 			            	 }
@@ -325,7 +325,7 @@ $(document).ready(function(){
 		            		if(data[i]!=null){
 		            			var sdata = data[i].split("|");
 		            		 $('ul#music_left').append("<li class='list-item' data-search-on-list='list-item'><input id='artistadd' type='button' value='My Artist' style='float:left'><b id='artistListText'>"+sdata[1]+"</b></li>");
-		            		 $('ul#music_right').append("<li class='list-item' data-search-on-list='list-item'><input id='songlistadd' type='button' value='ADD' style='float:right'><b id='songListText'>"+sdata[0]+"</b></li>");
+		            		 $('ul#music_right').append("<li class='list-item' data-search-on-list='list-item'><input id='songlistadd' alt='"+sdata[1]+"' type='button' value='ADD' style='float:right'><b id='songListText'>"+sdata[0]+"</b></li>");
 		            																										 
 		            		}
 		            	 }
