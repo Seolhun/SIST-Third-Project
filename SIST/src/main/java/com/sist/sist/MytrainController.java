@@ -1,5 +1,7 @@
 package com.sist.sist;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,7 +13,10 @@ import com.sist.songlist.SonglistDAO;
 import com.sist.songlist.SonglistVO;
 import com.sist.train.*;
 
+import java.io.PrintWriter;
 import java.util.*;
+
+import javax.servlet.http.HttpServletResponse;
 @Controller
 public class MytrainController {
 	@Autowired
@@ -84,7 +89,29 @@ public class MytrainController {
 		dao.trainNickChange(id, nick);
 		List<TrainVO> list=dao.trainAllData(id.trim());
 		model.addAttribute("list",list);
-		return "mytrain/maketrain";
-				
+		return "mytrain/maketrain";		
+	}
+	
+	@RequestMapping("songlist_load.do")
+	public void songlist_load(String id,String no,Model model,HttpServletResponse res){
+		int train_no=Integer.parseInt(no);
+		List<SonglistVO> list=sdao.songList_Load(train_no,id);
+		
+		 res.setContentType("text/html;charset=UTF-8"); 
+			try{
+				 JSONObject jobj = new JSONObject();
+				 JSONArray ja = new JSONArray();
+				 for(int i=0;i<list.size();i++){
+					 ja.add(list.get(i).getSong_title());
+				 }
+				    res.setContentType("application/json; charset=UTF-8");
+
+				    PrintWriter pw = res.getWriter();
+				    pw.print(ja.toJSONString());
+				    pw.flush();
+					
+				}catch(Exception e){System.out.println("검색 결과가 없습니다.");}
+
+	
 	}
 }

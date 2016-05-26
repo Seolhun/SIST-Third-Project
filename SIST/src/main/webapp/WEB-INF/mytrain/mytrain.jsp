@@ -21,6 +21,24 @@ $(function(){
 		
 		param="id="+id+"&name="+name+"&nick="+nick;
 		sendMessage("POST", "maketrain.do", param, maketrain);
+		
+		$(".songlist_li").on("click",function(){
+			var t_num=$(this).find('.footertrain_no').attr("value");
+			alert(t_num);
+			$.ajax({
+	             url:'songlist_load.do',
+	             type:'post',
+	             contentType: "application/x-www-form-urlencoded; charset=UTF-8", 
+	             dataType:"json",
+	             data:{"songlist":songlist_li},
+	             success:function(data){
+	            	 
+	             },
+	     	    error:function(request,status,error){
+	    	        alert(error);
+	    	    }
+			 });
+		});
 	});
 	$('#genreBtn').click(function(){
 		

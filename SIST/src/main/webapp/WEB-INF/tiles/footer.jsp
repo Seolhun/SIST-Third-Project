@@ -13,11 +13,8 @@
 <script type="text/javascript" src="js/menu.js"></script>
 <script>
 
+
 	//제목-가수 받아오기
-	var songlist=[];
-	  <c:forEach var="mlist" items="">
-	  songlist[mlist.no]="Dream Girls IOI";
-    </c:forEach>
 	var songlist=[];
 	songlist[0]="Dream Girls IOI";
 	songlist[1]="Cheer Up 트와이스";
