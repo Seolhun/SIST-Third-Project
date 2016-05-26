@@ -9,12 +9,13 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
 $(function(){
+	//0525LEE modify
 	$('.songlist_btn-del').click(function(){
 		var id=$('#myid').text();
 		var train_no=$('#songlist_trainno').val();
 		var song_no=$(this).attr("alt");
 		param="id="+id+"&train_no="+train_no+"&song_no="+song_no;
-		alert(param);
+// 		alert(param);
 		sendMessage("POST", "songdelete.do", param, deletesong);	
 	});
 
@@ -23,28 +24,28 @@ $(function(){
 function deletesong(){
 	if(httpRequest.readyState==4){
 		if(httpRequest.status==200){
-			$('#drivelist').html(httpRequest.responseText);
+			$('#mypageright').html(httpRequest.responseText);
 		}
 	}
 }
 </script>
 </head>
 <body>
+	<!-- 0525LEE modify! -->
+	<ul id="songListUl">
 	<c:forEach var="vo" items="${list }">
-		
-		<li>
-		<a class='thumbnail' href='#'> ${vo.song_title}</a><br/>
-			<div class='cart-con'>
-				<h3>${vo.train_id}</h3>
+	
+		<li id="songList">
+			<div class='cart-con2'>
+<%-- 				<h3>${vo.train_id}</h3> --%>
+				<h3 class='thumbnail' id="songlist_title"> ${vo.song_no-1 }. ${vo.song_title}</h3>
 				<span class='preview' id="songlist_artist">${vo.song_artist}</span>
 				<input type="hidden" id="songlist_trainno" value="${vo.train_no }">
 				<input type="hidden" id="songlistno" value="${vo.song_no }">
 			</div>
-			
-			<input type="button" value="X" id="songlist_btn-del" alt="${vo.song_no }" class="songlist_btn-del">
-			
+			<input type="button" value="X" id="songlist_btn-del" alt="${vo.song_no }" class="songlist_btn-del">			
 		</li>
-	
       	</c:forEach>
+   	</ul>
 </body>
 </html>

@@ -22,6 +22,7 @@ $(document).ready(function() {
 });
 function youtube_load(){
 	video_state=0;
+	visible();
 	var ajax = new XMLHttpRequest();
 	var string;
 	ajax.open('GET', api + '?part=snippet,id&q=' + songlist[songNo] + '&type=video&key=' + key);
@@ -37,6 +38,9 @@ function youtube_load(){
 		  
 
 			videoSize.setAttribute('data-code', datacode[songNo]);
+			$('iframe#player').attr("src","https://www.youtube.com/embed/"+datacode[songNo]+"?autoplay=1&controls=1&showinfo=0&enablejsapi=1"+
+			"&origin=http%3A%2F%2Flocalhost%3A8080&widgetid=1");
+			$('#background').css("background-image", "url(http://img.youtube.com/vi/" + datacode[songNo] + "/0.jpg)");
 			
 	};
     ajax.send();
@@ -83,20 +87,19 @@ function onYouTubeIframeAPIReady() {
 	$('#background').css("background-size", "cover");
 }
 function onPlayerStateChange(event) {
-  if(event.data==0){
-	  if($('#next').attr('data-code')=="undefined")
-	  {
-		  songNo=0;
-		  videoChange();
+	  if(event.data==0){
+	     if(songNo==songlist.length-1)
+	     {
+	        songNo=-1;
+	        videoChange();
+	     }
+	     if(songNo!=songlist.length-1)
+	     {
+	        songNo++;
+	        videoChange();
+	     }
 	  }
-	  else
-	  {
-		  songNo++;
-		  videoChange();
-	  }
-		
-  }
-}
+	}
 
 //이전add_train.classList.ad버튼
 prev.addEventListener('click', function() {
@@ -112,23 +115,23 @@ next.addEventListener('click', function() {
 
 //처음이면 prev가 안보이고 마지막이면 next가 안보임
 function visible(){
-	if($('#prev').attr('data-code')=="undefined")
-	{
-		document.getElementById('prev').style.display='none';
+	   if(songNo==0)
+	   {
+	      document.getElementById('prev').style.display='none';
+	   }
+	   else
+	   {
+	      document.getElementById('prev').style.display='block';
+	   }
+	   if(songNo==songlist.length-1)
+	   {
+	      document.getElementById('next').style.display='none';
+	   }
+	   else
+	   {
+	      document.getElementById('next').style.display='block';
+	   }
 	}
-	else
-	{
-		document.getElementById('prev').style.display='block';
-	}
-	if($('#next').attr('data-code')=="undefined")
-	{
-		document.getElementById('next').style.display='none';
-	}
-	else
-	{
-		document.getElementById('next').style.display='block';
-	}
-}
 
 function videoChange(){
 	var ajax = new XMLHttpRequest();
@@ -148,7 +151,6 @@ function videoChange(){
 		prev.setAttribute('data-code', datacode[songNo-1]);
 		videoSize.setAttribute('data-code', datacode[songNo]);
 		next.setAttribute('data-code', datacode[songNo+1]);
-		alert(datacode[songNo+1]); //값이 없는 이유는 datacode[songNo+2]가 없기때문
 		$('#background').css("background-image", "url(http://img.youtube.com/vi/" + datacode[songNo] + "/0.jpg)");
 		// 다시 띄우기
 //		var youtube=document.querySelectorAll('#player')[0];
@@ -161,7 +163,7 @@ function videoChange(){
 		});*/
 		$('.video-t #prev').css("background-image", "url(http://img.youtube.com/vi/" + datacode[songNo-1] + "/0.jpg)");
 		$('.video-t #next').css("background-image", "url(http://img.youtube.com/vi/" + datacode[songNo+1] + "/0.jpg)");
-//	    visible();
+	    visible();
 	    
 	    onYouTubeIframeAPIReady();
 	    

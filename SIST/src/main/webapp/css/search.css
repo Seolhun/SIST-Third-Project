@@ -18,33 +18,19 @@ $dark-grey: darken($grey, 10%);
   margin: auto;
 }
 
-* {
-  box-sizing: border-box;
-}
-
-body {
-  background: $light-grey;
-  font-family: sans-serif;
-  color: #333;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 
 .container {
-  
-  @include center;
-  width: 700px;
-  height: 400px;
-  background: transparent;
-  padding: 1em;
-  float:right;
-  margin-right:30px;
-  margin-left:50px;
-  border: 1px solid $dark-grey;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.05), 0 5px 10px rgba(0,0,0,0.05);;
-  border-radius: 3px;
-  overflow: hidden;
-  
+    width: 64%;
+    height: 570px;
+    background: white;
+    padding: 1em;
+    border-radius: 15px;
+    overflow: hidden;
+    position: absolute;
+    right: 4%;
+    top: 25px;
+    box-shadow: 5px 5px 5px #AAA;
+    opacity: 0.9;
 }
 
 .input-query {
@@ -61,10 +47,12 @@ body {
 }
 
 .list-wrap {
-  margin-top: 0.4em;
-  overflow-y: auto;
-  overflow-x: hidden;
-  height:500px;
+    margin-top: 0.4em;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 455px;
+    border: groove;
+    border-radius: 5px;
 }
 
 .list {
@@ -72,25 +60,49 @@ body {
 }
 
 .list-item {
-  font-size: 0.9em;
-  padding: 0.5em 0.8em;
-  border-bottom: 1px solid $dark-grey;
-  border-top: 1px solid white;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  word-wrap: normal;
-  max-width: 100%;
-  
-  &:first-child {
-    border-top: none;
-  }
-  
-  &:last-child {
-    border-bottom: none;
-  }
+    padding: 0.5em 0.8em;
+    border-top: 1px solid #AAA;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    max-width: 100%;
+    max-height: 400px;
+    cursor: pointer
 }
-
+#artistListText{
+   	position: relative;
+    height: 100%;
+    left: 15px;
+    top: 2px;
+}
+#songListText{
+	
+}
+#artistadd {
+    position: relative;
+    left: 4px;
+    border-radius: 12px;
+    background: azure;
+    font-weight: bold;
+}
+#artistadd:hover{
+	background: #AAA;
+	color: white;
+	cursor: pointer;
+}
+#songlistadd{
+	position: relative;
+    right: 0px;
+    border-radius: 12px;
+    background: azure;
+    font-weight: bold;
+}
+#songlistadd:hover{
+	background: #AAA;
+	color: white;
+	cursor: pointer;
+}
 .list-item-link {
   color: #444;
   text-decoration: none;
@@ -126,21 +138,13 @@ $barColor: #f26454; /*color of actual progress*/
 $overlayColor: #eee; /* overlay color */
 $backColor: #f5f5f5; /* color of bar */
 
-body {
-  padding: 30px 0;
-  background-color: $backColor;
-  font-family: 'Lato', sans-serif;
-}
 
 h1 {
      color:#f26454;
      text-align:center;
 }
 
-.container {
-  width:700px;
-  margin:0 auto;
-}
+
 .wrap {
   width: 350px;
   margin: 0 auto;
@@ -214,3 +218,117 @@ strong {
 }
 
 /* 가수 프로필 및 곡 가수명 검색 기능*/
+
+/*트레인리스트*/
+#maketrainList{
+    list-style: none;
+    height: 100px;
+}
+#maketrainListUl {
+    position: absolute;
+    left: 35px;
+    width: 29%;
+    border-radius: 15px;
+    padding: 5px;
+    top: 23px;
+    background: white;
+    opacity: 0.85;
+    height: 230px;
+    box-shadow: 5px 5px 5px #BBB;
+    overflow-y: auto;
+}
+.cart-con{
+   	border: groove;
+    border-radius: 15px;
+    padding: 10px;
+    background: #DDD;
+    box-shadow: 5px 5px 5px #AAA;
+}
+#train_id{
+	margin-top: 0px;
+    margin-bottom: -3px;
+    font-size: x-large;
+    font-family: -webkit-pictograph;
+}
+#mytrainname{
+    font-size: xx-large;
+}
+#mytrainno{
+    font-size: x-large;
+}
+#btn-del{
+	position: relative;
+    right: -90%;
+    top: -62px;
+    border-radius: 15px;
+    background: #888;
+    color: #DDD;
+}
+
+.cart-con:hover{
+	background: #AAA;
+	cursor: pointer;
+	transition: 0.35s ease-in-out;
+	color: #EEE;
+}
+#btn-del:hover{
+    background: #DDD;
+    color: #444;
+    transition: 0.35s ease-in-out;
+}
+#songListUl {
+    position: absolute;
+    padding: 0px;
+    overflow-y: auto;
+    left: 35px;
+    width: 29%;
+    background: white;
+    opacity: 0.85;
+    top: 268px;
+    height: 327px;
+    box-shadow: 5px 5px 5px #AAA;
+    border-radius: 15px;
+}
+.cart-con2{
+	border: groove;
+    border-radius: 10px;
+    padding: 0px 0px 0px 5px;
+    background: #EEE;
+}
+#songList {
+    position: relative;
+    border-radius: 15px;
+    opacity: 0.85;
+    padding: 10px;
+    top: 0px;
+    width: 100%;
+    list-style: none;
+    margin-bottom: -40px;
+}
+#songlist_title{
+	font-size: 15px;
+    margin: 0px;
+    border: none;
+    background: #EEE;
+}
+#songlist_artist{
+	margin-left: 19px;
+    font-size: 12px;
+    font-family: sans-serif;
+    top: -4px;
+    position: relative;
+    color: #666;
+}
+#songlist_btn-del{
+  	position: relative;
+    top: -40px;
+    right: -90%;
+    border-radius: 15px;
+    background: #888;
+    color: #DDD;
+}
+#songlist_btn-del:hover{
+    background: #DDD;
+    color: #444;
+    transition: 0.35s ease-in-out;
+}

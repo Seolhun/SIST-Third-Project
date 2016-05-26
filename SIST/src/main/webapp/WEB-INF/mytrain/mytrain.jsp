@@ -100,7 +100,7 @@ function genreadd(){
 		
 		<div class="mypage" id="mypagecenter">
 			<div class="mypageceterside" id="maketrain">
-				<input type="text" placeholder="MakeTrain" id="maketrainname">
+				<input type="text" placeholder="Make Your Train!" id="maketrainname">
 				<input type="button" value="Make Train" id="MakeTrainBtn" >
 			</div>
 			<div class="mypagecenterside" id="makelist">
@@ -109,7 +109,7 @@ function genreadd(){
 		</div>
 		
 		<div class="mypage" id="mypageright">
-			<div class="mypagerightside" id="drivetrain">drive train</div>
+<!-- 			<div class="mypagerightside" id="drivetrain">drive train</div> -->
 			<div class="mypagerightside" id="drivelist"></div>
 			
 		</div>

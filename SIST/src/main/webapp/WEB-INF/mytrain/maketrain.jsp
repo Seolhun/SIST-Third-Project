@@ -8,24 +8,22 @@
 <title>Insert title here</title>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
-$(function(){
-	$('.preview').click(function(){
-		var train_id=$('#train_id').text();
-		var train_no=$(this).text();
-		
-		
-		alert(train_no);
+$('#maketrainListUl li').each(function(){
+	//0535LEE modify
+	$(this).click(function(){
+		var train_id=$(this).attr('value');
+		var train_no=$(this).attr('title');
 		param="id="+train_id+"&no="+train_no;
 		sendMessage("POST", "songlist.do", param, makesonglist);	
 	});
-	
+});
+$(function(){
 	$('.btn-del').click(function(){
 		var id=$('#myid').text();
 		var train_no=$(this).attr("alt");
 		param="id="+id+"&train_no="+train_no;
 		sendMessage("POST", "deletetrain.do", param, deletetrain);	
 	});
-
 });
 
 function makesonglist(){
@@ -58,20 +56,20 @@ function footerdeletetrain(){
 </script>
 </head>
 <body>
-	<c:forEach var="vo" items="${list }">
+	<ul id="maketrainListUl">
+		<c:forEach var="vo" items="${list }">
+			<a style="display:none;" class="thumnail" href='#' id="myid"> ${vo.id }</a>
+			
+			<li id="maketrainList" value=${vo.train_id } title=${vo.train_no }> <!-- 0525LEE modify -->
+				<div class='cart-con'>
+					<h3 id="train_id">${vo.train_id}</h3>
+					<span class='preview' id="mytrainno">${vo.train_no }</span>.
+					<span  id="mytrainname">${vo.train_name}</span>
+				</div>
+				<input type="button" value="X" id="btn-del" class="btn-del" alt="${vo.train_no }">
+			</li>
 		
-		<li>
-		<a class='thumbnail' href='#' id="myid"> ${vo.id}</a><br/>
-			<div class='cart-con'>
-				<h3 id="train_id">${vo.train_id}</h3>
-				<span  id="mytrainname">${vo.train_name}</span>
-				<span class='preview' id="mytrainno">${vo.train_no }</span>
-			</div>
-			
-			<input type="button" value="X" id="btn-del" class="btn-del" alt="${vo.train_no }">
-			
-		</li>
-	
-      	</c:forEach>
+     	</c:forEach>
+   	</ul>
 </body>
 </html>
