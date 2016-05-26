@@ -6,12 +6,43 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script>
+$(".songlist_li").on("click",function(){
+	var t_num=$(this).find('.footertrain_no').attr("value");
+	
+	var id=$('#headerid').text();
+	alert(id);
+	alert(t_num);
+	$.ajax({
+         url:'songlist_load.do',
+         type:'post',
+         contentType: "application/x-www-form-urlencoded; charset=UTF-8", 
+         dataType:"json",
+         data:{"no":t_num,"id":id},
+         success:function(data){
+        songlist=[];
+      	 for (var i = 1;i<=data.length;i++) {
+       		if(data[i]!=null){
+       			songlist[i-1]=data[i];
+       			youtube_load(); 
+
+       		 
+       		}
+       	 }
+         },
+ 	    error:function(request,status,error){
+	        alert(error);
+	    }
+	 });
+});
+</script>
 </head>
 <body>
 	<ul>
 		<c:forEach var="vo" items="${list }">
-			<li>${vo.nick}<br>${vo.train_name }</li>
-			<input type="hidden" value="${vo.train_no }" id="footertrain_no">
+			<li class="songlist_li">${vo.nick}<br>${vo.train_name }
+			<input type="hidden" value="${vo.train_no }" class="footertrain_no"></li>
 		</c:forEach>
 	</ul>
 </body>

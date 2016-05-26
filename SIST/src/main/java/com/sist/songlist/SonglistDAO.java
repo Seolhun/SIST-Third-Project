@@ -131,4 +131,25 @@ public class SonglistDAO {
 			System.out.println("songlistDelete error: "+ex.getMessage());
 		}
 	}
+	
+	public List<SonglistVO> songList_Load(int no,String id){
+		
+		List<SonglistVO> list=new ArrayList<SonglistVO>();
+		try{
+			BasicDBObject where=new BasicDBObject();
+			where.put("train_id", id);
+			where.put("train_no", no);
+			System.out.println("id:"+id+" 트레인넘버:"+no);
+			DBCursor cursor=dbc.find(where);
+			while(cursor.hasNext()){
+				BasicDBObject obj=(BasicDBObject)cursor.next();
+				SonglistVO vo=new SonglistVO();
+				vo.setSong_title(obj.getString("song_title"));
+				list.add(vo);
+			}
+		}catch(Exception ex){
+			System.out.println("songListAllData error:"+ex.getMessage());
+		}
+		return list;
+	}
 }
