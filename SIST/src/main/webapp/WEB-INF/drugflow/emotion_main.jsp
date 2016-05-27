@@ -6,11 +6,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 <link rel="stylesheet" type="text/css" href="css/rank.css">
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
- <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <script type="text/javascript" src="http://static.melon.co.kr/static/web/resource/script/w1/9s/n/15h0261uk9.js"></script>
 <script type="text/javascript">document.domain='melon.com';</script>
 
@@ -148,14 +147,22 @@ function emo_click(){
 </script>
 </head>
 <body>
-<div style="width:1500px;height:500px; float: inherit;border: 2px solid #eee;">
+<div style="position: relative;
+    margin: auto;
+    width: 85%;
+    height: 600px;
+    top: 15px;
+    float: inherit;
+    border-radius: 15px;
+    background: white;
+    opacity: 0.85;
+    box-shadow: 5px 5px 5px #AAA;">
 
-	<div style="width: 20%;height: 100%;float: left;">
-	
+	<div style="width: 30%;height: 100%;float: left;">
 		<div class="container" style="width: 100%; height: 100%; float: left;">
 			<div style=" width: 100%; height: 5%; float: left;">
-				<input type="button"  class="genie" value="Genie Top50" style="width: 50%;float: left;">
-				<input type="button"  class="bill" value="Billboard Top50" style="width: 50%;float: left;">   
+				<input type="button"  class="genie" value="Genie Top50" style="width: 50%;float: left; border-radius: 5px; background: #EEE;">
+				<input type="button"  class="bill" value="Billboard Top50" style="width: 50%;float: left; border-radius: 5px; background: #EEE;">   
 			</div>
 			<br/>
 			<div style="width: 100%;height: 95%; float: left;">	
@@ -163,35 +170,27 @@ function emo_click(){
 	    		<div class="list-wrap" style="height: 100%;">
 	       			<ul class="list" style="height: 100%; padding-left: 3px;">
 	           			<c:forEach var="vo" items="${gchart }">
-	           			  	<div class="list-item-item" style="border-bottom: 4px solid #eee;">
-		              			<p class="list-item-link">${vo.rank }.&nbsp;&nbsp;${vo.titles } <br/>
-		               	   		<span class="item-list-subtext">${vo.artists }</span>
-		              			</p>
+	           			  	<div class="list-item-item" style="border: outset #eee; background: aliceblue;">
+		              			<p class="list-item-link" style="font-weight: bold;">${vo.rank }.&nbsp;&nbsp;${vo.titles }</p>
+		               	   		<div style="text-align: right; margin: -10px 5px 2px 0px;"><span class="item-list-subtext" style="">${vo.artists }</span></div>
 	              			</div>
 	          			 </c:forEach>
 	      			</ul>
 	     		</div>
      		</div>
    		</div>
-		
 	</div>
 
-
-
-	<div  style="width: 80%;height: 100%;float: left;">	
-		
-		<div class="box" style="float: left; width: 100%; height: 15%">
+	<div  style="width: 70%;height: 100%;float: right;">	
+		<div class="box" style="float: right; width: 95%; height: 15%">
 			<div class="day-filter" style="height: 100%">
 				<button type="button" class="btn btn-sm btn-success btn-prev"><i class="fa fa-angle-left"></i></button>
 				<button type="button" class="btn btn-sm btn-success btn-next"><i class="fa fa-angle-right"></i></button>
 			<div class="viewport" style="height: 100%">
-				<ul class="filter-list" style="height: 74px">
+				<ul class="filter-list" style="height: 74px; margin-top: 6px;">
 					<c:forEach var="vo" items="${elist }">
 						<li class="list-item" id='emolist'>
-<%-- 							<a href="emotion_click.do?emotion=${vo.emotion }"> --%>
-							<button type="button" class="btn btn-sm btn-default day emo"  value="${vo.emotion }">
-							${vo.emotion }</button>
-<!-- 							</a> -->
+							<button type="button" class="btn btn-sm btn-default day emo"  value="${vo.emotion }">${vo.emotion }</button>
 						</li>
 					</c:forEach>
 				</ul>
@@ -200,31 +199,27 @@ function emo_click(){
 		</div>
 		
 
-		<div style="width: 100%; height: 85%; float: left;  ">
+		<div style="width: 100%; height: 77%; float: right;  ">
 		
-			<div id="listtitle" style="width: 20%; height: 100%; float: left; border: 2px solid #eee;">
-
-			</div>
-			
-			<div id="listadd" style="width: 80%; height: 100%; float: left; border: 2px solid #eee;">
-				<div style="height: 10%; width: 100%;float: left;">
+			<div id="listadd" style="width: 100%; height: 100%; float: right; border: 2px solid #eee;">
+				<div style="height: 5%; width: 100%; float: right; color: white; background: #AAA; margin-bottom: 5px; font-weight: bold;">
 					<div style="height: 100%;"> 
-			   			<p style="width: 10%;float: left;text-align: center; border-right: 1px solid black;">NO</p>
-			   			<p style="width: 41%;float: left;text-align: center;border-right: 1px solid black;">곡명</p>
+			   			<p style="width: 10%;float: left;text-align: center; border-right: 1px solid black;">N O</p>
+			   			<p style="width: 40%;float: left;text-align: center;border-right: 1px solid black;">곡    명</p>
 			   			<p style="width: 25%;float: left;text-align: center;border-right: 1px solid black;">아티스트</p>
-			   			<p style="width: 19%;float: left;text-align: center;">앨범</p>
+			   			<p style="width: 25%;float: left;text-align: center;">앨  범</p>
 			  		</div>
 			  </div>
 			  
-			  <div style="width: 100%; height: 90%; float: left;">
-			  	<div style="overflow: scroll; height: 100%">
+			  <div style="width: 100%; height: 90%; float: right; font-weight: bold; color: #33;">
+			  	<div style="overflow-y: scroll; height: 100%">
 			   		<ul class="emosongti" style="-webkit-padding-start: 0px;">
 			   			<c:forEach var="vo" items="${playful }">
 			   				<div style="width: 100%">
-				   				<p style="width: 10%;float: left;text-align: center; border-right: 1px solid black;">${vo.no }</p>
-				   				<p style="width: 40%;float: left;text-align: center;border-right: 1px solid black;">${vo.title }</p>
-				   				<p style="width: 25%;float: left;text-align: center;border-right: 1px solid black;">${vo.artist }</p>
-				   				<p style="width: 25%;float: left;text-align: center;">${vo.album }</p>
+				   				<p style="width: 10%;float: left;text-align: center; border-right: 1px solid black; background: aliceblue;">${vo.no }</p>
+				   				<p style="width: 40%;float: left;text-align: center;border-right: 1px solid black; background: aliceblue;">${vo.title }</p>
+				   				<p style="width: 25%;float: left;text-align: center;border-right: 1px solid black; background: aliceblue;">${vo.artist }</p>
+				   				<p style="width: 25%;float: left;text-align: center; background: aliceblue;">${vo.album }</p>
 			   				</div><br/>	
 			   			</c:forEach>
 			   		</ul>

@@ -201,3 +201,8 @@ function videoChange(){
     ajax.send();
 
 }
+
+listclick.addEventListener('click', function(){
+	document.getElementById('footer-songlist').style.height='215px';
+	document.getElementById('footer-songlist').style.display='block';
+});

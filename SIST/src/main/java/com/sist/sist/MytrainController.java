@@ -35,7 +35,9 @@ public class MytrainController {
 		List<ArtistVO> alist=adao.ArtistAllData(id);
 		model.addAttribute("alist",alist);
 		model.addAttribute("genrelist",list);
-		
+		MemberVO vo=list.get(0);
+		String nick=vo.getNick();
+		model.addAttribute("nick",nick);
 		return "mytrain/mytrain";
 	}
 	@RequestMapping("mytrainlist.do")

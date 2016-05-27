@@ -35,15 +35,16 @@
 // 	datacode[5] = "Tsmqrk7Wgsk"; // Lose My Mind
 // 	datacode[6] = "uxpDa-c-4Mc"; // Hotline Bling
 // 	datacode[7] = "hRK7PVJFbS8"; // King Kunta
+
 </script>
 </head>
 <body>
 	<div id="background" data-code=""></div>
 	<div id='video-reset'>
 		
-		<div id="video-title">${sessionScope.id }'S TRAIN</div>
+		<div id="video-title">YOUR STYLE</div>
 		
-		<div id="video-list">LIST</div>
+		<div id="video-list" class="listclick">LIST</div>
     	<div id="player" data-code=""></div>
 		<ul class="video-t">
 		  <li data-code="" id="prev" data-video-pause="playing">PREV</li>
@@ -51,11 +52,16 @@
 		</ul>
 	</div>
 	<div id="add_train">ADD TO MY TRAIN</div>
+	<div id="footer-songlist">
+		<ul>
+			<li><h3>노래</h3><h4>가수</h4></li>
+		</ul>
+	</div>
 	
 	<div id="footer-list">
 		<ul class="songlist_ul">
 			<c:forEach var="vo" items="${list }">
-<%--             <li>${vo.nick}<br>${vo.train_name }</li> --%>
+            <li>${vo.nick}<br>${vo.train_name }</li>
          <input type="hidden" value="${vo.train_no }" id="footertrain_no">
          </c:forEach>
 		</ul>

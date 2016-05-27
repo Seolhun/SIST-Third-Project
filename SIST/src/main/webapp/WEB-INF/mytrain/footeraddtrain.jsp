@@ -20,9 +20,9 @@ $(".songlist_li").on("click",function(){
          data:{"no":t_num,"id":id},
          success:function(data){
         songlist=[];
-      	 for (var i = 1;i<=data.length;i++) {
+      	 for (var i = 0;i<=data.length;i++) {
        		if(data[i]!=null){
-       			songlist[i-1]=data[i];
+       			songlist[i]=data[i];
        			youtube_load(); 
 
        		 
