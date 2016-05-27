@@ -4,7 +4,7 @@
     height: 100%;
     border: 1px;
     border-radius: 30px;
-    opacity: 0.8;
+    opacity: 0.87;
     z-index: 11;
     background-color: white;
     box-shadow: 5px 5px 5px #AAA;
@@ -33,6 +33,7 @@
     padding: 10px;
     height: 240px;
     width: 78%;
+    box-shadow: 5px 5px 5px #AAA;
 }
 #mygenre {
     position: absolute;
@@ -42,6 +43,7 @@
     padding: 10px;
     height: 240px;
     width: 78%;
+    box-shadow: 5px 5px 5px #AAA;
 }
 
 
@@ -70,6 +72,7 @@
 	border-radius: 15px;
     padding: 10px;
     height: 455px;
+    box-shadow: 5px 5px 5px #AAA;
 }
 
 
@@ -96,4 +99,115 @@
     border: solid;
     border-radius: 15px;
     height: 490px;
+    padding: 10px;
+    box-shadow: 5px 5px 5px #AAA;
+    overflow-y: auto;
+}
+#maketrainListUl{
+    padding: 0;
+    overflow-y: auto;
+    height: 425px;
+}
+#maketrainList{
+    list-style: none;
+    height: 100px;
+    margin-bottom: 25px;
+}
+.cart-con{
+	border: groove;
+    border-radius: 15px;
+    padding: 10px;
+    padding-top: 3px;
+    background: #DDD;
+    box-shadow: 5px 5px 5px #AAA;
+}
+#train_id{
+	margin-top: 0px;
+    margin-bottom: -3px;
+    font-size: x-large;
+    font-family: -webkit-pictograph;
+}
+#mynick{
+	margin-top: 0px;
+    margin-bottom: -3px;
+    font-size: x-large;
+    font-family: -webkit-pictograph;
+}
+#mytrainname{
+    font-size: xx-large;
+}
+#mytrainno{
+    font-size: x-large;
+}
+#btn-del{
+	position: relative;
+    right: -90%;
+    top: -62px;
+    border-radius: 15px;
+    background: #888;
+    color: #DDD;
+}
+
+/* .cart-con:hover{ */
+/* 	background: #AAA; */
+/* 	cursor: pointer; */
+/* 	transition: 0.35s ease-in-out; */
+/* 	color: #EEE; */
+/* } */
+#btn-del:hover{
+    background: #DDD;
+    color: #444;
+    transition: 0.35s ease-in-out;
+}
+#songListUl {
+    padding: 0px;
+    overflow-y: auto;
+    height: 454px;
+}
+.cart-con2{
+	border: groove;
+    border-radius: 10px;
+    padding: 0px 0px 0px 5px;
+    background: #EEE;
+}
+#songList{
+	list-style: none;
+  	margin-bottom: -25px;
+}
+#songlist_title{
+	font-size: 15px;
+    margin: 0px;
+    border: none;
+    background: #EEE;
+}
+#songlist_artist{
+	margin-left: 19px;
+    font-size: 12px;
+    font-family: sans-serif;
+    top: -4px;
+    position: relative;
+    color: #666;
+}
+#songlist_btn-del{
+  	position: relative;
+    top: -40px;
+    right: -90%;
+    border-radius: 15px;
+    background: #888;
+    color: #DDD;
+}
+#songlist_btn-del:hover{
+    background: #DDD;
+    color: #444;
+    transition: 0.35s ease-in-out;
+}
+#btn-show{
+    border-radius: 15px;
+    background: #FFF;
+    transition: 0.35s ease-in-out;
+    margin-bottom: 5px;
+}
+#btn-show:hover{
+	background: #AAA;
+	color: #FFF;
 }

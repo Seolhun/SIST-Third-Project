@@ -1,29 +1,30 @@
 html{
-	padding:0px;
-	margin:0px;
-	overflow: hidden;
+   padding:0px;
+   margin:0px;
+   overflow: hidden;
 }
 .main_header{
-	position: absolute;
+   position: absolute;
     margin: -8px;
-	height: 100px;
-	width: 101%;
-	background-color: black;
-	color: white;
-	transition: color 0.35s ease-in-out;
-	font-size: 25px;
-	text-align: center;
-	font-family: 'Playfair Display', serif;
-	font-weight: bold;
-	padding: 0px;
-	opacity: 0.85;
-	top: 0px;
-	left: 0px;
-	z-index:3;
+   height: 100px;
+   width: 101%;
+   background-color: black;
+   color: white;
+   transition: color 0.35s ease-in-out;
+   font-size: 25px;
+   text-align: center;
+   font-family: 'Playfair Display', serif;
+   font-weight: bold;
+   padding: 0px;
+   opacity: 0.85;
+   top: 0px;
+   left: 0px;
+   z-index:3;
 }
 .main_header ul {
-    margin-left: 65px;
-    height: 100px;
+   position: relative;
+    left: -130px;
+    height: 134px;
     margin-top: -34px;
     opacity: 1;
 }
@@ -40,10 +41,10 @@ html{
     transition: background-color 0.35s ease-in-out;
 }
 .video_return:hover,.video_small:hover {
-	background-color: #fff;
-	color: black;
-	cursor: pointer;
-	height:100%;
+   background-color: #fff;
+   color: black;
+   cursor: pointer;
+   height:100%;
 }
 .menu_logo {
     width: 100px;
@@ -53,26 +54,26 @@ html{
     left: 20px;
 }
 .main_body{
-	position: absolute;
-	top: 100px;
-	height: 610px;
-	width: 100%;
-	z-index:0;
-	overflow: scroll;
+
+   position: absolute;
+   top: 100px;
+   height: 610px;
+   width: 100%;
+   z-index:0;
+
 }
 .main_footer{
-	position: absolute;
-	bottom: 0px;
-	height: 250px;
-	width: 101%;
-	background-color: black;
-	left: 0px;
-	opacity: 0.85;
-	z-index:3;
+   position: absolute;
+   bottom: 0px;
+   height: 250px;
+   width: 101%;
+   background-color: black;
+   left: 0px;
+   opacity: 0.85;
+   z-index:3;
     margin: -8px;
 }
 #logInfo{
-	position: fixed;
-	right:10px;
-	
+   position: absolute;
+   right:-100px;
 }

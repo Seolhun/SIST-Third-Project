@@ -11,7 +11,7 @@
    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
    <link href="https://fonts.googleapis.com/css?family=Lato:900" rel="stylesheet" type="text/css">
    
-     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<!--      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
@@ -19,11 +19,11 @@
 <style>
 .artistbox{
 float:left;
-width:30%;
+width:35%;
 }
 .musicbox{
 float:right;
-width:70%;
+width:65%;
 }
 .profilebox1{
 float:left;
@@ -44,10 +44,6 @@ font-size: 13px;
 .list-item li{
 height : 30;
 font-size: 13px;
-}
-div.container{
-width:700px;
-height:570px;
 }
 .artist_profile{
 margin-top:30px;
@@ -148,17 +144,14 @@ width:100%;
   letter-spacing: 1px;
   opacity: 0.8;
 }
-/* Demo purposes only */
-body {
-  background-color: #212121;
-}
 
 
 
 </style>
 <script type="text/javascript">
 $(document).ready(function(){
-	param="id=admin"; // id 완성시 바꾼다
+	var id=$('#headerid').text();
+	param="id="+id; // id 완성시 바꾼다
 	sendMessage("post", "searchtrain.do", param, searchtrain)
 	/* setTimeout("reload()",800); */
 	$('#music_search').focus();
@@ -202,7 +195,7 @@ $(document).ready(function(){
 		// <span class='preview' id="mytrainno">${vo.train_no }</span>
 		 var song_title=$(this).parents('.list-item').text();
 		 alert(song_title);
-		 var song_artist=$('#artistadd').parents('.list-item').text();
+		 var song_artist=$(this).attr("alt");
 		 alert(song_artist);
 		 param="id="+train_id+"&no="+train_no+"&song_title="+song_title+"&song_artist="+song_artist;
 		 alert(param);
@@ -212,6 +205,16 @@ $(document).ready(function(){
 			 alert("train을 고르세요");
 		 }
 	});
+	$(this).on("click","#artistadd",function(){
+	      
+	      var id=$('#headerid').text();
+	      alert("id:"+id);
+	      var song_artist=$(this).attr("alt");
+	       alert(song_artist);
+	       param="id="+id+"&song_artist="+song_artist;
+	       alert(param);
+	       sendMessage("post", "myartistadd.do", param, songlistadd);
+	   });
 	$(this).on("click","#artist_tab",function(){
 		if($("#artist_panel").html()==""){
 		$("#artist_panel").html("<input type='text' class='input-query' id='artist_search'  data-search-on-list='search' placeholder='Search In Artist'/>"+
@@ -235,8 +238,8 @@ $(document).ready(function(){
 			            		
 			            		if(data[i]!=null){
 			            			var sdata = data[i].split("|");
-			            		 $('ul#artist_left').append("<li class='list-item' data-search-on-list='list-item'>"+sdata[1]+"<input id='artistadd' type='button' value='X' style='float:left'></li>");
-			            		 $('ul#artist_right').append("<li class='list-item' data-search-on-list='list-item'>"+sdata[0]+"<input id='songlistadd' type='button' value='X' style='float:right'></li>");
+			            		 $('ul#artist_left').append("<li class='list-item' data-search-on-list='list-item'><input id='artistadd' alt='"+sdata[1]+"' type='button' value='My Artist' style='float:left'><b id='artistListText'>"+sdata[1]+"</b></li>");
+			            		 $('ul#artist_right').append("<li class='list-item' data-search-on-list='list-item'><b>"+sdata[0]+"</b><input id='songlistadd' alt='"+sdata[1]+"' type='button' value='ADD' style='float:right'></li>");
 			            		 
 			            		}
 			            	 }
@@ -331,8 +334,8 @@ $(document).ready(function(){
 		            		
 		            		if(data[i]!=null){
 		            			var sdata = data[i].split("|");
-		            		 $('ul#music_left').append("<li class='list-item' data-search-on-list='list-item'>"+sdata[1]+"<input id='artistadd' type='button' value='X' style='float:left'></li>");
-		            		 $('ul#music_right').append("<li class='list-item' data-search-on-list='list-item'>"+sdata[0]+"<input id='songlistadd' type='button' value='X' style='float:right'></li>");
+		            		 $('ul#music_left').append("<li class='list-item' data-search-on-list='list-item'><input id='artistadd' alt='"+sdata[1]+"' type='button' value='My Artist' style='float:left'><b id='artistListText'>"+sdata[1]+"</b></li>");
+		            		 $('ul#music_right').append("<li class='list-item' data-search-on-list='list-item'><input id='songlistadd' alt='"+sdata[1]+"' type='button' value='ADD' style='float:right'><b id='songListText'>"+sdata[0]+"</b></li>");
 		            																										 
 		            		}
 		            	 }

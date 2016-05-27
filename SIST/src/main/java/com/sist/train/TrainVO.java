@@ -6,6 +6,14 @@ public class TrainVO {
 	private String train_id;
 	private String train_name;
 	private int like;
+	private String nick;
+	
+	public String getNick() {
+		return nick;
+	}
+	public void setNick(String nick) {
+		this.nick = nick;
+	}
 	public String getId() {
 		return id;
 	}

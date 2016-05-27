@@ -115,6 +115,8 @@ input, textarea, select, .area_select, .inventario_select, .main #tab61
 	height: 100%;
 }
 
+/*
+
 nav {
 	margin-top: 5px;
 	background: -moz-linear-gradient(#FFF 0%, #DEDEDE 100%);
@@ -122,11 +124,6 @@ nav {
 	background: -o-linear-gradient(#FFF 0%, #DEDEDE 100%);
 	background: -webkit-linear-gradient(#FFF 0%, #DEDEDE 100%);
 	background: linear-gradient(#FFF 0%, #DEDEDE 100%);
-}
-
-header {
-	margin-top: 10px;
-	background: #808000;
 }
 
 header, nav {
@@ -137,7 +134,8 @@ header, nav {
 	color: #FFF;
 	display: inline-block;
 	padding: 10px 10px;
-}
+} 
+
 
 nav ul {
 	display: inline-block;
@@ -206,6 +204,7 @@ nav ul li:hover>ul {
 	padding: 3.5em 1em;
 }
 
+*/
 .form--login2 input[type="text"], .form_inventario input[name="encargado"],
 	.form--login2 input[type="password"], .form--login2 #textarea1,
 	.form--login2 input[type="submit"], #select {
@@ -426,16 +425,6 @@ tr:hover .td {
 	display: inline-block;
 }
 
-.eliminar {
-	height: 100%;
-	text-align: center;
-	width: 100%;
-	background-color: #363b41;
-	color: white;
-	border-radius: 0.25rem;
-	font-size: 70%;
-}
-
 .botones {
 	height: 100%;
 	width: 5%;
@@ -468,10 +457,11 @@ p {
 main {
 	text-align: center;
 	width: auto;
+	height: 100%;
 	padding: 5px;
 	margin: 0 auto;
-	background: #fff;
-	box-shadow: 0 0 5px blue;
+	background: rgba(255, 255, 255, 0.5);
+	box-shadow: 0 0 5px;
 }
 
 section {
@@ -479,7 +469,7 @@ section {
 	display: none;
 	padding: 10px 5px;
 	border-top: 1px solid #ddd;
-	width: auto;
+	width: 100%;
 }
 
 section table {
@@ -489,19 +479,35 @@ section table {
 	border-collapse: collapse;
 }
 
+#boardListDiv {
+	height: 100%;
+	width: 100%;
+}
+
+/* 선택시 내용보기 CSS */
 .modeli {
 	display: none;
-	width: 70px;
-	height: auto;
+	width: 100%;
 }
 
 tr:hover .modeli {
 	display: block;
 }
 
+.eliminar {
+	height: 100%;
+	text-align: center;
+	width: 40px;
+	height: 35px;
+	background-color: #363b41;
+	color: white;
+	border-radius: 0.25rem;
+	font-size: 70%;
+}
+
+/* 선택시 내용보기 CSS */
 section table th, section table td {
-	width: auto;
-	height: 30px;
+	height: 40px;
 	padding: 3px 2px;
 	border-bottom: 1px solid #bbb;
 }
@@ -570,22 +576,24 @@ input[name="tabs"], input[name="subtabs"] {
 	width: 100%;
 }
 
+/* 상단 메뉴 호버시 색깔 */
 .main label:hover {
-	color: green;
+	color: black;
 	opacity: 0.5;
 	cursor: pointer;
 }
 
+/* 게시판 상단메뉴 선택시 CSS */
 input[type="radio"]:checked+label {
-	color: green;
+	color: black;
 	border: 1px solid #ddd;
-	border-top: 2px solid green;
+	border-top: 2px solid silver;
 	border-bottom: 1px solid #fff;
 }
 
 #tab1:checked ~ #content1, #tab2:checked ~ #content2, #tab3:checked ~
 	#content3, #tab4:checked ~ #content4, #tabh:checked ~ #historial, #tab5:checked 
-	~ #content5, #tab6:checked ~ #content6, #tab7:checked ~ #content7 {
+	 ~ #content5, #tab6:checked ~ #content6, #tab7:checked ~ #content7 {
 	display: block;
 }
 
@@ -597,6 +605,11 @@ input[type="radio"]:checked+label {
 		margin: 0;
 		font-size: 18px;
 	}
+}
+
+/* 게시판 헤드 th CSS */
+.headth {
+	text-align: center;
 }
 
 @media screen and (max-width: 400px) {
@@ -624,3 +637,41 @@ input[type="radio"]:checked+label {
 	width: 100px;
 	height: 15px;
 }
+
+.boardTable {
+	padding: 10px 10px;
+	margin-top: 20px;
+	box-shadow: 0 0 5px black;
+}
+
+.pageMoveDiv {
+	text-align: center;
+	width: 100%;
+	position: absolute;
+}
+
+.pageMoveBtn {
+	cursor: pointer;
+	width: 25px;
+	height: 25px;
+	font-size: 15px;
+}
+
+.pageNumber {
+	width: 25px;
+	height: 25px;
+}
+
+
+/* 글쓰기 버튼 CSS */
+.writeBtnDiv{
+	float: right;
+	width: 12%;
+	position: relative;
+	right: 12%;
+}
+.writeBtn{
+	
+}
+
+

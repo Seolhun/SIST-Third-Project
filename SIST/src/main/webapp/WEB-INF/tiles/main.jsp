@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <!DOCTYPE HTML>
 <html>
@@ -19,26 +18,30 @@
 		param="id=admin";  // 로그인 되면 admin은 사용자 id로
 		sendMessage("POST", "mytrain.do", param, mytraindo);	
 	});
-	
-	
-	
 }); */
+
 function myfunction(){
-	param="id=admin";  // 로그인 되면 admin은 사용자 id로
+	var id=$('#headerid').text();
+	param="id="+id;  
 	sendMessage("POST", "mytrain.do", param, mytraindo);
 }
 function drive(){
 	   sendMessage("POST", "drive.do", null, mytraindo);
 }
 function drugflow_do(){
-	   sendMessage("POST", "drug_flow.do", null, mytraindo);
+	   sendMessage("POST", "emotion_main.do", null, mytraindo);
 }
 function search_do(){
 	sendMessage("POST", "search.do", null, mytraindo);
 }
 
+//게시판 리스트 가기 
 function list_do(){
 	sendMessage("POST", "list.do", null, mytraindo);
+}
+
+function insert_do(){
+	sendMessage("POST", "insert.do", null, mytraindo)
 }
 
 function mytraindo(){
@@ -48,9 +51,6 @@ function mytraindo(){
 		}
 	}
 }
-
-
-
 </script>
 
 <title>SIST | Drive Your Train</title>

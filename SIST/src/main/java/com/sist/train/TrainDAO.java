@@ -43,6 +43,7 @@ public class TrainDAO {
 				vo.setTrain_id(obj.getString("train_id"));
 				vo.setTrain_name(obj.getString("train_name"));
 				vo.setLike(obj.getInt("like"));
+				vo.setNick(obj.getString("nick"));
 				list.add(vo);
 			}
 		}catch(Exception ex){
@@ -51,7 +52,7 @@ public class TrainDAO {
 		return list;
 	}
 	
-	public int trainInsert(String id,String name){
+	public int trainInsert(String id,String name,String nick){
 		int train_no =0;
 		BasicDBObject where=new BasicDBObject();
 		where.put("id", id);
@@ -70,6 +71,7 @@ public class TrainDAO {
 		query.put("train_id", id);
 		query.put("train_name", name);
 		query.put("like", 0);
+		query.put("nick", nick);
 		dbc.insert(query);
 		return train_no+1;
 	}
@@ -87,4 +89,18 @@ public class TrainDAO {
 			System.out.println("trainDelete error: "+ex.getMessage());
 		}
 	}
+	public void trainNickChange(String id,String nick){
+		BasicDBObject where=new BasicDBObject();
+		where.put("id", id.trim());
+		DBCursor cursor=dbc.find(where);
+		int i=1;
+		while(cursor.hasNext()){
+			BasicDBObject data=(BasicDBObject)cursor.next();
+			BasicDBObject up=(BasicDBObject) dbc.findOne(data);
+			data.put("nick", nick.trim());
+			dbc.update(up, new BasicDBObject("$set",data));
+		}
+		
+	}
+
 }

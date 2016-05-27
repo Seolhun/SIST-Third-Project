@@ -17,11 +17,11 @@ public class MemberDAO {
 	private DBCollection dbc;
 	public MemberDAO(){
 		try{
-			// ����� ����
+
 			mc=new MongoClient("211.238.142.23:27017");
-			// �����ͺ��̽� �ϱ�
+
 			db=mc.getDB("sist"); // use mydb
-			// �÷��� ����
+
 			dbc=db.getCollection("sist_member");
 		}catch(Exception ex){
 			System.out.println(ex.getMessage());
@@ -40,6 +40,7 @@ public class MemberDAO {
 				//vo.setEmail(obj.getString("email"));
 				vo.setMy_artist(obj.getString("my_artist"));
 				vo.setMy_genre(obj.getString("my_genre"));
+				vo.setNick(obj.getString("nick"));
 				list.add(vo);
 			}
 		}catch(Exception ex){
@@ -74,9 +75,10 @@ public class MemberDAO {
 			query.put("email", vo.getEmail());
 			query.put("my_artist", vo.getMy_artist());
 			query.put("my_genre", vo.getMy_genre());
-			query.put("nick", vo.getId());
+			query.put("nick", vo.getId());  // add nick
 			dbc.insert(query);
 			System.out.println("아이디 입력");
+
 		} catch (Exception e){
 			System.out.println("Insert Member" + e.getMessage());
 		}
@@ -87,7 +89,16 @@ public class MemberDAO {
 		BasicDBObject data=(BasicDBObject) dbc.findOne(where);
 		System.out.println("id:"+id+"my_genre:"+my_genre);
 		data.put("my_genre", my_genre);
-		dbc.update(where, new BasicDBObject("$set",data)); // $set���ָ� insert�ȴ�
+
+		dbc.update(where, new BasicDBObject("$set",data)); // $set占쏙옙占쌍몌옙 insert占싫댐옙
+	}
+	public void nickChange(String id,String nick){
+		BasicDBObject where=new BasicDBObject();
+		where.put("id", id.trim());
+		BasicDBObject data=(BasicDBObject)dbc.findOne(where);
+		data.put("nick", nick.trim());
+		dbc.update(where, new BasicDBObject("$set",data));
+
 	}
 	
 }

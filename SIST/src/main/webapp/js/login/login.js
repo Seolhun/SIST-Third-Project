@@ -93,13 +93,16 @@ window.fbAsyncInit = function() {
 		if (response.status === 'connected') {
 	    	getUserInfo();
 	    	getLikeMusician();
+		} else if(response.status != 'connected'){
+			Login();
 		} else if (response.status === 'not_authorized') {
-
+			Login();
 		} else {
-			
+			Login();
 		}
 	});
 };
+
 function Login(){
 	FB.login(function(response) {
 		if(response.name !="undefined" && response.status === "connected"){
@@ -140,10 +143,13 @@ function getLikeMusician(){
 function getUserInfo() {
     FB.api('/me',{fields: 'email'}, function(response) {
     	getPhoto();
-	    var str="<input type='button' value='Logout' onclick='Logout();' style='float:right'/>";
-    	str +="<h4 style='width:60%; float:right'>"+response.email+"</h4>";
-    	str +="<h4 id='headerid' style='width:60%; float:right; display:none'>"+response.id+"</h4>";
-    	document.getElementById("logInfo").innerHTML+=str;    
+
+        var str="<div style='width:100%; height:100%; font-size:20px'>"+response.email;
+        //str +="<h4 style='width:60%; float:right'>"+response.email+"</h4>";
+        str +="<h4 id='headerid' style='width:60%; float:right; display:none'>"+response.id+"</h4>"; 
+        str +="<input type='button' value='Logout' onclick='Logout();' style='font-size:15px; float:right; color:black'/></div>";
+        document.getElementById("logInfo").innerHTML+=str; 
+
     	var id=response.id;
     	var email=response.email;
         	$.ajax({
@@ -164,10 +170,9 @@ function getUserInfo() {
 
 function getPhoto(){
 	FB.api('/me/picture?type=normal', function(response) {
-		var str="<img src='"+response.data.url+"' style='float:left; height:50px; width:50px'/>";
+		var str="<div id='imgInfo'><img src='"+response.data.url+"' style='height:60px; width:60px; right: 150px; top: -7px; position: relative;' /></div>";
 		document.getElementById("logInfo").innerHTML+=str;  	  	    
   	});
-	
 }
 
 function Logout() {

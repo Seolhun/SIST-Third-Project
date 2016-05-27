@@ -9,20 +9,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.sist.train.TrainDAO;
 import com.sist.train.TrainVO;
-import com.sist.genie.manager.*;
 
 @Controller
 public class MainController {
 	@Autowired
 	private TrainDAO dao;
-	@Autowired
-	private genieManager gm;
 
 	@RequestMapping("main.do")
 	public String main_list(String id, Model model) {
-		id = "admin"; // �α��� ����� ������
-		List<TrainVO> list = dao.trainAllData(id);
-		model.addAttribute("list", list);
+
 		return "main";
 	}
 
@@ -31,12 +26,12 @@ public class MainController {
 		return "tiles/footer";
 	}
 
-	@RequestMapping("drug_flow.do")
-	public String genieAllData(Model model) {
-		List<genieVO> list = gm.genieAllData();
-		model.addAttribute("list", list);
-		return "drugflow/drug_flow";
-	}
+//	@RequestMapping("drug_flow.do")
+//	public String genieAllData(Model model) {
+//		List<genieVO> list = gm.genieAllData();
+//		model.addAttribute("list", list);
+//		return "drugflow/drug_flow";
+//	}
 
 	@RequestMapping("drive.do")
 	public String drive() {
@@ -57,5 +52,6 @@ public class MainController {
 	public String boardinsert() {
 		return "board/insert";
 	}
+	
 
 }

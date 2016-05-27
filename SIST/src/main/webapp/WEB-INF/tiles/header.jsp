@@ -18,7 +18,7 @@
 			<li class="video_small">FAVOR</li>
 			<li class="video_small" id="list_do" onclick="list_do()">COMMUNITY</li>
 			<li class="video_small" id="search_do" onclick="search_do()">SEARCH</li>
-			<li class="video_small" id="logInfo" style="width:480px;"></li>
+			<li id="logInfo" style="width:20%; height: 15%"></li>
 		</ul>
 	</nav>
 	<script src="js/youtube.js"></script>
