@@ -6,22 +6,24 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 <link rel="stylesheet" type="text/css" href="css/rank.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<script type="text/javascript" src="http://static.melon.co.kr/static/web/resource/script/w1/9s/n/15h0261uk9.js"></script>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+ <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+ <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<!-- <script type="text/javascript" src="http://static.melon.co.kr/static/web/resource/script/w1/9s/n/15h0261uk9.js"></script> -->
 <script type="text/javascript">document.domain='melon.com';</script>
 
 <script type="text/javascript">
-$(document).ready(function($) {
+$(document).ready(function() {
 
 	$('.genie').click(function(){
+		alert("되냐?");
 		$('ul.list').html('');
 		$('.list').append("<c:forEach var='vo' items='${gchart }'><div class='list-item'  style='border-bottom: 4px solid #eee;'><p class='list-item-link'>${vo.rank }.&nbsp;&nbsp;${vo.titles } <br/><span class='item-list-subtext'>${vo.artists }</span></p></div></c:forEach>");
 	});
 	
 	$('.bill').click(function(){
+		alert("되냐?");
 		$('ul.list').html("");
 		$('.list').append("<c:forEach var='vo' items='${bchart }'><div class='list-item'  style='border-bottom: 4px solid #eee;'><p class='list-item-link'>${vo.rank }.&nbsp;&nbsp;${vo.titles } <br/><span class='item-list-subtext'>${vo.artists }</span></p></div></c:forEach>");	
 	});
@@ -34,14 +36,14 @@ $(document).ready(function($) {
 			var btn=$('.list-item').attr('id');
 			if(btn=='emolist')
 			{
-				  $('ul.filter-list').html("");
-				   $('.filter-list').append("<c:forEach var='vo' items='${glist }'><li class='list-item' id='genlist'><button type='button' class='btn btn-sm btn-default day gen' value='${vo.genre}'>${vo.genre}</button></li></c:forEach>")
+				$('ul.filter-list').html("");
+				   $('.filter-list').append("<c:forEach var='vo' items='${glist }'><a href='genre_click.do?genre=${vo.genre }'><li class='list-item' id='genlist'><button type='button' class='btn btn-sm btn-default day gen' value='${vo.genre}'>${vo.genre}</button></a></li></c:forEach>")
 				   gen_click();
 			}
 			else if(btn=='genlist')
 			{
 				$('ul.filter-list').html("");
-				   $('.filter-list').append("<c:forEach var='vo' items='${elist }'><li class='list-item' id='emolist'><button type='button' class='btn btn-sm btn-default day emo' id='btn-emo' value='${vo.emotion}'>${vo.emotion}</button></li></c:forEach>")
+				   $('.filter-list').append("<c:forEach var='vo' items='${elist }'><a href='emotion_click.do?emotion=${vo.emotion }'><li class='list-item' id='emolist'><button type='button' class='btn btn-sm btn-default day emo' id='btn-emo' value='${vo.emotion}'>${vo.emotion}</button></a></li></c:forEach>")
 				   emo_click(); 
 			}
 	});
@@ -190,7 +192,7 @@ function emo_click(){
 				<ul class="filter-list" style="height: 74px; margin-top: 6px;">
 					<c:forEach var="vo" items="${elist }">
 						<li class="list-item" id='emolist'>
-							<button type="button" class="btn btn-sm btn-default day emo"  value="${vo.emotion }">${vo.emotion }</button>
+							<a href="emotion_click.do?emotion=${vo.emotion }"><button type="button" class="btn btn-sm btn-default day emo"  value="${vo.emotion }">${vo.emotion }</button></a>
 						</li>
 					</c:forEach>
 				</ul>
