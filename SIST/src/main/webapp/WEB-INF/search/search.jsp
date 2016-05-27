@@ -194,11 +194,8 @@ $(document).ready(function(){
 		 var train_no=$('#songlist_trainno').val();
 		// <span class='preview' id="mytrainno">${vo.train_no }</span>
 		 var song_title=$(this).parents('.list-item').text();
-		 alert(song_title);
 		 var song_artist=$(this).attr("alt");
-		 alert(song_artist);
 		 param="id="+train_id+"&no="+train_no+"&song_title="+song_title+"&song_artist="+song_artist;
-		 alert(param);
 		 if(train_no!=null){
 		 	sendMessage("post", "songlistadd.do", param, songlistadd)
 		 }else{
@@ -208,11 +205,8 @@ $(document).ready(function(){
 	$(this).on("click","#artistadd",function(){
 	      
 	      var id=$('#headerid').text();
-	      alert("id:"+id);
 	      var song_artist=$(this).attr("alt");
-	       alert(song_artist);
 	       param="id="+id+"&song_artist="+song_artist;
-	       alert(param);
 	       sendMessage("post", "myartistadd.do", param, songlistadd);
 	   });
 	$(this).on("click","#artist_tab",function(){

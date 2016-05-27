@@ -35,6 +35,9 @@ public class MytrainController {
 		List<ArtistVO> alist=adao.ArtistAllData(id);
 		model.addAttribute("alist",alist);
 		model.addAttribute("genrelist",list);
+		MemberVO vo=list.get(0);
+		String nick=vo.getNick();
+		model.addAttribute("nick",nick);
 		
 		return "mytrain/mytrain";
 	}
@@ -117,7 +120,7 @@ public class MytrainController {
 				    pw.print(ja.toJSONString());
 				    pw.flush();
 					
-				}catch(Exception e){System.out.println("°Ë»ö °á°ú°¡ ¾ø½À´Ï´Ù.");}
+				}catch(Exception e){System.out.println("ï¿½Ë»ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");}
 
 	
 	}

@@ -108,7 +108,7 @@ function genreadd(){
 		<div class="mypage" id="mypageleft">
 			<div class="mypageleftside" id="trainname">trainname
 			</div>
-			<input id="nickChange"><button id="nickChangeBtn">닉네임 변경</button>
+			<input id="nickChange" placeholder="${nick }"><button id="nickChangeBtn">닉네임 변경</button>
 			
 			<div class="mypageleftside" id="myartist">my artist<br>
 			   <c:forEach var="avo" items="${alist }">

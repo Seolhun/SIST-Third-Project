@@ -202,7 +202,12 @@
          <artifactId>javassist</artifactId>
          <version>3.18.2-GA</version>
       </dependency>
-	  
+	  <!-- hadoop -->
+	  <dependency>
+			<groupId>org.apache.hadoop</groupId>
+			<artifactId>hadoop-core</artifactId>
+			<version>1.2.1</version>
+		</dependency>
       <dependency>
          <groupId>org.nuiton.thirdparty</groupId>
          <artifactId>Rserve</artifactId>
