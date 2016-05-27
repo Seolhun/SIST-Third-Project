@@ -126,4 +126,11 @@ public class MytrainController {
        adao.ArtistInsert(id, song_artist);
        return "mytrain/songlist";
     }
+	@RequestMapping("artistdelete.do")
+    public String artistDelete(String id,String my_artist,Model model){
+       adao.ArtistDelete(id, my_artist);
+       List<ArtistVO> alist=adao.ArtistAllData(id.trim());
+       model.addAttribute("alist",alist);
+       return "mytrain/myartist";
+    }
 }

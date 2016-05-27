@@ -18,6 +18,8 @@ $(function(){
 	$('#MakeTrainBtn').click(function(){
 		var name=$('#maketrainname').val();
 		var nick=$('#mynick').text();
+		onYouTubeIframeAPIReady();
+			videoChange();
 		
 		param="id="+id+"&name="+name+"&nick="+nick;
 		sendMessage("POST", "maketrain.do", param, maketrain);
@@ -53,6 +55,7 @@ $(function(){
 		param="id="+id+"&nick="+nick;
 		sendMessage("post", "nickchange.do", param, maketrain);
 	});
+	
 });
 /* function nickchange(){
 	if(httpRequest.readyState==4){
@@ -98,6 +101,7 @@ function genreadd(){
 		}
 	}
 }
+
 </script>
 </head>
 <body>
@@ -108,9 +112,9 @@ function genreadd(){
 			<input id="nickChange"><button id="nickChangeBtn">닉네임 변경</button>
 			
 			<div class="mypageleftside" id="myartist">my artist<br>
-			<c:forEach var="avo" items="${alist }">
-				${avo.my_artist }
-			</c:forEach>			
+			   <c:forEach var="avo" items="${alist }">
+			      ${avo.my_artist } <input type="button" class="artist_del_btn" value="X" alt="${avo.my_artist }"><br> 
+			   </c:forEach>
 			</div>
 			<div class="mypageleftside" id="mygenre">
 				  댄스

@@ -3,5 +3,3 @@
 <%
     response.sendRedirect("login.do");
 %>
-
-	

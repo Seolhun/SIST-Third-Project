@@ -26,7 +26,14 @@ $(function(){
       param="id="+id+"&train_no="+train_no;
       sendMessage("POST", "deletetrain.do", param, deletetrain);   
    });
-
+   $('.artist_del_btn').click(function(){
+       var id=$('#headerid').text();
+      var my_artist=$(this).attr("alt");
+      
+       param="id="+id+"&my_artist="+my_artist;
+       alert(my_artist);
+      sendMessage("post", "artistdelete.do", param, artistdelete);  
+   }); 
 
 });
 
@@ -56,7 +63,15 @@ function footerdeletetrain(){
       }
    }
 }
-
+function artistdelete(){
+	   if(httpRequest.readyState==4){
+	      if(httpRequest.status==200){
+	         
+	         $('#myartist').html(httpRequest.responseText);
+	         
+	      }
+	   }
+	}
 </script>
 </head>
 <body>
