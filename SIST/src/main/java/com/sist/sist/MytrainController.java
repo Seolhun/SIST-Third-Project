@@ -152,17 +152,24 @@ public class MytrainController {
 		List<ArtistVO> list=adao.ArtistAllData(id);
 		if(list.size()<5){
 			System.out.println("5미만");
-			 for(int i=0;i<list.size();i++){
-				 for(int j=0;j<3;j++){
+			 for(int i=0;i<3;i++){
+				 for(int j=0;j<list.size();j++){
 					String songtitle=artistSearch(list.get(j).getMy_artist());
 //					 ja.add(list.get(i).getMy_artist());
-				
 					ja.add(songtitle);
 				 }
 
 			 }
 		}else{
-			System.out.println("5개이상");
+			System.out.println("5이상");
+			 for(int i=0;i<2;i++){
+				 for(int j=0;j<list.size();j++){
+					String songtitle=artistSearch(list.get(j).getMy_artist());
+//					 ja.add(list.get(i).getMy_artist());
+					ja.add(songtitle);
+				 }
+
+			 }
 			
 		}
 		
