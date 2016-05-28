@@ -19,15 +19,17 @@
 		sendMessage("POST", "mytrain.do", param, mytraindo);	
 	});
 }); */
+
 function myfunction(){
-	param="id=admin";  // 로그인 되면 admin은 사용자 id로
+	var id=$('#headerid').text();
+	param="id="+id;  
 	sendMessage("POST", "mytrain.do", param, mytraindo);
 }
 function drive(){
 	   sendMessage("POST", "drive.do", null, mytraindo);
 }
 function drugflow_do(){
-	   sendMessage("POST", "drug_flow.do", null, mytraindo);
+	   sendMessage("POST", "emotion_main.do", null, mytraindo);
 }
 function search_do(){
 	sendMessage("POST", "search.do", null, mytraindo);

@@ -22,6 +22,7 @@ $(document).ready(function() {
 });
 function youtube_load(){
 	video_state=0;
+	songNo=0;
 	visible();
 	var ajax = new XMLHttpRequest();
 	var string;
@@ -90,7 +91,7 @@ function onPlayerStateChange(event) {
 	  if(event.data==0){
 	     if(songNo==songlist.length-1)
 	     {
-	        songNo=0;
+	        songNo=-1;
 	        videoChange();
 	     }
 	     if(songNo!=songlist.length-1)
@@ -200,3 +201,8 @@ function videoChange(){
     ajax.send();
 
 }
+
+listclick.addEventListener('click', function(){
+	document.getElementById('footer-songlist').style.height='215px';
+	document.getElementById('footer-songlist').style.display='block';
+});
