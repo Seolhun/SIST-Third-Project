@@ -3,8 +3,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="css/board/insert.css">
-<script type="text/javascript" src="js/board/insert.js"></script>
+<link rel="stylesheet" type="text/css" href="css/board/insert2.css">
+<script type="text/javascript" src="js/board/insert2.js"></script>
 
 <title>게시판 글쓰기</title>
 </head>

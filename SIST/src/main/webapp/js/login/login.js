@@ -143,11 +143,13 @@ function getLikeMusician(){
 function getUserInfo() {
     FB.api('/me',{fields: 'email'}, function(response) {
     	getPhoto();
+
         var str="<div style='width:100%; height:100%; font-size:20px'>"+response.email;
         //str +="<h4 style='width:60%; float:right'>"+response.email+"</h4>";
         str +="<h4 id='headerid' style='width:60%; float:right; display:none'>"+response.id+"</h4>"; 
         str +="<input type='button' value='Logout' onclick='Logout();' style='font-size:15px; float:right; color:black'/></div>";
         document.getElementById("logInfo").innerHTML+=str; 
+
     	var id=response.id;
     	var email=response.email;
         	$.ajax({

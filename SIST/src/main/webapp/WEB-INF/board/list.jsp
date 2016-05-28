@@ -11,47 +11,60 @@
 
 <script type="text/javascript" src="js/board/list.js"></script>
 <script src="https://apis.google.com/js/platform.js" async defer></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
 <title>Insert title here</title>
 </head>
 <body>
 	<main id="main" class="main">
 	<form action="peticiones" method="post" class="form Inventario">
-	<div id="boardListDiv">
-		<input id="tab1" type="radio" name="tabs" checked>		<label id="asign-hist" for="tab1">자유 게시판</label>
-		<input id="tab2" type="radio" name="tabs"> 				<label id="asign-hist" for="tab2">음악 게시판</label> 
-		<input id="tab3" type="radio" name="tabs"> 				<label id="asign-hist" for="tab3">Q & A</label>
-		<section id="content6">
-		<table class="boardTable">
-			<thead>
-				<tr>
-					<input name="no_imp" id="no_imp" type="text" style="display: none;">
-					<th class="headth">번호</th>
-					<th class="headth">종류</th>
-					<th class="headth">제목</th>
-					<th class="headth">작성일</th>
-					<th class="headth">조회수</th>
-					<th class="headth" style="display: block;"></th>
-				</tr>
-			</thead>
-			<tbody>
-			<c:forEach var="1" begin="1" end="10">
-			<%-- <c:forEach var="vo" items="{$list}"> --%>
-				<tr>
-					<td style="width: 5%">ALM1</td>
-					<td style="width: 5%">prueba 2</td>
-					<td style="width: 70%">159</td>
-					<td style="width: 10%">18/11/2016</td>
-					<td style="width: 5%">10</td>
-					<td class='modeli' style="width: 100%">
-						<form action="peticiones" method="post" class="form Inventario">
-							<input class='eliminar' name='bot_man_prev' type="button" id='bot_man_prev' value='내용보기' onclick='mod(this)'>
-						</form>
-					</td>
-				</tr>
-			</c:forEach>
-			</tbody>
-		</table>
-		</section>
+		<div id="boardListDiv">
+			<input id="tab1" type="radio" name="tabs" checked> <label
+				id="asign-hist" for="tab1">자유 게시판</label> <input id="tab2"
+				type="radio" name="tabs"> <label id="asign-hist" for="tab2">음악
+				게시판</label> <input id="tab3" type="radio" name="tabs"> <label
+				id="asign-hist" for="tab3">Q & A</label>
+			<section id="content6">
+			<table class="boardTable">
+				<thead>
+					<tr>
+						<input name="no_imp" id="no_imp" type="text"
+							style="display: none;">
+						<th class="headth">번호</th>
+						<th class="headth">종류</th>
+						<th class="headth">제목</th>
+						<th class="headth">작성일</th>
+						<th class="headth">조회수</th>
+						<th class="headth" style="display: block;"></th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach var="1" begin="1" end="10">
+						<%-- <c:forEach var="vo" items="{$list}"> --%>
+						<tr>
+							<td style="width: 5%">ALM1</td>
+							<td style="width: 5%">prueba 2</td>
+							<td style="width: 70%">159</td>
+							<td style="width: 10%">18/11/2016</td>
+							<td style="width: 5%">10</td>
+							<td class='modeli' style="width: 100%">
+								<form action="peticiones" method="post" class="form Inventario">
+									<input class='eliminar' name='bot_man_prev' type="button"
+										id='bot_man_prev' value='내용보기' onclick='mod(this)'>
+								</form>
+							</td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+			</section>
 			<div class="listFooter">
 				<div class="pageMoveDiv">
 					<label class="pageMoveBtn"><</label>
@@ -63,8 +76,46 @@
 					<label class="pageMoveBtn">></label>
 				</div>
 				<div class="writeBtnDiv">
-					<button class="writeBtn" onclick="insert_do()">글 쓰기</button>
-					<!-- <li class="video_small" id="list_do" onclick="list_do()">COMMUNITY</li> -->
+					<a href="#" class="btn btn-lg btn-primary" data-toggle="modal"
+						data-target="#largeModal">Click to open Modal</a>
+				</div>
+			</div>
+			<div class="container">
+				<div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
+					<div class="modal-dialog modal-lg">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+								<h4 class="modal-title" id="myModalLabel">Large Modal</h4>
+							</div>
+							<form id="writeModal" name="writeModal" accept-charset="utf-8">
+							<div class="modal-body">						
+									<label>
+										<h4>카테고리</h4>
+										<select id="kind" name="kind">
+											<option value="자유">자유게시판</option>
+											<option value="노래">노래 추천</option>
+											<option value="가수">가수 추천</option>
+											<option value="기타">기타</option>
+										</select>
+									</label>
+									<label>
+										<span>제목</span> 
+										<input id="subject" name="subject" type="text" placeholder="게시판의 제목을 입력해주세요."/>
+									</label>
+									<label>
+										<span>내용</span>
+										<textarea id="content" name=content placeholder="게시판의 내용을 입력해주세요."></textarea>
+									</label>
+								
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+								<button type="button" class="btn btn-primary" id="sendBtn" name="submit" type="submit" value="Send">저장</button>
+							</div>
+							</form>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

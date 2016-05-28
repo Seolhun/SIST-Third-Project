@@ -50,16 +50,11 @@ function paginacion(p) {
 		}
 	}
 }
-paginar();
+//paginar();
 
-function insert_do(){
-	sendMessage("POST", "insert.do", null, mytraindo)
-}
+//모달 JS
 
-function mytraindo(){
-	if(httpRequest.readyState==4){
-		if(httpRequest.status==200){
-			$('.main_body').html(httpRequest.responseText);
-		}
-	}
-}
+
+
+//모달 JS
+
