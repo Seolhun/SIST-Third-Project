@@ -53,7 +53,42 @@ function paginacion(p) {
 //paginar();
 
 //모달 JS
-
+$(function(){
+	$('#sendBtn').click(function(){
+		var kind=$('#kind').val();
+		if(kind.trim()=="")
+		{
+			$('#kind').focus();
+			$('#kind').val("");
+			return;
+		}
+		var subject=$('#subject').val();
+		if(subject.trim()=="")
+		{
+			$('#subject').focus();
+			$('#subject').val("");
+			return;
+		}
+		var content=$('#content').val();
+		if(content.trim()=="")
+		{
+			$('#content').focus();
+			$('#content').val("");
+			return;
+		}
+		$('#writeFrm').submit();
+		var subject=$('#subject').val("");
+		var content=$('#content').val("");
+		$('#largeModal').modal('toggle');
+	});
+	
+	$('writeBtn').click(function(){
+		$('#subject').val("");
+		$('#content').val("");
+	})
+	
+	
+});
 
 
 //모달 JS
