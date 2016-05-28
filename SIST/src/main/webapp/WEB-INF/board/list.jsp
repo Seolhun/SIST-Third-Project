@@ -26,17 +26,14 @@
 	<main id="main" class="main">
 	<form action="peticiones" method="post" class="form Inventario">
 		<div id="boardListDiv">
-			<input id="tab1" type="radio" name="tabs" checked> <label
-				id="asign-hist" for="tab1">자유 게시판</label> <input id="tab2"
-				type="radio" name="tabs"> <label id="asign-hist" for="tab2">음악
-				게시판</label> <input id="tab3" type="radio" name="tabs"> <label
-				id="asign-hist" for="tab3">Q & A</label>
+			<input id="tab1" type="radio" name="tabs" checked> <label id="asign-hist" for="tab1">자유 게시판</label> 
+			<input id="tab2" type="radio" name="tabs"> <label id="asign-hist" for="tab2">음악 게시판</label> <input id="tab3" type="radio" name="tabs">
+			<label id="asign-hist" for="tab3">Q & A</label>
 			<section id="content6">
 			<table class="boardTable">
 				<thead>
 					<tr>
-						<input name="no_imp" id="no_imp" type="text"
-							style="display: none;">
+						<input name="no_imp" id="no_imp" type="text" style="display: none;">
 						<th class="headth">번호</th>
 						<th class="headth">종류</th>
 						<th class="headth">제목</th>
@@ -76,8 +73,7 @@
 					<label class="pageMoveBtn">></label>
 				</div>
 				<div class="writeBtnDiv">
-					<a href="#" class="btn btn-lg btn-primary" data-toggle="modal"
-						data-target="#largeModal">Click to open Modal</a>
+					<a href="#" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#largeModal">Click to open Modal</a>
 				</div>
 			</div>
 			<div class="container">
@@ -90,24 +86,23 @@
 							</div>
 							<form id="writeModal" name="writeModal" accept-charset="utf-8">
 							<div class="modal-body">						
-									<label>
-										<h4>카테고리</h4>
-										<select id="kind" name="kind">
-											<option value="자유">자유게시판</option>
-											<option value="노래">노래 추천</option>
-											<option value="가수">가수 추천</option>
-											<option value="기타">기타</option>
-										</select>
-									</label>
-									<label>
-										<span>제목</span> 
-										<input id="subject" name="subject" type="text" placeholder="게시판의 제목을 입력해주세요."/>
-									</label>
-									<label>
-										<span>내용</span>
-										<textarea id="content" name=content placeholder="게시판의 내용을 입력해주세요."></textarea>
-									</label>
-								
+								<label>
+									<h4>카테고리</h4>
+									<select id="kind" name="kind">
+										<option value="자유">자유게시판</option>
+										<option value="노래">노래 추천</option>
+										<option value="가수">가수 추천</option>
+										<option value="기타">기타</option>
+									</select>
+								</label>
+								<label>
+									<span>제목</span> 
+									<input id="subject" name="subject" type="text" placeholder="게시판의 제목을 입력해주세요."/>
+								</label>
+								<label>
+									<span>내용</span>
+									<textarea id="content" name=content placeholder="게시판의 내용을 입력해주세요."></textarea>
+								</label>
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
