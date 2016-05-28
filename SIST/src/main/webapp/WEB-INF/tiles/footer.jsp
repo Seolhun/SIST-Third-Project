@@ -85,7 +85,7 @@
 	            	 for (var i = 0;i<=data.length;i++) {
 	                		if(data[i]!=null){
 	                			songlist[i]=data[i];
-
+						alert(data[i]);
 	                		}
 	                	 }
 	            	 youtube_load(); 
