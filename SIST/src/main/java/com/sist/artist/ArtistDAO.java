@@ -14,11 +14,11 @@ public class ArtistDAO {
    private DBCollection dbc;
    public ArtistDAO(){
       try{
-         // ¸ù°íµðºñ ¿¬°á
+         // ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
          mc=new MongoClient("211.238.142.23:27017");
-         // µ¥ÀÌÅÍº£ÀÌ½º ÀÏ±â
+         // ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ ï¿½Ï±ï¿½
          db=mc.getDB("sist"); // use mydb
-         // ÄÃ·º¼Ç ¿¬°á
+         // ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
          dbc=db.getCollection("sist_artist");
       }catch(Exception ex){
          System.out.println(ex.getMessage());
@@ -27,8 +27,21 @@ public class ArtistDAO {
    public void ArtistInsert(String id,String my_artist){
       BasicDBObject where=new BasicDBObject();
       where.put("id", id);
-      where.put("my_artist", my_artist);
-      dbc.insert(where);
+      
+      DBCursor cursor=dbc.find(where);
+       boolean bCheck=false;
+      while(cursor.hasNext()){
+    	  BasicDBObject data=(BasicDBObject)cursor.next();
+    	  String artist=data.getString("my_artist");
+    	  if(artist.equals(my_artist)){
+    		  bCheck=true;
+    		  break;
+    	  }
+      }
+      if(bCheck==false){
+    	  where.put("my_artist", my_artist);
+    	  dbc.insert(where);
+      }
       
    }
    public List<ArtistVO> ArtistAllData(String id){
