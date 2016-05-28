@@ -25,7 +25,6 @@ $(".songlist_li").on("click",function(){
        			songlist[i]=data[i];
        			youtube_load(); 
 
-       		 
        		}
        	 }
          },

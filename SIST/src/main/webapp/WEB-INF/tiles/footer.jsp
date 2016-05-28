@@ -72,8 +72,25 @@
 	<script src="js/youtube.js"></script>
 	<script>
 	$(document).ready(function(){
-		$(".songlist").on("click",function(){
-			$(this).find('.song_name').text();
+		$("#video-title").on("click",function(){
+			var id=$('#headerid').text();
+ 			 $.ajax({
+	             url:'recommand_Songlist.do',
+	             type:'post',
+	             contentType: "application/x-www-form-urlencoded; charset=UTF-8", 
+	             dataType:"json",
+	             data:{"id" : id},
+	             success:function(data){
+	            	 
+	            	 for (var i = 0;i<=data.length;i++) {
+	                		if(data[i]!=null){
+	                			songlist[i]=data[i];
+	                			youtube_load(); 
+
+	                		}
+	                	 }
+	             }
+			}); 
 		});
 	});
 	</script>
