@@ -64,6 +64,18 @@
 	<definition name="mytrain/myartist" extends="not9">
 		<put-attribute name="body" value="/WEB-INF/mytrain/myartist.jsp"></put-attribute>
 	</definition>
+	<definition name="not10" template="/WEB-INF/favor/recommand.jsp">
+		<put-attribute name="body" value="" />
+	</definition>
+	<definition name="favor/recommand" extends="not10">
+		<put-attribute name="body" value="/WEB-INF/favor/recommand.jsp"></put-attribute>
+	</definition>
+	<definition name="not11" template="/WEB-INF/favor/recommandartist.jsp">
+		<put-attribute name="body" value="" />
+	</definition>
+	<definition name="favor/recommandartist" extends="not11">
+		<put-attribute name="body" value="/WEB-INF/favor/recommandartist.jsp"></put-attribute>
+	</definition>
 
 	<!-- 로그인 페이지 -->
 	<definition name="login" template="/WEB-INF/login/login.jsp">

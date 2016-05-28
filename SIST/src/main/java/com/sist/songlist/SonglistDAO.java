@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import com.mongodb.*;
+import com.sun.swing.internal.plaf.basic.resources.basic;
 
 @Repository
 public class SonglistDAO {
@@ -14,11 +15,11 @@ public class SonglistDAO {
 	private DBCollection dbc;
 	public SonglistDAO(){
 		try{
-			// ¸ù°íµðºñ ¿¬°á
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			mc=new MongoClient("211.238.142.23:27017");
-			// µ¥ÀÌÅÍº£ÀÌ½º ÀÏ±â
+			// ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ ï¿½Ï±ï¿½
 			db=mc.getDB("sist"); // use mydb
-			// ÄÃ·º¼Ç ¿¬°á
+			// ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			dbc=db.getCollection("sist_songlist");
 		}catch(Exception ex){
 			System.out.println(ex.getMessage());
@@ -31,7 +32,7 @@ public class SonglistDAO {
 			BasicDBObject where=new BasicDBObject();
 			where.put("train_id", id);
 			where.put("train_no", no);
-			System.out.println("id:"+id+" Æ®·¹ÀÎ³Ñ¹ö:"+no);
+			System.out.println("id:"+id+" Æ®ï¿½ï¿½ï¿½Î³Ñ¹ï¿½:"+no);
 			DBCursor cursor=dbc.find(where);
 			while(cursor.hasNext()){
 				BasicDBObject obj=(BasicDBObject)cursor.next();
@@ -77,29 +78,38 @@ public class SonglistDAO {
 		where.put("train_no", no);
 		DBCursor cursor=dbc.find(where);
 		int song_no=1;
+		boolean bCheck=false;
 		while(cursor.hasNext()){
 			BasicDBObject data=(BasicDBObject)cursor.next();
 			int n=data.getInt("song_no");
 			if(song_no<n){
 				song_no=n;
 			}
+			String title=data.getString("song_title");
+			if(song_title.equals(title)){
+				bCheck=true;
+				break;
+			}
 		}
+		
 		cursor.close();
 		System.out.println("no:"+no+" song_title: "+song_title+" song_artist:"+song_artist);
-		BasicDBObject query=new BasicDBObject();
-		query.put("train_id", id);
-		query.put("train_no", no);
-		query.put("song_title", song_title);
-		query.put("song_artist", song_artist);
-		query.put("song_no", song_no+1);
-		dbc.insert(query);
+		if(bCheck==false){
+			BasicDBObject query=new BasicDBObject();
+			query.put("train_id", id);
+			query.put("train_no", no);
+			query.put("song_title", song_title);
+			query.put("song_artist", song_artist);
+			query.put("song_no", song_no+1);
+			dbc.insert(query);
+		}
 	}
 	public void createSongList(int train_no,String id){
 		BasicDBObject where=new BasicDBObject();
 		where.put("train_id",id);
 		where.put("train_no", train_no);
-		where.put("song_title", "¸®½ºÆ® Ãß°¡ ÈÄ »èÁ¦ ÇÏ¼¼¿ä");
-		where.put("song_artist", "°¡¼ö¾øÀ½");
+		where.put("song_title", "ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ß°ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¼ï¿½ï¿½ï¿½");
+		where.put("song_artist", "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 		where.put("song_no", 1);
 		dbc.insert(where);
 	}
@@ -139,7 +149,7 @@ public class SonglistDAO {
 			BasicDBObject where=new BasicDBObject();
 			where.put("train_id", id);
 			where.put("train_no", no);
-			System.out.println("id:"+id+" Æ®·¹ÀÎ³Ñ¹ö:"+no);
+			System.out.println("id:"+id+" Æ®ï¿½ï¿½ï¿½Î³Ñ¹ï¿½:"+no);
 			DBCursor cursor=dbc.find(where);
 			while(cursor.hasNext()){
 				BasicDBObject obj=(BasicDBObject)cursor.next();

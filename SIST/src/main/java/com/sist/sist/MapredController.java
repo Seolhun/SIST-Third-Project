@@ -71,32 +71,22 @@ public class MapredController {
 		if(feel==null){
 			feel="걸";
 		}
-		List<RecommandVO> list=rdao.recommandAllData();
-		/*RecommandVO rvo=new RecommandVO();
-		for(RecommandVO vo:list){
-			if(feel.equals(vo.getFeel())){
-				rvo=vo;
-				break;
-			}*/
-		
-		
+	
 		//List<String> flist=rdao.recommandTitle(feel);
-		
-		/*List<RecommandVO> rlist=rdao.recommandFellData(feel);
-		String data="[";
-		for(RecommandVO rv:rlist){
-			data+="['"+rv.getTitle()+"',"+rv.getCount()+"],";
-		}
-		data=data.substring(0,data.lastIndexOf(","));
-		data+="]";*/
-		//List<String> slist=rdao.recommandRegData();
+		List<String> slist=rdao.recommandRegData();
 		//model.addAttribute("flist", flist);
-		//model.addAttribute("slist",slist);
+		model.addAttribute("slist",slist);
 		//MovieDTO d=mgr.movieDetail2(rvo.getTitle());
-		model.addAttribute("rlist",list);
+		
 		model.addAttribute("feel",feel);
 		
 		//model.addAttribute("title",rvo.getTitle());
-		return "mytrain/recommand";
+		return "favor/recommand";
+	}
+	@RequestMapping("recommandartist.do")
+	public String recommandArtist(String feel,Model model){
+		List<String> flist=rdao.recommandTitle(feel);
+		model.addAttribute("flist", flist);
+		return "favor/recommandartist";
 	}
 }

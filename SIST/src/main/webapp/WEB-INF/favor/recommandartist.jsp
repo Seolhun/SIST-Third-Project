@@ -8,25 +8,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<center>
-		<h3>추천영화</h3>
-		<table id="table_content" style="width:600px">
-			<tr>
-				<td>추천 검색 :
-					
-					   
-						<select name="feel" id="feel">
-							<c:forEach var="vo" items="${rlist }">
-								${vo.feel }
-								
-							</c:forEach>
-						</select>
-					
-				</td>
-			</tr>
-		</table>
-		
-
-	</center>
+	<c:forEach var="vo" items="${flist }">
+		<b>${vo}</b>
+	</c:forEach>
 </body>
 </html>

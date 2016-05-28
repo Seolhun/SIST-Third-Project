@@ -6,6 +6,23 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+$(function(){
+	$('#feel').change(function(){
+		var feel=$(this).val();
+		param="feel="+feel;
+		alert("feel="+feel);
+		sendMessage("post", "recommandartist.do", param, recommand);
+	});
+});
+function recommand(){
+	if(httpRequest.readyState==4){
+		if(httpRequest.status==200){
+			$('#recommandartist').html(httpRequest.responseText);
+		}
+	}
+}
+</script>
 </head>
 <body>
 	<center>
@@ -16,14 +33,18 @@
 					
 					   
 						<select name="feel" id="feel">
-							<c:forEach var="vo" items="${list }">
-								${vo.feel }
+							<c:forEach var="vo" items="${slist }">
+							<option>	${vo }</option>
 								
 							</c:forEach>
 						</select>
 					
 				</td>
 			</tr>
+			<tr id="recommandartist">
+				
+			</tr>
+			
 		</table>
 		
 
