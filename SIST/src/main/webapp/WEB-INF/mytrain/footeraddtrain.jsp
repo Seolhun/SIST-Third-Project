@@ -23,10 +23,10 @@ $(".songlist_li").on("click",function(){
       	 for (var i = 0;i<=data.length;i++) {
        		if(data[i]!=null){
        			songlist[i]=data[i];
-       			youtube_load(); 
 
        		}
        	 }
+      	youtube_load(); 
          },
  	    error:function(request,status,error){
 	        alert(error);

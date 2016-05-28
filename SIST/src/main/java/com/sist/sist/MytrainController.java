@@ -202,7 +202,7 @@ public class MytrainController {
 					 String title = title_El.attr("title");
 	/*				 String result = "{\"title\":\""+title+
 							 "\",\"artist\":\""+artist+"\"}";*/
-					 System.out.println(title);
+					 System.out.println(artist_id+" "+title);
 					 if(title!=null){
 						 
 					 }
