@@ -49,7 +49,7 @@
     	<div id="player" data-code=""></div>
 		<ul class="video-t">
 		  <li data-code="" id="prev" data-video-pause="playing">PREV</li>
-		  <li data-code="c7rCyll5AeY" id="next">NEXT</li>
+		  <li data-code="" id="next">NEXT</li>
 		</ul>
 	</div>
 	<div id="add_train">ADD TO MY TRAIN</div>
