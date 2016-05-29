@@ -155,7 +155,7 @@ $(document).ready(function(){
 	sendMessage("post", "searchtrain.do", param, searchtrain)
 	/* setTimeout("reload()",800); */
 	$('#music_search').focus();
-	$(this).on("click","#music_tab",function(){
+	$("#music_tab").on("click",function(){
 		  $("#music_search").keypress(function (e) {
 			  if ((e.which && e.which == 13) || (e.keyCode && e.keyCode == 13)) {
 					$('.mlist').html("");
@@ -189,33 +189,9 @@ $(document).ready(function(){
 	      });
 	});
 	
-	$(this).on("click","#songlistadd",function(){
-		var train_id=$('#train_id').text();
-		 var train_no=$('#songlist_trainno').val();
-		// <span class='preview' id="mytrainno">${vo.train_no }</span>
-		 var song_title=$(this).parents('.list-item').text();
-		 alert(song_title);
-		 var song_artist=$(this).attr("alt");
-		 alert(song_artist);
-		 param="id="+train_id+"&no="+train_no+"&song_title="+song_title+"&song_artist="+song_artist;
-		 alert(param);
-		 if(train_no!=null){
-		 	sendMessage("post", "songlistadd.do", param, songlistadd)
-		 }else{
-			 alert("train을 고르세요");
-		 }
-	});
-	$(this).on("click","#artistadd",function(){
-	      
-	      var id=$('#headerid').text();
-	      alert("id:"+id);
-	      var song_artist=$(this).attr("alt");
-	       alert(song_artist);
-	       param="id="+id+"&song_artist="+song_artist;
-	       alert(param);
-	       sendMessage("post", "myartistadd.do", param, songlistadd);
-	   });
-	$(this).on("click","#artist_tab",function(){
+
+
+	$("#artist_tab").on("click",function(){
 		if($("#artist_panel").html()==""){
 		$("#artist_panel").html("<input type='text' class='input-query' id='artist_search'  data-search-on-list='search' placeholder='Search In Artist'/>"+
 					  " <span class='counter' data-search-on-list='counter'></span>"+
@@ -238,13 +214,41 @@ $(document).ready(function(){
 			            		
 			            		if(data[i]!=null){
 			            			var sdata = data[i].split("|");
-			            		 $('ul#artist_left').append("<li class='list-item' data-search-on-list='list-item'><input id='artistadd' alt='"+sdata[1]+"' type='button' value='My Artist' style='float:left'><b id='artistListText'>"+sdata[1]+"</b></li>");
-			            		 $('ul#artist_right').append("<li class='list-item' data-search-on-list='list-item'><b>"+sdata[0]+"</b><input id='songlistadd' alt='"+sdata[1]+"' type='button' value='ADD' style='float:right'></li>");
+			            		 $('ul#artist_left').append("<li class='list-item' data-search-on-list='list-item'><input class='artistadd' alt='"+sdata[1]+"' type='button' value='My Artist' style='float:left'><b id='artistListText'>"+sdata[1]+"</b></li>");
+			            		 $('ul#artist_right').append("<li class='list-item' data-search-on-list='list-item'><b>"+sdata[0]+"</b><input class='songlistadd' alt='"+sdata[1]+"' type='button' value='ADD' style='float:right'></li>");
 			            		 
 			            		}
 			            	 }
 			      /*        var ajaxName = decodeURIComponent(data.title+".."+data.poster+".."+data.artist);
 			             $('#search_Panel').append("<div id='music_pan'><b>제목:"+data.title[0]+"</br>가수:"+data.artist+"</b></br></div>"); */
+			             
+			            		$(".songlistadd").on("click",function(){
+			            			var train_id=$('#train_id').text();
+			            			 var train_no=$('#songlist_trainno').val();
+			            			// <span class='preview' id="mytrainno">${vo.train_no }</span>
+			            			 var song_title=$(this).parents('.list-item').text();
+			            			 alert(song_title);
+			            			 var song_artist=$(this).attr("alt");
+			            			 alert(song_artist);
+			            			 param="id="+train_id+"&no="+train_no+"&song_title="+song_title+"&song_artist="+song_artist;
+			            			 alert(param);
+			            			 if(train_no!=null){
+			            			 	sendMessage("post", "songlistadd.do", param, songlistadd)
+			            			 }else{
+			            				 alert("train을 고르세요");
+			            			 }
+			            		});
+			             
+			            		$(".artistadd").on("click",function(){
+			            		      
+			            		      var id=$('#headerid').text();
+			            		      alert("id:"+id);
+			            		      var song_artist=$(this).attr("alt");
+			            		       alert(song_artist);
+			            		       param="id="+id+"&song_artist="+song_artist;
+			            		       alert(param);
+			            		       sendMessage("post", "myartistadd.do", param, songlistadd);
+			            		   });
 			             },
 			     	    error:function(request,status,error){
 			    	        alert(error);
@@ -334,13 +338,40 @@ $(document).ready(function(){
 		            		
 		            		if(data[i]!=null){
 		            			var sdata = data[i].split("|");
-		            		 $('ul#music_left').append("<li class='list-item' data-search-on-list='list-item'><input id='artistadd' alt='"+sdata[1]+"' type='button' value='My Artist' style='float:left'><b id='artistListText'>"+sdata[1]+"</b></li>");
-		            		 $('ul#music_right').append("<li class='list-item' data-search-on-list='list-item'><input id='songlistadd' alt='"+sdata[1]+"' type='button' value='ADD' style='float:right'><b id='songListText'>"+sdata[0]+"</b></li>");
+		            		 $('ul#music_left').append("<li class='list-item' data-search-on-list='list-item'><input class='artistadd' alt='"+sdata[1]+"' type='button' value='My Artist' style='float:left'><b id='artistListText'>"+sdata[1]+"</b></li>");
+		            		 $('ul#music_right').append("<li class='list-item' data-search-on-list='list-item'><input class='songlistadd' alt='"+sdata[1]+"' type='button' value='ADD' style='float:right'><b id='songListText'>"+sdata[0]+"</b></li>");
 		            																										 
 		            		}
 		            	 }
 		      /*        var ajaxName = decodeURIComponent(data.title+".."+data.poster+".."+data.artist);
 		             $('#search_Panel').append("<div id='music_pan'><b>제목:"+data.title[0]+"</br>가수:"+data.artist+"</b></br></div>"); */
+		            		$(".songlistadd").on("click",function(){
+		            			var train_id=$('#train_id').text();
+		            			 var train_no=$('#songlist_trainno').val();
+		            			// <span class='preview' id="mytrainno">${vo.train_no }</span>
+		            			 var song_title=$(this).parents('.list-item').text();
+		            			 alert(song_title);
+		            			 var song_artist=$(this).attr("alt");
+		            			 alert(song_artist);
+		            			 param="id="+train_id+"&no="+train_no+"&song_title="+song_title+"&song_artist="+song_artist;
+		            			 alert(param);
+		            			 if(train_no!=null){
+		            			 	sendMessage("post", "songlistadd.do", param, songlistadd)
+		            			 }else{
+		            				 alert("train을 고르세요");
+		            			 }
+		            		});
+		             
+		            		$(".artistadd").on("click",function(){
+		            		      
+		            		      var id=$('#headerid').text();
+		            		      alert("id:"+id);
+		            		      var song_artist=$(this).attr("alt");
+		            		       alert(song_artist);
+		            		       param="id="+id+"&song_artist="+song_artist;
+		            		       alert(param);
+		            		       sendMessage("post", "myartistadd.do", param, songlistadd);
+		            		   });
 		             },
 		     	    error:function(request,status,error){
 		    	        alert(error);
