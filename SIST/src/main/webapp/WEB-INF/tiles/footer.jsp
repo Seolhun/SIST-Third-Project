@@ -98,6 +98,14 @@
 	             }
 			}); 
 		});
+		$("#video-list").on("click",function(){
+			 obj = document.getElementById('footer-songlist');
+	         if(obj.style.display == "none") {
+	             $("#footer-songlist").css("display","block");
+	         } else {
+	             $("#footer-songlist").css("display","none");
+	         }
+		});
 	});
 	</script>
 </body>
