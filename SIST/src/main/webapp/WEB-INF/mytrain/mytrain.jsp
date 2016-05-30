@@ -19,10 +19,18 @@ $(function(){
 		var name=$('#maketrainname').val();
 		var nick=$('#mynick').text();
 <<<<<<< HEAD
+<<<<<<< HEAD
 		onYouTubeIframeAPIReady();
 			videoChange();
 		param="id="+id+"&name="+name+"&nick="+nick;
 =======
+=======
+		
+		param="id="+id+"&name="+name+"&nick="+nick;
+		sendMessage("POST", "maketrain.do", param, maketrain);
+	});
+	$('#genreBtn').click(function(){
+>>>>>>> refs/remotes/origin/km
 		
 		param="id="+id+"&name="+name+"&nick="+nick;
 >>>>>>> refs/remotes/origin/km
@@ -59,7 +67,10 @@ $(function(){
 		sendMessage("post", "nickchange.do", param, maketrain);
 	});
 <<<<<<< HEAD
+<<<<<<< HEAD
 	
+=======
+>>>>>>> refs/remotes/origin/km
 =======
 >>>>>>> refs/remotes/origin/km
 });
