@@ -31,64 +31,9 @@ public class EmotionDAO {
 		 }
 	 }
 	 
-	 
-	public void EmotionInsert(EmotionVO vo)
-	{
-		try
-		{
-			DBCursor cursor=dbc.find();
-			
-			while(cursor.hasNext())
-			{
-				BasicDBObject obj=(BasicDBObject)cursor.next();
-				String emotion=obj.getString("emotion");
-				int ecount=obj.getInt("ecount");
-			}
-			cursor.close();
-			
-			BasicDBObject in=new BasicDBObject();
-			in.put("emotion",vo.getEmotion());
-			in.put("ecount", vo.getEcount());
-			
-			BasicDBObject where=new BasicDBObject();
-			where.put("emotion", vo.getEmotion());
-		
-			dbc.insert(in);
-			
-		}catch(Exception ex)
-		{
-			System.out.println("EmotionInsert(): "+ex.getMessage());
-		}
-	}
-	
-	
-	
-	public List<EmotionVO> EmotionAllData(String emotion)
-	{
-		List<EmotionVO> list=new ArrayList<EmotionVO>();
-		try
-		{
-			DBCursor cursor=dbc.find();
-			while(cursor.hasNext())
-			{
-				BasicDBObject obj=(BasicDBObject)cursor.next();
-				if(emotion.equals(obj.getString("emotion")))
-				{
-					EmotionVO vo=new EmotionVO();
-					vo.setEmotion(obj.getString(emotion));
-					vo.setEcount(obj.getInt("ecount"));
-					list.add(vo);
-				}
-			}
-			cursor.close();
-		}catch(Exception ex)
-		{
-			System.out.println("EmotionAllData(): "+ex.getMessage());
-		}
-		return list;
-	}
-	
-	
+
+
+
 	public EmotionVO EmotionClickData(String  emotion)
 	{
 		EmotionVO vo=new EmotionVO();
@@ -99,7 +44,7 @@ public class EmotionDAO {
 			
 			BasicDBObject data1=(BasicDBObject)dbc.findOne(where);
 			int ecount=data1.getInt("ecount");
-			
+			System.out.println("ecount(): "+ecount);
 			BasicDBObject up=new BasicDBObject();
 			up.put("ecount", ecount+1);
 			dbc.update(where, new BasicDBObject("$set",up));
@@ -117,18 +62,27 @@ public class EmotionDAO {
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+     public List<EmotionVO> EmotionAllData()
+	{
+		List<EmotionVO> list=new ArrayList<EmotionVO>();
+		try
+		{
+			DBCursor cursor=dbc.find();
+			while(cursor.hasNext())
+			{
+				BasicDBObject obj=(BasicDBObject)cursor.next();
+					EmotionVO vo=new EmotionVO();
+					vo.setEmotion(obj.getString("emotion"));
+					vo.setEcount(obj.getInt("ecount"));
+					list.add(vo);
+				
+			}
+		}catch(Exception ex)
+		{
+			System.out.println("EmotionAllData(): "+ex.getMessage());
+		}
+		return list;
+	}
 	
 	
 	

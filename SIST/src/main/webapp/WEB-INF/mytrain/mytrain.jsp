@@ -22,6 +22,7 @@ $(function(){
 			videoChange();
 		
 		param="id="+id+"&name="+name+"&nick="+nick;
+
 		sendMessage("POST", "maketrain.do", param, maketrain);
 		
 		$(".songlist_li").on("click",function(){
@@ -41,6 +42,7 @@ $(function(){
 			 });
 		});
 	});
+
 	$('#genreBtn').click(function(){
         var param = "id="+id+"&my_genre=";
         $("input:checkbox[name=cartcheck]:checked").each(function(){
@@ -106,9 +108,13 @@ function genreadd(){
 <body>
 	<div class="mypage" id="mypagecontainer">
 		<div class="mypage" id="mypageleft">
-			<div class="mypageleftside" id="trainname">trainname
+
+<!-- 			<div class="mypageleftside" id="trainname">trainname -->
+<!-- 			</div> -->
+			<div id="nickdiv">
+				<input id="nickChange" placeholder="${nick }"><button id="nickChangeBtn">닉네임 변경</button>
 			</div>
-			<input id="nickChange" placeholder="${nick }"><button id="nickChangeBtn">닉네임 변경</button>
+
 			
 			<div class="mypageleftside" id="myartist">my artist<br>
 			   <c:forEach var="avo" items="${alist }">

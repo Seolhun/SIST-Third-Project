@@ -2,6 +2,12 @@ package com.sist.sist;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,7 +21,9 @@ import com.sist.songlist.SonglistDAO;
 import com.sist.songlist.SonglistVO;
 import com.sist.train.*;
 
+import com.sist.search.*;
 import java.io.PrintWriter;
+import java.net.URLEncoder;
 import java.util.*;
 
 import javax.servlet.http.HttpServletResponse;
@@ -38,7 +46,7 @@ public class MytrainController {
 		MemberVO vo=list.get(0);
 		String nick=vo.getNick();
 		model.addAttribute("nick",nick);
-		
+
 		return "mytrain/mytrain";
 	}
 	@RequestMapping("mytrainlist.do")
@@ -120,6 +128,7 @@ public class MytrainController {
 				    pw.print(ja.toJSONString());
 				    pw.flush();
 					
+
 				}catch(Exception e){System.out.println("�˻� ��� ����ϴ�.");}
 
 	
@@ -136,4 +145,82 @@ public class MytrainController {
        model.addAttribute("alist",alist);
        return "mytrain/myartist";
     }
+	
+
+	@RequestMapping("recommand_Songlist.do")
+	public void recommand_Songlist(String id,Model model,HttpServletResponse res){
+		try{
+			 JSONObject jobj = new JSONObject();
+			 JSONArray ja = new JSONArray();
+				
+			
+		List<ArtistVO> list=adao.ArtistAllData(id);
+		if(list.size()<5){
+			System.out.println("5�̸�");
+			 for(int i=0;i<list.size();i++){
+				 for(int j=0;j<3;j++){
+					String songtitle=artistSearch(list.get(j).getMy_artist());
+//					 ja.add(list.get(i).getMy_artist());
+				
+					ja.add(songtitle);
+				 }
+
+			 }
+		}else{
+			System.out.println("5���̻�");
+			
+		}
+		
+		
+		 res.setContentType("text/html;charset=UTF-8"); 
+		
+				    res.setContentType("application/json; charset=UTF-8");
+
+				    PrintWriter pw = res.getWriter();
+				    pw.print(ja.toJSONString());
+				    pw.flush();
+					
+				}catch(Exception e){System.out.println("�˻� ��� ����ϴ�.");}
+
+    }
+	
+	public String artistSearch(String artist_id){
+		try{
+			String URL = "http://www.melon.com/search/song/index.htm?q=";   //����Ʈ �ּ�
+			String subURL = artist_id; // request�� ��޹��� �˻���
+			subURL =  URLEncoder.encode(subURL, "UTF-8");
+			String endURL="&section=artist&searchGnbYn=Y&ipath=srch_form";
+			URL = URL + subURL + endURL;    //URL UTF ���ڵ�
+			Document doc = Jsoup.connect(URL).get();     //JSOUP�� �̿��� ����Ʈ ���� �� DOM����
+			Elements title_elem = doc.select("a.fc_gray");   //�����͸� �̿��� �˻� �� �Ľ�
+			
+			if(title_elem.size()>0){
+				int f =0;
+					 Random random = new Random();
+				     while(true){
+				    	 f = random.nextInt(title_elem.size());	 
+				    	 if(f!=0)break;
+				     }
+					 				     
+				        System.out.println(f);
+					 Element title_El=title_elem.get(f);
+					 String title = title_El.attr("title");
+	/*				 String result = "{\"title\":\""+title+
+							 "\",\"artist\":\""+artist+"\"}";*/
+					 System.out.println(artist_id+" "+title);
+					 if(title!=null){
+						 
+					 }
+					 return artist_id+" "+title;
+				 
+			}else{
+
+			}
+			
+
+			}catch(Exception e){System.out.println("�˻� ��� ����ϴ�.");}
+		return artist_id;
+		
+	}
+
 }

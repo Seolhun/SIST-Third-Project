@@ -15,6 +15,8 @@ $(function(){
    $('.btn-show').click(function(){
       var train_id=$(this).attr("alt");
       var train_no=$(this).attr("name");
+
+    
       param="id="+train_id+"&no="+train_no;
       sendMessage("POST", "songlist.do", param, makesonglist);   
    });
@@ -30,6 +32,8 @@ $(function(){
       var my_artist=$(this).attr("alt");
       
        param="id="+id+"&my_artist="+my_artist;
+      
+
       sendMessage("post", "artistdelete.do", param, artistdelete);  
    }); 
 

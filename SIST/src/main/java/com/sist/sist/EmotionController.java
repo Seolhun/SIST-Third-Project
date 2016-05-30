@@ -1,10 +1,11 @@
 package com.sist.sist;
-
+import java.io.EOFException;
 import java.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sist.chart.bill.billManager;
 import com.sist.chart.bill.billVO;
@@ -33,21 +34,18 @@ import com.sist.emotion.genre.ForkVO;
 public class EmotionController {
 	@Autowired
 	private EmotionManager em;
-	
 	@Autowired
 	private EmotionListManager elm;
-	
 	@Autowired
 	private GenreListManager glm;
-	
 	@Autowired
 	 private genieManager gm;
-	
 	@Autowired
 	 private billManager bm;
-	
 	@Autowired
 	private EmotionDAO dao;
+	@Autowired
+	private GenreDAO gdao;
 	
 	@RequestMapping("emotion_main.do")
 	public String emotion_main(Model model)
@@ -106,13 +104,30 @@ public class EmotionController {
 	}
 	
 	@RequestMapping("emotion_click.do")
-	public String click_emotion(String emotion,Model model)
+	public void click_emotion(String emotion,Model model)
 	{
 		EmotionVO evo=dao.EmotionClickData(emotion);
 		System.out.println("evo(): "+evo);
-		model.addAttribute("evo", evo);
 		
-		return  "drugflow/emotion_click.do";
+		model.addAttribute("evo", evo);
+		//String url="<script>alert(\"확인\");history.back();</script>";
+		
+		//return "drugflow/emotion_click";
+		//return   "redirect:/emotion_main.do";
+		//return url;
 	}
+	
+	@RequestMapping("genre_click.do")
+	public void click_genre(String genre,Model model)
+	{
+		GenreVO gvo=gdao.GenreClickData(genre);
+		System.out.println("gvo(): "+gvo);
+		model.addAttribute("gvo", gvo);
+		//String url="<script>alert(\"확인\");history.back();</script>";
+		//return "drugflow/emotion_click";
+		//return   "redirect:/emotion_main.do";
+		//return url;
+	}
+
 
 }

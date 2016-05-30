@@ -675,3 +675,19 @@ input[type="radio"]:checked+label {
 }
 
 
+
+/* ---------------------------모달 CSS----------------------------------- */
+h2 {
+  text-align: center;
+}
+
+.p {
+  text-align: center;
+  padding-top: 130px;
+}
+
+.modal-backdrop.in{
+	z-index: 10;
+}
+/* ---------------------------모달 CSS----------------------------------- */
+

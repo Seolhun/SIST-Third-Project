@@ -3,8 +3,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="css/board/insert.css">
-<script type="text/javascript" src="js/board/insert.js"></script>
+<link rel="stylesheet" type="text/css" href="css/board/insert2.css">
+<script type="text/javascript" src="js/board/insert2.js"></script>
 
 <title>게시판 글쓰기</title>
 </head>
@@ -12,11 +12,15 @@
 <!-- no,kind,email,subject,content,regdate,hit,depth -->
 <section id="contact-form">
 <h2>Contact</h2>
-	<form id="contact" name="contact" accept-charset="utf-8">
+
+	<form id="writeFrm" name="writeFrm" accept-charset="utf-8">
+
 		<label>
 			<span>카테고리</span>
 			<select id="kind" name="kind">
-				<option value="자유">자유게시판</option>
+
+				<option value="자유">자유</option>
+
 				<option value="노래">노래 추천</option>
 				<option value="가수">가수 추천</option>
 				<option value="기타">기타</option>

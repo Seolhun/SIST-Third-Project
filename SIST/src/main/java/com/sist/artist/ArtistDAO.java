@@ -14,6 +14,7 @@ public class ArtistDAO {
    private DBCollection dbc;
    public ArtistDAO(){
       try{
+
          // ����� ����
          mc=new MongoClient("211.238.142.23:27017");
          // �����ͺ��̽� �ϱ�
@@ -42,6 +43,7 @@ public class ArtistDAO {
     	  where.put("my_artist", my_artist);
     	  dbc.insert(where);
       }
+
       
    }
    public List<ArtistVO> ArtistAllData(String id){

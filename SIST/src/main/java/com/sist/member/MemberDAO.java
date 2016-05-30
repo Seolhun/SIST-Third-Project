@@ -74,10 +74,11 @@ public class MemberDAO {
 			query.put("id", vo.getId());
 			query.put("email", vo.getEmail());
 			query.put("my_artist", vo.getMy_artist());
+
 			query.put("my_genre", vo.getMy_genre());
 			query.put("nick", vo.getId());  // add nick
 			dbc.insert(query);
-			System.out.println("아이디 입력");
+			System.out.println("�븘�씠�뵒 �엯�젰");
 
 		} catch (Exception e){
 			System.out.println("Insert Member" + e.getMessage());
@@ -98,7 +99,6 @@ public class MemberDAO {
 		BasicDBObject data=(BasicDBObject)dbc.findOne(where);
 		data.put("nick", nick.trim());
 		dbc.update(where, new BasicDBObject("$set",data));
-
 	}
 	
 }

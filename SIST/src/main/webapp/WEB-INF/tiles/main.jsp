@@ -43,6 +43,10 @@ function list_do(){
 function insert_do(){
 	sendMessage("POST", "insert.do", null, mytraindo)
 }
+
+function insert_do(){
+	sendMessage("POST", "insert.do", null, mytraindo)
+}
 function favor_do(){
 	
 	sendMessage("POST", "recommand.do", null, mytraindo);

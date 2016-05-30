@@ -50,4 +50,11 @@ function paginacion(p) {
 		}
 	}
 }
-paginar();
+//paginar();
+
+//모달 JS
+
+
+
+//모달 JS
+
