@@ -34,7 +34,6 @@ function next_Songimg(nSong_num){
 	    nSong =string.substr(23,11);
 	    next.setAttribute('data-code', nSong);
 	    $('.video-t #next').css("background-image", "url(http://img.youtube.com/vi/" + nSong + "/0.jpg)");
-	    alert(nSong);
 	    
 	}
 	 ajax.send();
