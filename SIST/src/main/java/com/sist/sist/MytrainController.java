@@ -43,7 +43,6 @@ public class MytrainController {
 		MemberVO vo=list.get(0);
 		String nick=vo.getNick();
 		model.addAttribute("nick",nick);
-
 		return "mytrain/mytrain";
 	}
 	@RequestMapping("mytrainlist.do")
@@ -117,7 +116,8 @@ public class MytrainController {
 				 JSONObject jobj = new JSONObject();
 				 JSONArray ja = new JSONArray();
 				 for(int i=0;i<list.size();i++){
-					 ja.add(list.get(i).getSong_title());
+					 String showSong = list.get(i).getSong_title()+"|"+list.get(i).getSong_artist();
+					 ja.add(showSong);
 				 }
 				    res.setContentType("application/json; charset=UTF-8");
 
@@ -209,11 +209,10 @@ public class MytrainController {
 					 String title = title_El.attr("title");
 	/*				 String result = "{\"title\":\""+title+
 							 "\",\"artist\":\""+artist+"\"}";*/
-					 System.out.println(artist_id+" "+title);
 					 if(title!=null){
 						 
 					 }
-					 return artist_id+" "+title;
+					 return artist_id+"|"+title;
 				 
 			}else{
 
@@ -224,6 +223,5 @@ public class MytrainController {
 		return artist_id;
 		
 	}
-
 
 }

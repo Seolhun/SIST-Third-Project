@@ -8,7 +8,6 @@
 <link rel="stylesheet" type="text/css" href="css/board/list.css">
 <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 <link href='http://fonts.googleapis.com/css?family=Archivo+Narrow' rel='stylesheet' type='text/css'>
-
 <script type="text/javascript" src="js/board/list.js"></script>
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 <!-- Latest compiled and minified CSS -->

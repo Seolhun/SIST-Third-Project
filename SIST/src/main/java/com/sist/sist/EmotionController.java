@@ -106,7 +106,7 @@ public class EmotionController {
 	}
 	
 	@RequestMapping("emotion_click.do")
-	public void click_emotion(String emotion,Model model)
+	public String click_emotion(String emotion,Model model)
 	{
 		EmotionVO evo=dao.EmotionClickData(emotion);
 		System.out.println("evo(): "+evo);
@@ -115,19 +115,19 @@ public class EmotionController {
 		//String url="<script>alert(\"확인\");history.back();</script>";
 		
 		//return "drugflow/emotion_click";
-		//return   "redirect:/emotion_main.do";
+		return  "redirect:/emotion_main.do";
 		//return url;
 	}
 	
 	@RequestMapping("genre_click.do")
-	public void click_genre(String genre,Model model)
+	public String click_genre(String genre,Model model)
 	{
 		GenreVO gvo=gdao.GenreClickData(genre);
 		System.out.println("gvo(): "+gvo);
 		model.addAttribute("gvo", gvo);
 		//String url="<script>alert(\"확인\");history.back();</script>";
 		//return "drugflow/emotion_click";
-		//return   "redirect:/emotion_main.do";
+		return "redirect:/emotion_main.do";
 		//return url;
 	}
 

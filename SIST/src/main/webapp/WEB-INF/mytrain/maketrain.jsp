@@ -30,8 +30,6 @@ $(function(){
       var my_artist=$(this).attr("alt");
       
        param="id="+id+"&my_artist="+my_artist;
-      
-
       sendMessage("post", "artistdelete.do", param, artistdelete);  
    }); 
 

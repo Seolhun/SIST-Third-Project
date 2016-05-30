@@ -20,7 +20,6 @@ $(function(){
 		var nick=$('#mynick').text();
 		onYouTubeIframeAPIReady();
 			videoChange();
-		
 		param="id="+id+"&name="+name+"&nick="+nick;
 		sendMessage("POST", "maketrain.do", param, maketrain);
 		
@@ -106,7 +105,6 @@ function genreadd(){
 <body>
 	<div class="mypage" id="mypagecontainer">
 		<div class="mypage" id="mypageleft">
-
 <!-- 			<div class="mypageleftside" id="trainname">trainname -->
 <!-- 			</div> -->
 			<div id="nickdiv">

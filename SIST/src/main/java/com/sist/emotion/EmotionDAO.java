@@ -22,8 +22,8 @@ public class EmotionDAO {
 	 {
 		 try
 		 {
-			 mc=new MongoClient("localhost");
-			 db=mc.getDB("mydb");
+			 mc=new MongoClient("211.238.142.23:27017");
+			 db=mc.getDB("sist");
 			 dbc=db.getCollection("emotion");
 		 }catch(Exception ex)
 		 {
@@ -84,7 +84,6 @@ public class EmotionDAO {
 	}
 	
 
-	
 	
 	
 }

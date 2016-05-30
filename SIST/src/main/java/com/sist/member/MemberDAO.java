@@ -16,11 +16,10 @@ public class MemberDAO {
 	private DB db;
 	private DBCollection dbc;
 	public MemberDAO(){
+
 		try{
 			mc=new MongoClient("211.238.142.23:27017");
-
 			db=mc.getDB("sist"); // use mydb
-
 			dbc=db.getCollection("sist_member");
 		}catch(Exception ex){
 			System.out.println(ex.getMessage());

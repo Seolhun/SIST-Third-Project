@@ -21,8 +21,8 @@ public class GenreDAO {
 	 {
 		 try
 		 {
-			 mcg=new MongoClient("localhost");
-			 dbg=mcg.getDB("mydb");
+			 mcg=new MongoClient("211.238.142.23:27017");
+			 dbg=mcg.getDB("sist");
 			 dbcg=dbg.getCollection("genre");
 		 }catch(Exception ex)
 		 {

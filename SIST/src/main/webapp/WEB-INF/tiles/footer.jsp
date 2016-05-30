@@ -55,7 +55,7 @@
 	<div id="add_train">ADD TO MY TRAIN</div>
 	<div id="footer-songlist">
 		<ul>
-			<li><h3>노래</h3><h4>가수</h4></li>
+<!-- 			<li><h3>노래</h3><h4>가수</h4></li> -->
 		</ul>
 	</div>
 	
@@ -68,6 +68,12 @@
 		</ul>
 	</div>
 	
+<!-- 	<div id="nowplaylist"> -->
+<!-- 		<ul> -->
+<!-- 			<li><h3>되냐?</h3><h4>되냐고</h4></li> -->
+
+<!-- 		</ul> -->
+<!-- 	</div> -->
 	<script src='http://www.seanmccambridge.com/tubular/js/jquery.tubular.1.0.js'></script>
 	<script src="js/youtube.js"></script>
 	<script>
@@ -81,16 +87,27 @@
 	             dataType:"json",
 	             data:{"id" : id},
 	             success:function(data){
-	            	 
+	     			$('.nowlist').remove();
 	            	 for (var i = 0;i<=data.length;i++) {
 	                		if(data[i]!=null){
-	                			songlist[i]=data[i];
+	                			var sdata = data[i].split("|");
+	                			$('#footer-songlist ul').append("<li class='nowlist'><h3>"+sdata[1]+"</h3><h4>"+sdata[0]+"</h4></li>");
+	                			songlist[i]=data[i].replace("|"," ");
 	                		}
 	                	 }
 	            	 youtube_load(); 
 	             }
 			}); 
 		});
+		$("#video-list").on("click",function(){
+			 obj = document.getElementById('footer-songlist');
+	         if(obj.style.display == "none") {
+	             $("#footer-songlist").css("display","block");
+	         } else {
+	             $("#footer-songlist").css("display","none");
+	         }
+		});
+
 	});
 	</script>
 </body>

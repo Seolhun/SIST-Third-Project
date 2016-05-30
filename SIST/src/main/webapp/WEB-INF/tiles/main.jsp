@@ -24,36 +24,30 @@ function myfunction(){
 	var id=$('#headerid').text();
 	param="id="+id;  
 	sendMessage("POST", "mytrain.do", param, mytraindo);
+    $("#footer-songlist").css("display","none");
 }
 function drive(){
 	   sendMessage("POST", "drive.do", null, mytraindo);
 }
 function drugflow_do(){
 	   sendMessage("POST", "emotion_main.do", null, mytraindo);
+       $("#footer-songlist").css("display","none");
 }
 function search_do(){
 	sendMessage("POST", "search.do", null, mytraindo);
+    $("#footer-songlist").css("display","none");
 }
 
 //게시판 리스트 가기 
 function list_do(){
 	sendMessage("POST", "list.do", null, mytraindo);
+    $("#footer-songlist").css("display","none");
 }
 
-function insert_do(){
-	sendMessage("POST", "insert.do", null, mytraindo)
-}
-
-function insert_do(){
-	sendMessage("POST", "insert.do", null, mytraindo)
-}
-
-function insert_do(){
-	sendMessage("POST", "insert.do", null, mytraindo)
-}
 function favor_do(){
 	
-	sendMessage("POST", "recommand.do", null, mytraindo);
+	sendMessage("POST", "favor_chart.do", null, mytraindo);
+    $("#footer-songlist").css("display","none");
 
 }
 function mytraindo(){

@@ -53,7 +53,6 @@ function paginacion(p) {
 //paginar();
 
 //모달 JS
-
 $(function(){
 	$('#sendBtn').click(function(){
 		var kind=$('#kind').val();

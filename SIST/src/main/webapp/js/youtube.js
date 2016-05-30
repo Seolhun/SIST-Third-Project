@@ -34,7 +34,6 @@ function next_Songimg(nSong_num){
 	    nSong =string.substr(23,11);
 	    next.setAttribute('data-code', nSong);
 	    $('.video-t #next').css("background-image", "url(http://img.youtube.com/vi/" + nSong + "/0.jpg)");
-	    alert(nSong);
 	    
 	}
 	 ajax.send();
@@ -129,6 +128,7 @@ function onPlayerStateChange(event) {
 prev.addEventListener('click', function() {
 	songNo--;
 	videoChange();
+	next_Songimg(songNo+1);
 });
 
 //다음버튼
@@ -176,6 +176,7 @@ function videoChange(){
 		prev.setAttribute('data-code', datacode[songNo-1]);
 		videoSize.setAttribute('data-code', datacode[songNo]);
 		/*next.setAttribute('data-code', datacode[songNo+1]);*/
+
 		$('#background').css("background-image", "url(http://img.youtube.com/vi/" + datacode[songNo] + "/0.jpg)");
 		// 다시 띄우기
 //		var youtube=document.querySelectorAll('#player')[0];

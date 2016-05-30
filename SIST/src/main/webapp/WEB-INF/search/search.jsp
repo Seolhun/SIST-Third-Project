@@ -211,7 +211,6 @@ $(document).ready(function(){
 			            		
 			            		if(data[i]!=null){
 			            			var sdata = data[i].split("|");
-
 			            		 $('ul#artist_left').append("<li class='list-item' data-search-on-list='list-item'><input class='artistadd' alt='"+sdata[1]+"' type='button' value='My Artist' style='float:left'><b id='artistListText'>"+sdata[1]+"</b></li>");
 			            		 $('ul#artist_right').append("<li class='list-item' data-search-on-list='list-item'><b>"+sdata[0]+"</b><input class='songlistadd' alt='"+sdata[1]+"' type='button' value='ADD' style='float:right'></li>");			            		 
 			            		}
@@ -311,9 +310,7 @@ $(document).ready(function(){
 		            			var sdata = data[i].split("|");
 
 		            		 $('ul#music_left').append("<li class='list-item' data-search-on-list='list-item'><input class='artistadd' alt='"+sdata[1]+"' type='button' value='My Artist' style='float:left'><b id='artistListText'>"+sdata[1]+"</b></li>");
-		            		 $('ul#music_right').append("<li class='list-item' data-search-on-list='list-item'><input class='songlistadd' alt='"+sdata[1]+"' type='button' value='ADD' style='float:right'><b id='songListText'>"+sdata[0]+"</b></li>");
-
-		            																										 
+		            		 $('ul#music_right').append("<li class='list-item' data-search-on-list='list-item'><input class='songlistadd' alt='"+sdata[1]+"' type='button' value='ADD' style='float:right'><b id='songListText'>"+sdata[0]+"</b></li>");																							 
 		            		}
 		            	 }
 		            	 songListaddBtn();

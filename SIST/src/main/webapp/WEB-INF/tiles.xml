@@ -77,6 +77,12 @@
 	<definition name="favor/recommandartist" extends="not11">
 		<put-attribute name="body" value="/WEB-INF/favor/recommandartist.jsp"></put-attribute>
 	</definition>
+	<definition name="not12" template="/WEB-INF/favor/favor_chart.jsp">
+		<put-attribute name="body" value="" />
+	</definition>
+	<definition name="favor/favor_chart" extends="not12">
+		<put-attribute name="body" value="/WEB-INF/favor/favor_chart.jsp"></put-attribute>
+	</definition>
 
 
 	<!-- 로그인 페이지 -->

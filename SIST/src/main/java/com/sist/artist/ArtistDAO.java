@@ -12,6 +12,7 @@ public class ArtistDAO {
    private MongoClient mc;
    private DB db;
    private DBCollection dbc;
+
    public ArtistDAO(){
       try{
 
@@ -43,7 +44,6 @@ public class ArtistDAO {
     	  where.put("my_artist", my_artist);
     	  dbc.insert(where);
       }
-
       
    }
    public List<ArtistVO> ArtistAllData(String id){

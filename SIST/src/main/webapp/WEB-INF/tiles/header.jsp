@@ -17,7 +17,7 @@
 			<li class="video_small" id="mytrain_do" onclick="myfunction()">MY TRAIN</li>  <!-- 로그인 완성되면 admin 자리에 로그인 id로 대체 -->
 			<li class="video_small" onclick="drugflow_do()">DRUG FLOW</li>
 			<li class="video_small" onclick="favor_do()">FAVOR </li>
-			<li class="video_small" id="list_do" onclick="list_do()">COMMUNITY</li>
+<!-- 			<li class="video_small" id="list_do" onclick="list_do()">COMMUNITY</li> -->
 			<li class="video_small" id="search_do" onclick="search_do()">SEARCH</li>
 			<li id="logInfo" style="width:20%; height: 15%"></li>
 		</ul>
