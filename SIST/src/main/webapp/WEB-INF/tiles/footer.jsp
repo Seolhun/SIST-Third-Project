@@ -86,11 +86,11 @@
 	             dataType:"json",
 	             data:{"id" : id},
 	             success:function(data){
-	            	 
+	     			$('.nowlist').remove();
 	            	 for (var i = 0;i<=data.length;i++) {
 	                		if(data[i]!=null){
 	                			var sdata = data[i].split("|");
-	                			$('#footer-songlist ul').append("<li><h3>"+sdata[1]+"</h3><h4>"+sdata[0]+"</h4></li>");
+	                			$('#footer-songlist ul').append("<li class='nowlist'><h3>"+sdata[1]+"</h3><h4>"+sdata[0]+"</h4></li>");
 	                			songlist[i]=data[i].replace("|"," ");
 	                  			alert(songlist[i]);
 	                		}
