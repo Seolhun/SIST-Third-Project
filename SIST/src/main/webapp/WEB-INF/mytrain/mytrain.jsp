@@ -106,21 +106,12 @@ function genreadd(){
 <body>
 	<div class="mypage" id="mypagecontainer">
 		<div class="mypage" id="mypageleft">
-<<<<<<< HEAD
 
 <!-- 			<div class="mypageleftside" id="trainname">trainname -->
 <!-- 			</div> -->
 			<div id="nickdiv">
 				<input id="nickChange" placeholder="${nick }"><button id="nickChangeBtn">닉네임 변경</button>
 			</div>
-
-=======
-<!-- 			<div class="mypageleftside" id="trainname">trainname -->
-<!-- 			</div> -->
-			<div id="nickdiv">
-				<input id="nickChange" placeholder="${nick }"><button id="nickChangeBtn">닉네임 변경</button>
-			</div>
->>>>>>> refs/heads/master
 			
 			<div class="mypageleftside" id="myartist">my artist<br>
 			   <c:forEach var="avo" items="${alist }">
