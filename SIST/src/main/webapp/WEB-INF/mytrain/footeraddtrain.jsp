@@ -22,7 +22,10 @@ $(".songlist_li").on("click",function(){
         songlist=[];
       	 for (var i = 0;i<=data.length;i++) {
        		if(data[i]!=null){
-       			songlist[i]=data[i];
+    			var sdata = data[i].split("|");
+    			$('#footer-songlist ul').append("<li><h3>"+sdata[1]+"</h3><h4>"+sdata[0]+"</h4></li>");
+    			songlist[i]=data[i].replace("|"," ");
+      			alert(songlist[i]);
 
        		}
        	 }

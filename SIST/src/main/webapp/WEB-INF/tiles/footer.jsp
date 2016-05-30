@@ -68,6 +68,11 @@
 		</ul>
 	</div>
 	
+<!-- 	<div id="nowplaylist"> -->
+<!-- 		<ul> -->
+<!-- 			<li><h3>되냐?</h3><h4>되냐고</h4></li> -->
+<!-- 		</ul> -->
+<!-- 	</div> -->
 	<script src='http://www.seanmccambridge.com/tubular/js/jquery.tubular.1.0.js'></script>
 	<script src="js/youtube.js"></script>
 	<script>
@@ -84,7 +89,10 @@
 	            	 
 	            	 for (var i = 0;i<=data.length;i++) {
 	                		if(data[i]!=null){
-	                			songlist[i]=data[i];
+	                			var sdata = data[i].split("|");
+	                			$('#footer-songlist ul').append("<li><h3>"+sdata[1]+"</h3><h4>"+sdata[0]+"</h4></li>");
+	                			songlist[i]=data[i].replace("|"," ");
+	                  			alert(songlist[i]);
 	                		}
 	                	 }
 	            	 youtube_load(); 

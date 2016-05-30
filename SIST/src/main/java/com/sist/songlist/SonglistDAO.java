@@ -145,6 +145,7 @@ public class SonglistDAO {
 				BasicDBObject obj=(BasicDBObject)cursor.next();
 				SonglistVO vo=new SonglistVO();
 				vo.setSong_title(obj.getString("song_title"));
+				vo.setSong_artist(obj.getString("song_artist"));
 				list.add(vo);
 			}
 		}catch(Exception ex){
