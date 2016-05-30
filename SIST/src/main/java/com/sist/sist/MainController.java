@@ -17,7 +17,6 @@ public class MainController {
 
 	@RequestMapping("main.do")
 	public String main_list(String id, Model model) {
-
 		return "main";
 	}
 

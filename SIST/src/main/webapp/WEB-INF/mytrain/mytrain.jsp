@@ -18,9 +18,14 @@ $(function(){
 	$('#MakeTrainBtn').click(function(){
 		var name=$('#maketrainname').val();
 		var nick=$('#mynick').text();
+<<<<<<< HEAD
 		onYouTubeIframeAPIReady();
 			videoChange();
 		param="id="+id+"&name="+name+"&nick="+nick;
+=======
+		
+		param="id="+id+"&name="+name+"&nick="+nick;
+>>>>>>> refs/remotes/origin/km
 		sendMessage("POST", "maketrain.do", param, maketrain);
 		
 		$(".songlist_li").on("click",function(){
@@ -53,7 +58,10 @@ $(function(){
 		param="id="+id+"&nick="+nick;
 		sendMessage("post", "nickchange.do", param, maketrain);
 	});
+<<<<<<< HEAD
 	
+=======
+>>>>>>> refs/remotes/origin/km
 });
 /* function nickchange(){
 	if(httpRequest.readyState==4){

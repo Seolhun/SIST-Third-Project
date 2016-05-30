@@ -66,7 +66,6 @@
          <input type="hidden" value="${vo.train_no }" id="footertrain_no">
          </c:forEach>
 		</ul>
-	</div>
 	
 <!-- 	<div id="nowplaylist"> -->
 <!-- 		<ul> -->

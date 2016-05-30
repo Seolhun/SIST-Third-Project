@@ -101,11 +101,14 @@ window.fbAsyncInit = function() {
 			Login();
 		}
 	});
+	
+	
 };
 
 function Login(){
 	FB.login(function(response) {
 		if(response.name !="undefined" && response.status === "connected"){
+			
 			location.href="main.do";
 		} else {
 			console.log('User cancelled login or did not fully authorize.');
