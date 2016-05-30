@@ -18,9 +18,7 @@
 		<label>
 			<span>카테고리</span>
 			<select id="kind" name="kind">
-
 				<option value="자유">자유</option>
-
 				<option value="노래">노래 추천</option>
 				<option value="가수">가수 추천</option>
 				<option value="기타">기타</option>

@@ -142,7 +142,6 @@ function getLikeMusician(){
 
 function getUserInfo() {
     FB.api('/me',{fields: 'email'}, function(response) {
-
     	getPhoto();
 
         var str="<div style='width:100%; height:100%; font-size:20px'>"+response.email;

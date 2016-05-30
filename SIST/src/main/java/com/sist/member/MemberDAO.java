@@ -17,7 +17,6 @@ public class MemberDAO {
 	private DBCollection dbc;
 	public MemberDAO(){
 		try{
-
 			mc=new MongoClient("211.238.142.23:27017");
 
 			db=mc.getDB("sist"); // use mydb
@@ -79,7 +78,6 @@ public class MemberDAO {
 			query.put("nick", vo.getId());  // add nick
 			dbc.insert(query);
 			System.out.println("�븘�씠�뵒 �엯�젰");
-
 		} catch (Exception e){
 			System.out.println("Insert Member" + e.getMessage());
 		}
@@ -90,7 +88,6 @@ public class MemberDAO {
 		BasicDBObject data=(BasicDBObject) dbc.findOne(where);
 		System.out.println("id:"+id+"my_genre:"+my_genre);
 		data.put("my_genre", my_genre);
-
 		dbc.update(where, new BasicDBObject("$set",data)); // $set占쏙옙占쌍몌옙 insert占싫댐옙
 	}
 	public void nickChange(String id,String nick){

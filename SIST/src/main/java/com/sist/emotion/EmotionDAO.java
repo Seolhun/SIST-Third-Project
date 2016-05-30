@@ -33,7 +33,6 @@ public class EmotionDAO {
 	 
 
 
-
 	public EmotionVO EmotionClickData(String  emotion)
 	{
 		EmotionVO vo=new EmotionVO();
@@ -84,6 +83,7 @@ public class EmotionDAO {
 		return list;
 	}
 	
+
 	
 	
 	

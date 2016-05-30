@@ -6,7 +6,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-
 <link rel="stylesheet" type="text/css" href="css/rank.css">
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -223,7 +222,6 @@ function emo_click(){
 				   				<p style="width: 40%;float: left;text-align: center;border-right: 1px solid black; background: aliceblue;">${vo.title }</p>
 				   				<p style="width: 25%;float: left;text-align: center;border-right: 1px solid black; background: aliceblue;">${vo.artist }</p>
 				   				<p style="width: 25%;float: left;text-align: center; background: aliceblue;">${vo.album }</p>
-
 			   				</div><br/>	
 			   			</c:forEach>
 			   		</ul>

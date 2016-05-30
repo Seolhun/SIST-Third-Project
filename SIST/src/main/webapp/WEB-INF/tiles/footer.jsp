@@ -49,15 +49,13 @@
     	<div id="player" data-code=""></div>
 		<ul class="video-t">
 		  <li data-code="" id="prev" data-video-pause="playing">PREV</li>
-		  <li data-code="c7rCyll5AeY" id="next">NEXT</li>
+		  <li data-code="" id="next">NEXT</li>
 		</ul>
 	</div>
 	<div id="add_train">ADD TO MY TRAIN</div>
-
 	<div id="footer-songlist">
 		<ul>
 			<li><h3>노래</h3><h4>가수</h4></li>
-
 		</ul>
 	</div>
 	
@@ -87,13 +85,11 @@
 	            	 for (var i = 0;i<=data.length;i++) {
 	                		if(data[i]!=null){
 	                			songlist[i]=data[i];
-						alert(data[i]);
 	                		}
 	                	 }
 	            	 youtube_load(); 
 	             }
 			}); 
-
 		});
 	});
 	</script>

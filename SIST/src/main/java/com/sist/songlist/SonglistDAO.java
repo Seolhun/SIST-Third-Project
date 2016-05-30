@@ -149,7 +149,6 @@ public class SonglistDAO {
 			BasicDBObject where=new BasicDBObject();
 			where.put("train_id", id);
 			where.put("train_no", no);
-
 			DBCursor cursor=dbc.find(where);
 			while(cursor.hasNext()){
 				BasicDBObject obj=(BasicDBObject)cursor.next();

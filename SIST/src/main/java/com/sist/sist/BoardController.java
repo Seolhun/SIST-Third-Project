@@ -1,9 +1,9 @@
 package com.sist.sist;
 import java.text.SimpleDateFormat;
 import java.util.*;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -13,6 +13,22 @@ import com.sist.board.dao.BoardVO;
 public class BoardController {
 	@Autowired
 	private BoardDAO bDao;
+	
+	@RequestMapping("boardList.do")
+	public String boardList(String page,Model model){
+		if(page==null){
+			page="1";
+		}
+		int curpage=Integer.parseInt(page);
+		List<BoardVO> list=bDao.boardAllData(curpage);
+		int totalpage=bDao.boardTotalPage();
+		model.addAttribute("list", list);
+		model.addAttribute("curpage", curpage);
+		model.addAttribute("totalpage", totalpage);
+		model.addAttribute("today", new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
+		
+		return "board/list";
+	}
 	
 	//no,kind,email,subject,content,regdate,hit,depth
 	//rNo, rEmail,rContent, rRegdate, rLike

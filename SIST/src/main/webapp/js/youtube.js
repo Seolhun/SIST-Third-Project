@@ -9,6 +9,7 @@ var height=475;
 var ambilight; //youtube
 
 var songNo = 0; //순서
+var nextsongNo = 0;
 
 var video_small = [];
 var video_return = document.querySelectorAll('.video_return')[0];
@@ -20,10 +21,33 @@ var video_state=0; //0이면 DRIVE
 $(document).ready(function() {
 	setTimeout("youtube_load();", 200);
 });
+
+function next_Songimg(nSong_num){
+	nextsongNo=nSong_num;
+	var nSong="";
+	var ajax = new XMLHttpRequest();
+	var string;
+	ajax.open('GET', api + '?part=snippet,id&q=' + songlist[nextsongNo] + '&type=video&key=' + key);
+	ajax.onload = function () {
+	    var json = JSON.parse(this.responseText);
+	    string=json.items[0].snippet.thumbnails.high.url;
+	    nSong =string.substr(23,11);
+	    next.setAttribute('data-code', nSong);
+	    $('.video-t #next').css("background-image", "url(http://img.youtube.com/vi/" + nSong + "/0.jpg)");
+	    alert(nSong);
+	    
+	}
+	 ajax.send();
+	 
+	 return nSong;
+	
+}
 function youtube_load(){
+
 	video_state=0;
 	songNo=0;
 	visible();
+	next_Songimg(songNo+1);
 	var ajax = new XMLHttpRequest();
 	var string;
 	ajax.open('GET', api + '?part=snippet,id&q=' + songlist[songNo] + '&type=video&key=' + key);
@@ -31,7 +55,6 @@ function youtube_load(){
 	    var json = JSON.parse(this.responseText);
 	    string=json.items[0].snippet.thumbnails.high.url;
 	    datacode[songNo]=string.substr(23,11);
-	    
 		  $('.video-t li').each(function() {
 			  var code = $(this).attr('data-code');
 			    $(this).css("background-image", "url(http://img.youtube.com/vi/" + code + "/0.jpg)");
@@ -112,6 +135,7 @@ prev.addEventListener('click', function() {
 next.addEventListener('click', function() {
 	songNo++;
 	videoChange();
+	next_Songimg(songNo+1);
 });
 
 //처음이면 prev가 안보이고 마지막이면 next가 안보임
@@ -151,7 +175,7 @@ function videoChange(){
 		// 순서 변경
 		prev.setAttribute('data-code', datacode[songNo-1]);
 		videoSize.setAttribute('data-code', datacode[songNo]);
-		next.setAttribute('data-code', datacode[songNo+1]);
+		/*next.setAttribute('data-code', datacode[songNo+1]);*/
 		$('#background').css("background-image", "url(http://img.youtube.com/vi/" + datacode[songNo] + "/0.jpg)");
 		// 다시 띄우기
 //		var youtube=document.querySelectorAll('#player')[0];
@@ -163,11 +187,9 @@ function videoChange(){
 
 		});*/
 		$('.video-t #prev').css("background-image", "url(http://img.youtube.com/vi/" + datacode[songNo-1] + "/0.jpg)");
-		$('.video-t #next').css("background-image", "url(http://img.youtube.com/vi/" + datacode[songNo+1] + "/0.jpg)");
 	    visible();
 	    
 	    onYouTubeIframeAPIReady();
-	    
 	    if(video_state==0)
 	    {
 	    	document.getElementById('player').style.width='840px';

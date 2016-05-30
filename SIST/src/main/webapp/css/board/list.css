@@ -689,5 +689,42 @@ h2 {
 .modal-backdrop.in{
 	z-index: 10;
 }
-/* ---------------------------모달 CSS----------------------------------- */
 
+.modal-body{
+	width: 100%;
+	max-width: 120%;	
+	min-width: 40%;
+}
+
+#kindDiv{
+	position : static;
+	width: 20%;
+	float: left;
+	height: 100%;
+}
+
+#subjectDiv{
+	position : relative;
+	width: 78%;
+	float: right;
+	height: 100%;
+}
+
+#contentDiv{
+	margin-top:80px;
+	width:100%;
+	height: 100%;
+}
+#contentLa{
+	width: 100%;
+	height: 100%;
+}
+
+#content{
+	width : 100%;
+	height: 500px;
+	max-height: 120%;
+	min-height: 50%;
+	
+}
+/* ---------------------------모달 CSS----------------------------------- */

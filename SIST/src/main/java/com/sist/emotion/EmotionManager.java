@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class EmotionManager {
-
 		
 		public List<EmotionVO> Emotiontitle()
 		{
